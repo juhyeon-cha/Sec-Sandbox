@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* ------------------------------------------
+* Filename:main.css
+* Description:메인 스타일
+* Author:Fu:z
+------------------------------------------ */
+
+div, a, input, ul, li{box-sizing:border-box}
+h2{font-family:'Noto Sans bold';font-weight:normal}
+
+/* layout */
+.main{font-family:'Noto Sans';min-width:1100px}
+/*.main #header{overflow:hidden;background:url('../images/main/bg_main_gnb.png') 0 0 repeat}*/
+/*.main #container{margin-top:-106px;padding-top:106px;background:url('../upload/web/PRODUCT_VIEW_WEB/background/bg_main.jpg') 50% 0 no-repeat}*/
+/*.main #container{margin-top:-106px;padding-top:106px;background:url('../images/main/bg_main_2018.jpg') 50% 0 no-repeat}*/
+.main #cover{width:100%;height:100%;min-height:512px;background:#147bfd}
+.main #contents{position:relative;margin:0 auto;width:1100px}
+.main #contents .inside{width:1100px}
+
+/* top 배너 */
+.main_top_banner{display:none;position:relative;margin-top:-196px;min-width:1100px}
+.main_top_banner .intro_bn{text-align:center}
+.main_top_banner .intro_bn .image_wrap{display:block}
+.main_top_banner .bn_close{position:absolute;top:0;right:50%;margin-right:-540px;line-height:29px}
+.main_top_banner .bn_close a.btn_banner_close{display:inline-block;vertical-align:middle;width:14px;height:14px;margin-left:10px;text-indent:-9999em;background-image:url('../images/main/btn_top_close.png');background-repeat:no-repeat;background-size:100%}
+.main_top_banner .bn_close label{color:#333;letter-spacing:-1px;font-size:12px}
+
+/* cover area */
+#cover .inside{width:1100px;height:100%;margin:0 auto}
+#cover .inside img{vertical-align:middle;border:0 none}
+#cover .main_top_txt {display:none}
+
+/* 치아보험설명 */
+.main_entry_box{margin-top:-110px}
+.main_entry_box:after{display:block;content:'';clear:both}
+.sign_banner {float:left;width:733px;height:192px;margin-top:125px}
+.main_easy_sum {float:right;width:352px;height:317px;padding:25px 34px 0;background-color:#3c3c3c}
+.main_easy_sum h2 {font-size:24px;line-height:30px;min-height:62px;margin-bottom:25px;letter-spacing:-0.7px;color:#fff;background:url('../images/main/bg_insur_cal_n.png') 228px 5px no-repeat}
+.main_easy_sum .ip_birth_area .ip_birth {margin:0 0 20px;padding:0 10px;width:100%;height:42px;line-height:42px;font-size:16px;color:#666;border:0 none;background:#fff}
+
+/* placeholder */
+.main_easy_sum .ip_birth_area input:placeholder {color:#ccc;font-size:16px;letter-spacing:-0.5px}
+.main_easy_sum .ip_birth_area input:-ms-input-placeholder {color:#ccc;font-size:16px;letter-spacing:-0.5px}
+.main_easy_sum .ip_birth_area input::-moz-placeholder {color:#ccc;font-size:16px;letter-spacing:-0.5px}
+.main_easy_sum .ip_birth_area input::-webkit-input-placeholder {color:#ccc;font-size:16px;letter-spacing:-0.5px}
+.main_easy_sum .ip_birth_area input:-moz-placeholder {color:#ccc;font-size:16px;letter-spacing:-0.5px}
+
+.main_easy_sum .g_btn_sel {display:block;border:3px solid #fff;height:42px;border-radius:0;margin-bottom:15px}
+.main_easy_sum .g_btn_sel:after{display:block;content:'';clear:both}
+.main_easy_sum .g_btn_sel a {display:block;font-family:'Noto Sans bold';float:left;border-left:1px solid #4f5a6c;text-align:center;width:50%;padding:0;height:36px;line-height:36px;font-size:16px;color:#3c3c3c;background-color:#fff}
+.main_easy_sum .g_btn_sel a:first-child{border-left:0}
+.main_easy_sum .g_btn_sel a.on {color:#fff;background-color:#3c3c3c}
+.main_easy_sum .g_btn_sel a.on:before{display:inline-block;content:'';margin:10px 5px 0 0;width:13px;height:16px;vertical-align:top;background:url('../images/main/bg_btn_sel.png') 0 0 no-repeat}
+.main_easy_sum a.btn_main_insur{display:block;font-family:'Noto Sans bold';width:100%;height:57px;line-height:55px;text-align:center;font-size:22px;letter-spacing:-0.7px;color:#fff;background-color:#147bfd}
+.main_easy_sum a.btn_main_insur:before {content:'';display:inline-block;margin:16px 10px 0 0;width:26px;height:26px;vertical-align:top;background:url('../images/main/btn_ico_cal.png') 0 0 no-repeat}
+
+/* 공지사항, 배너 */
+.notice_box{margin:15px 0 36px}
+.notice_box:after{display:block;content:'';clear:both}
+.notice_box > div{float:right;width:352px}
+.notice_box > div:first-child{float:left}
+.notice_box > div a{display:block}
+.notice_box .notice_area{width:733px;height:112px;padding:18px 20px 22px;border:1px solid #d7d7d7}
+.notice_box .notice_area h2{float:left;background:url('../images/main/ico_main_notice.png') left center no-repeat;padding-left:34px;font-size:24px;letter-spacing:-0.7px;height:25px;line-height:20px;margin-top:4px}
+.notice_box .notice_area ul{width:557px;float:right}
+.notice_box .notice_area ul li{margin-bottom:3px}
+.notice_box .notice_area ul li:last-child{margin-bottom:0}
+.notice_box .notice_area ul li a{display:inline-block;width:100%;font-size:14px;letter-spacing:-0.5px;color:#555}
+.notice_box .notice_area ul li span{display:block}
+.notice_box .notice_area ul li .title{width:470px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;float:left}
+.notice_box .notice_area ul li .date{width:67px;float:right}
+
+/* 슬라이드배너 */
+.main_roll_banner{position:relative}
+.main_roll_banner ul:after{display:block;content:'';clear:both}
+.main_roll_banner ul li{float:left;width:352px;height:112px;overflow:hidden;background:gray}
+.main_roll_banner .bx-has-pager.bx-has-controls-auto{position:absolute;top:10px;right:10px}
+.main_roll_banner .bx-pager.bx-default-pager, .bx-controls-auto{float:left}
+.main_roll_banner .bx-has-pager.bx-has-controls-auto .bx-pager-item{float:left; margin-right:4px}
+.main_roll_banner .bx-has-pager.bx-has-controls-auto .bx-pager-item:last-child{margin-right:10px}
+.main_roll_banner .bx-pager-item a,
+.main_roll_banner .bx-controls-auto a{display:inline-block;width:10px;height:10px;text-indent:-9999em;background-image:url('../images/main/btn_main_bx.png');background-repeat:no-repeat;background-position:0 -10px}
+.main_roll_banner .bx-pager-item .active{background-position:0 0}
+.main_roll_banner .bx-controls-auto .bx-start{background-position:0 -30px}
+.main_roll_banner .bx-controls-auto .bx-stop{background-position:0 -20px}
+.main_roll_banner .bx-controls-auto .bx-play{background-position:0 -40px}

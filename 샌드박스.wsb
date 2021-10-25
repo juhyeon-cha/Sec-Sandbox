@@ -1,0 +1,13 @@
+<Configuration>
+  <MappedFolders>
+    <MappedFolder> 
+        <HostFolder>D:\NPKI</HostFolder> 
+        <SandboxFolder>C:\NPKI</SandboxFolder> 
+        <ReadOnly>true</ReadOnly> 
+    </MappedFolder>
+    <MappedFolder> 
+        <HostFolder>D:\SandboxFiles</HostFolder> 
+        <ReadOnly>true</ReadOnly> 
+    </MappedFolder>
+  </MappedFolders>
+</Configuration>

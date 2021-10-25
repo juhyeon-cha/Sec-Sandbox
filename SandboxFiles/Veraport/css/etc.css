@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* ------------------------------------------
+* Filename:etc.css
+* Description:에러페이지 등 안내성페이지
+* Author:Fu:z
+------------------------------------------ */
+
+/* 공통 */
+.common_guide_box{width:1100px; margin:138px auto 0}
+.common_guide_box .g_box_03 .tit{font-size:26px; color:#222; letter-spacing:-1px}
+.common_guide_box .g_box_03 .cont{margin-top:15px; font-size:15px; line-height:25px; color:#222}
+
+/* 보안프로그램 설치 */
+.secrity_install .g_box_03{padding-left:340px; padding-right:40px; background:url('../images/application/bg_secrity_install.png') 130px 50% no-repeat}
+.secrity_install .g_box_03.install_not{background-image:url('../images/application/bg_secrity_installnot.png')}
+
+/* 정기정검 */
+.regular_checkup .g_box_03{padding-left:360px; padding-right:40px; background:url('../images/common/bg_info_checkup.png') 147px 49px no-repeat}
+.regular_checkup .g_box_03 .cont{margin-top:12px}
+.regular_checkup .g_box_03 em{color:#e30c14; font-size:15px}
+.regular_checkup .check_date{display:block; margin-top:19px}
+
+/* 페이지 오류 */
+.info_error{margin-top:100px}
+.info_error .g_box_03{padding-left:360px; padding-right:40px; background:url('../images/common/bg_info_error.png') 153px 40px no-repeat}
+.info_error .g_box_03 .cont{margin-top:0; letter-spacing:-1px}
+.info_error .g_box_03 .cont .customer_center{display:block}
+
+/* 보험상품 개정 안내 팝업 */
+.l_product_revision .txt_info{color:#333; font-size:17px; letter-spacing:-1px}
+.l_product_revision .txt_info .customer_center{display:inline-block; margin:10px 0; letter-spacing:-.09em}
+
+/* 로딩 */
+.l_loading{position:fixed; top:0; left:0; display:block; box-sizing:border-box; width:100%; height:100%; z-index:99; background-color:rgba(0,0,0,.6); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#600000000,endColorstr=#600000000);}
+.l_loading .inner{position:relative; top:50%; left:50%; padding:36px 0 24px; margin-top:-100px; margin-left:-150px; width:300px; border:2px solid #0093e3; box-sizing: border-box; text-align:center; background:#fff}
+.l_loading .inner img{width:56px}
+.l_loading .txt_info{margin-top:28px; color:#333; font-size:17px; line-height:26px; letter-spacing:-1px}
+
+/* 휴대폰 인증 & 푸터 약관 */
+.l_phone_certifi .inner, .l_access_term .inner{width:820px}
+
+.certi_term_cont{padding:0 15px; color:#555; line-height:23px}
+.certi_term_cont .js_tcont{border:solid #dedede; border-width:0 1px 1px; padding:25px; height:390px; overflow-y:auto}
+.certi_term_cont .js_tcont .term_intro:first-child span{margin-top:0}
+.certi_term_cont .term_intro{font-size:14px; color:#222; line-height:24px}
+.certi_term_cont .term_intro span{display:block; margin:22px 0 6px; font-size:15px}
+.certi_term_cont .term_tit_01{color:#222; font-size:15px}
+.certi_term_cont .term_tit_02{display:block; margin:22px 0 3px}
+.certi_term_cont .g_table_01{margin-top:10px}
+.certi_term_cont .g_table_01 th{font-size:14px}
+.certi_term_cont .g_table_01 td{font-size:13px}
+
+/* 푸터약관 */
+.l_access_term .certi_term_cont{padding:0}
+.l_access_term .certi_term_cont .term_tit_01{display:block; margin:22px 0 3px}
+.l_access_term .certi_term_cont .term_tit_01:first-child{margin-top:0}
+.l_access_term .certi_term_cont .term_tit_01.special{margin-top:0}
+.l_access_term .certi_term_cont .g_list_01.special{margin:5px 0 15px 24px}
+.l_access_term .certi_term_cont .g_table_01 td{padding-left:10px; padding-right:10px}
+.l_access_term .certi_term_cont .g_text_01, .l_access_term .certi_term_cont .g_list_01{margin-top:15px}
+
+/* 업데이트 및 차단안내 */
+.pop_update_out {}
+.pop_update_out .p_header{padding:20px; background-color: #147bfd;}
+.pop_update_out .p_header .tit{font-size:22px; line-height:22px; color:#fff; font-weight:bold; letter-spacing:-1px}
+.pop_update_out .p_con{padding:15px 20px 30px}
+.pop_update_out .msg {padding-top:149px; text-align: center; background: url('../images/common/img_update_out.png') no-repeat center 35px; background-size: 158px 93px;}
+.pop_update_out .msg dt {font-size: 20px; font-weight: bold; color: #147bfd;}
+.pop_update_out .msg dd {margin-top: 11px; line-height: 1.5; letter-spacing: -.5px; color: #333;}
+.pop_update_out .g_box_03 {margin-top: 27px; padding: 24px 30px 27px; background: #fafafa;}
+.pop_update_out .g_box_03 .g_title_04 {padding-bottom: 9px; font-weight: bold;}
+.pop_update_out .g_box_03 .g_list_01 li {line-height: 1.5; color: #333; letter-spacing: -.7px;}
+.pop_update_out .btn_wrap_center {margin-top: 30px;}
+.pop_update_out .btn_wrap_center a {background: #7256ff;}
+.pop_update_out .btn_close_pop{display:block; width:26px; height:26px; text-indent:-9999px; position:absolute; right:20px; top:17px; background:url('../images/common/btn_layer_close.png') no-repeat 0 0}
+

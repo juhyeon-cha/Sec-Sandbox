@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* ------------------------------------------
+* Filename:layout.css
+* Description:레이아웃
+* Author:Fu:z
+------------------------------------------ */
+
+/* basic layout 
+------------------------------------------ */
+body.basic, body.etc{min-width:1100px}
+#header .inside, #lnb .inside, .basic .page_head .inside, .basic .page_cont{width:1100px; margin:0 auto}
+#header{position:relative; z-index:3}
+#header .inside{position:relative; height:106px}
+
+/* 청약 레이아웃과 동일하게 사용 */
+#header .logo{position:absolute; top:28px; left:0; display:block; width:274px; height:47px; text-indent:-9999em; background:url('../images/common/logo.png') 0 0 no-repeat}
+#header .logo a{display:block; height:47px}
+#header .btn_allmenu{position:absolute; top:42px; right:0; display:block; width:37px; height:23px; text-indent:-9999em; background:url('../images/common/bg_btn_gnb.png') 0 0 no-repeat}
+
+/*2018-02-08 start*/
+#gnb{padding:0 100px 0 330px}
+#gnb ul{padding-top:35px}
+#gnb ul:after{display:block; content:''; clear:both}
+#gnb li.depth1_li {float:left; padding-bottom:15px; position:relative; top:0; margin-left:80px}
+#gnb li.depth1_li:first-child{margin-left:60}
+#gnb li.depth1_li a{font-size:26px; letter-spacing:-1px; letter-spacing:-1px; color:#fff; font-weight:bold}
+#gnb li.depth1_li .depth2_ul {width:150px; display:none; ;position:absolute; top:40px; left:-5px; padding:10px; background:rgba(0,0,0,0.6);}
+#gnb li.depth1_li .depth2_ul li {}
+#gnb li.depth1_li .depth2_ul li a {color:#fff;font-size:18px; padding-top:5px; display:block; font-weight:normal;}
+#gnb li.depth1_li .depth2_ul li:first-child a {padding-top:0;}
+#gnb li.depth1_li:hover .depth2_ul {display:block;}
+/*2018-02-08 end */
+
+#allmenu{display:none; overflow:hidden; position:absolute; left:50%; margin:-78px 0 0 335px; z-index:99; padding-top:78px}
+.allmenu_wrap{padding:30px 25px 30px 30px; width:160px; background:url('../images/common/bg_repeat_01.png') 0 0 repeat;}
+.allmenu_wrap a:hover{text-decoration:underline}
+.allmenu_wrap > ul > li{margin-top:20px}
+.allmenu_wrap > ul > li:first-child{margin-top:0}
+.allmenu_wrap > ul > li > a{font-size:18px; color:#fff !important}
+.allmenu_wrap li ul li{margin-top:8px; padding-left:10px; background:url('../images/common/bg_bul_03.png') 0 9px no-repeat}
+.allmenu_wrap li ul li a{font-size:15px; color:#d7d7d7 !important}
+.allmenu_wrap li ul li a:hover{font-weight:bold; color:#fff !important}
+.allmenu_wrap li ul li a:hover:after{display:inline-block; margin-left:5px; content:''; width:5px; height:9px; background:url('../images/common/bg_menu_arrow.png') 0 0 no-repeat}
+#allmenu .btn_menu_close{position:absolute; top:0; right:0; width:50px}
+#allmenu .btn_menu_close a{display:block; height:50px; text-indent:-9999em; background:url('../images/common/btn_menu_close.png') 0 0 no-repeat}
+.dim{width:100%; height:100%; position:fixed; top:0; left:0; z-index:9; background:url('../images/common/bg_repeat_03.png') 0 0 repeat}
+
+/*2018-02-08 start*/
+#lnb{position:relative; z-index:2; height:45px; border-top:1px solid #fff; border-bottom:1px solid #fff; line-height:45px; /* background:url('../images/common/bg_repeat_02.png') 0 0 repeat */}
+#lnb a{display:block; color:#fff; font-size:15px}
+#lnb .home{border-left:1px solid rgb(255,255,255); width:50px; height:45px; text-indent:-9999em; background:url('../images/common/icon_home.png') 50% 50% no-repeat}
+#lnb .inside{position:relative}
+#lnb .inside .js_select_style{height:45px; overflow-y:hidden}
+#lnb .inside .js_select_style ul li{background:url('../images/common/bg_repeat_03.png') 0 0 repeat}
+#lnb .inside .js_select_style ul li:first-child{background:none}
+#lnb .inside ul[class*='depth']{position:relative; border:solid rgb(255,255,255); border-width:0 1px}
+#lnb .inside ul[class*='depth']:after{position:absolute; top:19px; right:15px; display:block; content:''; width:15px; height:8px; background:url('../images/common/bg_lnb_arrow.png') 0 0 no-repeat}
+#lnb .inside .expand ul[class*='depth']:after{background-position:0 100%}
+#lnb .inside ul[class*='depth'] a{box-sizing:border-box; padding:0 44px 0 14px; background-color:#999\9; background:rgba(0,0,0,.2)}
+#lnb .inside ul[class*='depth'] li:first-child a{background:none}
+#lnb .depth01_list{position:absolute; top:0; left:51px; min-width:220px}
+#lnb .depth01_list a{font-weight:bold; width:222px}
+#lnb .depth02_list{position:absolute; top:0; left:275px; margin-left:-1px}
+#lnb .depth02_list .depth02{min-width:220px}
+#lnb .depth02_list .js_select_style{display:none}
+#lnb .inside ul.depth02 {position:relative; border:solid rgb(255,255,255); border-width:0 1px 0 0;}
+
+.basic .page_head{margin-top:-153px; padding-top:200px; height:160px; background-position:50% 0; background-repeat:no-repeat; background-color:#adafb2}/* 2depth메뉴별로 이미지 다름 */
+.basic .page_head .page_title{margin-bottom:20px; color:#333; font-size:28px; line-height:32px; letter-spacing:-1px}
+.basic .page_head .page_info{font-size:18px; color:#222; line-height:28px}
+.basic .page_cont{padding-top:40px; padding-bottom:80px}
+
+/* 퀵 배너 */
+.quick_banner{position:fixed; top:190px; right:55px; width:82px; text-align:center; color:#fff; box-sizing:border-box; background:url('../images/main/bg_main_gnb.png') 0 0 repeat}
+.quick_banner.oversize{/*display:none;*/right:auto; left:50%; margin-left:554px}
+.quick_banner a{color:#fff}
+.quick_banner .center_number{display:block; font-size:14px}
+.quick_banner a{display:inline-block}
+.quick_banner .cstm_center, .quick_banner .question, .quick_banner .join_info, .quick_banner .cyber{padding-top:48px; font-size:13px; background-image:url('../images/main/bg_quick_banner.png'); background-repeat:no-repeat}
+.quick_banner .cstm_center{display:inline-block; padding-top:38px; margin-top:20px; width:52px; font-size:14px; background-position:50% -468px}
+.quick_banner .question{margin-top:9px; background-position:50% 10px}
+.quick_banner .join_info{background-position:50% -155px}
+.quick_banner .cyber{margin-top:9px; background-position:50% -306px}
+.quick_banner .btn_go_top{display:block; margin-top:15px; padding:7px 0; font-size:15px; background:url('../images/main/bg_main_gnb.png') 0 0 repeat}
+.quick_banner .btn_go_top:after{display:inline-block; margin:-5px 0 0 5px; content:''; width:12px; height:7px; vertical-align:middle; background:url('../images/main/btn_quick_top.png') 0 0 no-repeat}
+
+#footer{border-top:1px solid #e4e4e4; padding-bottom:30px;background:#fff;}
+#footer .inside{position:relative; width:1100px; margin:0 auto}
+#footer .foot_menu{margin:30px 0 15px}
+#footer .foot_menu:after{display:block; content:''; clear:both}
+#footer .foot_menu li{float:left}
+#footer .foot_menu li:before{display:inline-block; margin:0 9px; content:''; width:1px; height:10px; background-color:#bfc1c6}
+#footer .foot_menu li:first-child:before{display:none}
+#footer .foot_menu li a{color:#555; font-weight:bold}
+#footer .foot_menu li.special a{color:#222}
+#footer .addr, #footer address{font-size:13px; color:#666; line-height:18px}
+#footer address span{display:block}
+#footer .foot_icons{position:absolute; top:0; right:0}
+#footer .foot_icons:after{display:block; content:''; clear:both}
+#footer .foot_icons li{float:left; margin-left:30px; padding-top:52px; line-height:18px; font-size:13px; background-position:50% 0; background-repeat:no-repeat}
+#footer .foot_icons li.icon01{background-image:url('../images/main/bg_foot_icon01.png')}
+#footer .foot_icons li.icon02{background-image:url('../images/main/bg_foot_icon02.png')}
+
+/* application layout
+------------------------------------------ */
+.application{min-width:1100px; background:#5e5956 url('../images/common/bg_application.jpg') 50% 0 no-repeat}
+.application #header{background:url('../images/common/bg_app_header.png') 0 100% repeat-x}
+.application #header .inside{height:100px}
+.application #allmenu{padding-top:71px; margin-top:-71px}
+.application #container{padding-bottom:100px}
+.application #head, .application #contents{width:1100px; margin:0 auto}
+.application #head .app_prd_name{padding:35px 0; font-size:26px; line-height:30px; color:#fff; letter-spacing:-1px}
+
+/* etc layout
+------------------------------------------ */
+.etc #header{border-bottom:1px solid #b4b4b3}
+.etc #header .logo{background-image:url('../images/common/logo_color.png')}
+.etc #header a{color:#000}
+.etc #header .btn_allmenu{background-image:url('../images/common/bg_btn_gnb_black.png')}
+
+/* Layer layout
+------------------------------------------ */
+.layer_just_show .g_layer_box{display:block !important} /* 퍼블리싱 페이지에만 레이어 확인용으로 사용 */
+.g_layer_box{position:fixed; top:0; left:0; width:100%; height:100%; z-index:99; background:url('../images/common/bg_repeat_01.png') 0 0 repeat}
+.g_layer_box .inner{position:relative; top:50%; left:50%; width:500px;/*normal size*/ box-sizing:border-box; z-index:99999;}
+.g_layer_box .inner.newType {width:760px; margin-top:-225px !important;}
+.g_layer_box .inner.newType .g_layer_container {height:450px !important;}
+.g_layer_box .g_layer_header{padding:0 30px; height:60px; line-height:58px; color:#fff; background-color:#0093e3}
+.g_layer_box .g_layer_header h1{font-size:22px; letter-spacing:-1px}
+.g_layer_box .g_layer_container{overflow-y:auto; background-color:#fff}
+.g_layer_box .g_layer_container .inside{padding:30px}
+.g_layer_box .g_layer_footer{border-top:1px solid #e6e6e6; padding:30px; box-sizing:border-box; background-color:#fff}
+.g_layer_box .g_layer_footer .btn_wrap_center{margin-top:0}
+.g_layer_box .inner > .btn_layer_close{position:absolute; top:17px; right:30px; width:26px; height:26px; text-indent:-9999em; background:url('../images/common/btn_layer_close.png') 0 0 no-repeat}
+
+
+/*2018-02-09 - 20180411*/
+.g_layer_box.l_help_guide .inner.newType .g_layer_container {height: 503px !important;}
+.g_layer_box .g_layer_container .hTxt {font-size:30px; color: #0069ff; font-family: 'NanumSquareB';}
+.g_layer_box .g_layer_container .hTxt span {font-size:22px;}
+.g_layer_box .g_layer_container .sTxt {margin-top:30px; font-size:22px; color: #030e26; font-family: 'NanumSquare';}
+.g_layer_box .g_layer_container .tac {padding-top:201px; text-align:center; background:url(../images/product/icon_layer_20180411.png) 50% 52px no-repeat;}
+.g_layer_box .g_layer_container .btnLink a {display:inline-block; width:324px; height:50px; margin-top:40px; color:#fff; border-radius:50px; background: #061c4e;}
+.g_layer_box .g_layer_container .btnLink a span {font-size:22px; font-family: 'NanumSquareB'; line-height: 50px; display:block; padding-right:30px; background:url(../images/product/bg_layer_btn.png) 92% 50% no-repeat;}
+
+.g_layer_box .newType .btn_layer_close {background:url('../images/product/bg_bt_layer_close.png') 0 0 no-repeat; background-size:26px 26px;}
+
+
+

@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* ------------------------------------------
+* Filename:benefit.css
+* Description:라이나혜택 스타일
+* Author:Fu:z
+------------------------------------------ */
+
+/* 상단이미지 */
+.benefit .page_head.ev_visual_01{background-image:url('../images/benefit/bg_ev_visual01.jpg')}
+.benefit .page_head.ev_visual_02{background-image:url('../images/benefit/bg_ev_visual02.jpg')}
+.benefit .g_tab_02{margin-bottom:40px}
+
+/* 이벤트 */
+.bbs_event_list .no_event{display:block; margin-top:40px}
+.bbs_event_list{position:relative; overflow:hidden; margin-top:5px; padding-bottom:30px; border-bottom:1px solid #444}
+.bbs_event_list:before{position:absolute; top:10px; left:0; width:100%; height:2px; content:''; background-color:#444}
+.bbs_event_list ul:after{display:block; content:''; clear:both}
+.bbs_event_list ul{width:105%}
+.bbs_event_list li{float:left; position:relative; margin:40px 30px 0 0; width:347px; overflow:hidden; box-sizing:border-box; border:1px solid #dfdfdf}
+.bbs_event_list li .event_status{position:absolute; top:0; left:0}
+.bbs_event_list li .image_wrap{display:block; width:345px; height:225px; overflow:hidden}
+.bbs_event_list li .image_wrap img{width:345px; height:225px}
+.bbs_event_list li .event_info{position:absolute; bottom:-76px; left:-1px; padding:10px 20px; box-sizing:border-box; height:76px; color:#fff; background-color:#999\9; background-color:rgba(0,0,0,.4)}
+.bbs_event_list li .event_info .tit{width:305px; height:23px; font-size:17px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.bbs_event_list li .event_info .date{display:block; margin-top:10px; font-size:14px}
+
+.event_status *{vertical-align:middle}
+.event_status em{display:inline-block; color:#fff; font-size:13px; width:65px; text-align:center; height:28px; line-height:26px}
+.event_status .ongoing{background-color:#014886}
+.event_status .beover{background-color:#747e87}
+.event_status .prizewinner{font-size:16px}
+
+.bbs_sns_wrap{padding-top:10px; margin-bottom:-50px; text-align:right}
+.bbs_sns_wrap a{display:inline-block; margin-left:5px}
+
+/* 당첨자 발표 */
+.benefit .bbs_list{margin-top:15px}
+
+/* 제휴/할인 */
+.event_cooper_list{margin-top:15px; border-top:2px solid #444; border-bottom:1px solid #444}
+.event_cooper_list li{padding:20px 30px; border-bottom:1px solid #c4c7ca}
+.event_cooper_list li:after{display:block; content:''; clear:both}
+.event_cooper_list li .image_wrap{display:block; margin-right:40px; float:left; width:550px; height:150px; overflow:hidden}
+.event_cooper_list li .image_wrap img{width:550px; height:150px}
+.event_cooper_list .tit{display:block; height:29px; overflow:hidden; margin-top:20px; color:#000; font-size:22px; letter-spacing:-1px}
+.event_cooper_list .cont{margin-top:10px; color:#555; line-height:24px; height:72px; overflow:hidden}
+.event_cooper_list a:hover .tit{color:#004986; text-decoration:underline}
+
+/* 제휴/할인 상세 - 특정페이지 */
+.bbs_view .bbs_view_cont .view_cont_center{text-align:center}
+.bbs_view .bbs_view_cont .coop_type_01{padding-bottom:50px; border:1px solid #c4c7ca}

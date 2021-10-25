@@ -1,0 +1,1202 @@
+@charset "utf-8";
+/* ------------------------------------------
+* Filename:application.css
+* Description:청약
+* Author:Fu:z
+------------------------------------------ */
+
+/* 정보입력 
+------------------------------------------ */
+.insurance_input {padding-left:255px; padding-right:255px}
+.insurance_input .ipt_wrap{margin-top:30px; padding:35px 25px; border-top:dotted 1px #acacac}
+.insurance_input .ipt_wrap + .ipt_wrap{margin-top:0; border-bottom:dotted 1px #acacac}
+.insurance_input .info_txt{padding:15px 25px 30px}
+.insurance_input a.g_btn_01{width:360px; padding:0; height:60px; line-height:60px}
+/*.insurance_input a.g_btn_01 span{margin-top:8px; display:block; font-size:14px; line-height:16px; color:#d2e8fb}*/
+.personal_data_agree{position:relative; padding:0 25px}
+.personal_data_agree + .personal_data_agree{padding-top:20px}
+.personal_data_agree + .personal_data_agree .g_btn_sel{top:20px}
+.personal_data_agree .g_btn_sel{position:absolute; top:0; right:25px}
+.personal_data_agree .g_btn_sel a{width:75px}
+.personal_data_agree .g_btn_sel.step01_wide a{width:150px}
+.personal_data_agree .g_title_03{font-size:16px;color:#000;line-height:1.6;} 
+.certification_wrap .g_title_03{font-size:17px; color:#000}
+
+.certification_wrap{padding:0 25px 10px}
+.certification_wrap .btn_wrap_half{margin-top:18px; box-sizing:border-box}
+.certification_wrap .btn_wrap_half a{display:inline-block; min-width:150px; height:50px; color:#0093e3; font-weight:bold; font-size:17px; line-height:46px; text-align:center; border:1px solid #0093e3; box-sizing:border-box; background:#fff}
+.certification_wrap .btn_wrap_half a.on{color:#fff; background:#0093e3; border:none}
+
+.phone_confirm{margin-top:40px}
+.phone_confirm .ipt_ph_wrap{margin-top:15px; padding:20px 50px; background:#f3f3f3}
+.phone_confirm .ipt_phone .ex_num{width:85px; margin-left:4px}
+.phone_confirm .ipt_phone .g_input_01{width:104px}
+.phone_confirm .ipt_send_num{margin-top:10px}
+.phone_confirm .ipt_send_num .g_btn_03{width:133px; box-sizing:border-box; letter-spacing:-1.5px; vertical-align:middle}
+.phone_confirm .ipt_send_num .g_input_01{margin-left:7px; width:300px; vertical-align:middle}
+
+.insurance_input .agr_area{margin-top:47px}
+.insurance_input .agr_area .personal_data_agree{padding:0}
+.insurance_input .agr_area .personal_data_agree .g_list_01{margin-top:14px}
+.insurance_input .agr_area .personal_data_agree .g_btn_sel{top:0; right:0}
+.insurance_input .g_list_01 .g_link_01{float:right}
+
+.insurance_input .ip_info{margin-top:26px; overflow:hidden}
+.insurance_input .ip_info:first-child{margin-top:0}
+.insurance_input .ip_info .tit{display:block; float:left; width:166px; color:#000; font-size:17px; line-height:44px; box-sizing:border-box}
+.insurance_input .ip_info .g_input_02,
+.insurance_input .ip_info .num_wrap{display:inline-block; width:374px; box-sizing:border-box}
+.insurance_input .num_wrap .g_input_02{width:175px}
+.insurance_input .g_tab_02{margin:0 auto 35px; width:536px}
+
+.dash{display:inline-block; width:14px; text-align:center; font-size:8px}
+.at{display:inline-block; width:14px; text-align:center}
+
+/* step01: 보험설계 
+------------------------------------------ */
+.insur_step_01{}
+
+.insur_plan_table{width:100%; border:solid #acacac; border-width:0 1px; border-collapse:separate}
+.insur_plan_table.on{border-bottom-width:1px}
+.insur_plan_table th, .insur_plan_table td{padding:0 20px}
+.insur_plan_table thead th, .insur_plan_table td{border-left:1px dotted #c5c5c5}
+.insur_plan_table .tbltit{font-size:22px; color:#000; letter-spacing:-1px; text-align:left}
+.insur_plan_table .price{text-align:right}
+.insur_plan_table a[class^='g_btn_']{letter-spacing:-1px; font-weight:normal}
+.insur_plan_table select{width:80px}
+/* thead */
+.insur_plan_table thead th{height:80px; padding-left:17px; padding-right:17px; border-top:1px solid #acacac; border-bottom:1px dotted #c1c2c2; background-color:#f2f6f7}
+.insur_plan_table thead th[scope='col']{text-align:left}
+.insur_plan_table thead th:first-child{border-left:0}
+.insur_plan_table .each_plan_info{margin-top:5px; font-size:12px; color:#000; font-weight:normal; letter-spacing:-1px; text-align:center}
+.insur_plan_table .each_plan_info.tl{text-align:left}
+/* tfoot */
+.insur_plan_table .basic_tbody .tbltit{background-color:#f2f6f7}
+.insur_plan_table .insur_amount{height:57px; border-bottom:1px solid #acacac; font-size:20px; color:#333; font-weight:normal; text-align:right; background-color:#f2f6f7}
+.insur_plan_table .insur_amount strong{display:inline-block; margin:-5px 6px 0 0; font-size:30px; color:#205e9f; vertical-align:middle}
+/* tbody */
+.insur_plan_table tbody th, .insur_plan_table tbody td{height:50px; color:#222; font-size:16px; font-weight:bold}
+.insur_plan_table tbody th{text-align:left}
+.insur_plan_table tbody th > .tit{display:block; padding:8px 0; line-height:27px}
+.insur_plan_table .basic_tbody th, .insur_plan_table .basic_tbody td{border-bottom:1px solid #c4c7ca}
+.insur_plan_table .basic_tbody tr:first-child th, .insur_plan_table .basic_tbody tr:first-child td{border-bottom:1px solid #acacac}
+.insur_plan_table .inner_thead td{border-bottom:1px solid #acacac; background-color:#f8f8f8}
+.insur_plan_table .inner_thead td:first-child{border-left:0}
+.insur_plan_table a.btn_detail_insur{display:block; height:30px; line-height:30px; color:#222; background:url('../images/application/bg_insur_toggle.png') 100% 0 no-repeat}
+.insur_plan_table.on a.btn_detail_insur{background-position:100% 100%}
+.insur_plan_table .detail_tbody tr th, .insur_plan_table .detail_tbody tr td{border-top:1px dotted #c5c5c5}
+.insur_plan_table .detail_tbody > tr:first-child th, .insur_plan_table .detail_tbody > tr:first-child td{border-top:0}
+.insur_plan_table .detail_tbody th{font-size:15px}
+.insur_plan_table .detail_tbody .has_table{padding:0; border:0}
+/* table in tbody */
+.insur_detail_table{position:relative}
+.insur_detail_table:before, .insur_detail_table:after{display:block; content:''; position:absolute; top:0; z-index:2; height:100%; width:20px; background-color:#fff}
+.insur_detail_table:before{left:0}
+.insur_detail_table:after{right:0}
+.insur_plan_table table{width:100%; border-collapse:separate}
+.insur_plan_table table tr:first-child th, .insur_plan_table table tr:first-child td{border-top:0}
+.insur_plan_table table tr:last-child th, .insur_plan_table table tr:last-child td{padding-bottom:12px}
+.insur_plan_table table tr:first-child th .tit{padding-top:0; background-position:0 10px}
+.insur_plan_table table th, .insur_plan_table table td{height:30px}
+.insur_plan_table table th{border-left:0}
+.insur_plan_table table th > .tit{padding-left:10px; line-height:22px; font-size:14px; color:#555; font-weight:normal; background:url('../images/common/bg_bul_01.png') 0 20px no-repeat}
+/* 선택영역 표시 */
+.insur_plan_table col.pcw{width:229px}
+.insur_plan_wrap .ipwsel{text-indent:-9999em; font-size:0}
+[class*='ipw-']{position:relative}
+[class*='ipw-']:before, [class*='ipw-']:after{position:absolute; top:0; display:block; z-index:2; content:''; width:1px; height:100%; background-color:#0093e3}
+[class*='ipw-'] .ipwsel:before, [class*='ipw-'] .ipwsel:after{position:absolute; display:block; z-index:2; content:''; width:229px; height:1px; background-color:#0093e3}
+[class*='ipw-'] .ipwsel:before{top:0}
+[class*='ipw-'] .ipwsel:after{bottom:0}
+.insur_plan_wrap.ipw-1:before, .ipw-1 .ipwsel:before, .ipw-1 .ipwsel:after{right:0}
+.insur_plan_wrap.ipw-1:after{right:229px}
+.insur_plan_wrap.ipw-2:before, .ipw-2 .ipwsel:before, .ipw-2 .ipwsel:after{right:229px}
+.insur_plan_wrap.ipw-2:after{right:458px}
+.insur_plan_wrap.ipw-3:before, .ipw-3 .ipwsel:before, .ipw-3 .ipwsel:after{right:458px}
+.insur_plan_wrap.ipw-3:after{right:687px}
+
+/* 설계정보 */
+.insur_plan_info{margin-top:20px; padding:24px 0; border:1px solid #c5d6e0; background-color:#eaf6fc}
+.insur_plan_info:after{display:block; content:''; clear:both}
+.insur_plan_info [class^='insur_']{float:left; height:120px; padding:0 20px 0 30px; box-sizing:border-box; background:url('../images/application/bg_line_01.png') 0 0 no-repeat}
+.insur_plan_info li{position:relative; line-height:30px; font-size:15px; color:#222; letter-spacing:-1px}
+.insur_plan_info li:after{display:block; content:''; clear:both}
+.insur_plan_info .tit{float:left; width:95px}
+.insur_plan_info .cont{float:left; width:160px}
+.insur_plan_info .insur_user{width:308px; background-image:none}
+.insur_plan_info .insur_type{width:360px}
+.insur_plan_info .insur_type .cont{width:215px}
+.insur_plan_info .insur_type label{width:78px}
+.insur_plan_info .insur_amount{width:309px; position:relative}
+.insur_plan_info .insur_amount .tit{float:none; width:90px; font-size:15px; font-weight:bold; color:#333}
+.insur_plan_info .insur_amount .cont{position:absolute; bottom:5px; right:0; color:#222; font-size:20px}
+.insur_plan_info .insur_amount .cont strong{position:relative; top:5px; font-size:35px; color:#004986}
+
+.online_join_dc{border:1px solid #c5d6e0; border-width:0 1px 1px; padding:25px 30px}
+.online_join_dc .g_title_06{margin-bottom:5px}
+.online_join_dc .g_title_06 span{font-weight:normal}
+.discount_rate_list{margin-top:13px}
+.discount_rate_list li:after{display:block; content:''; clear:both}
+.discount_rate_list li > p{float:left; line-height:30px}
+.discount_rate_list li .dc_amount{float:right}
+.discount_rate_list li .dc_amount strong{font-size:17px; color:#222; font-weight:normal}
+.discount_rate_list li .dc_amount span{color:#222; font-size:20px}
+.discount_rate_list li .dc_amount span em{display:inline-block; margin-right:5px; width:140px; vertical-align:top; text-align:right; color:#004986; font-size:22px}
+
+/* step02: 계약자/피보험자정보 
+------------------------------------------ */
+.insur_step_02, .insur_step_03, .insur_step_04{position:relative}
+
+.insur_info_inner{width:730px}
+.insur_info_inner .g_table_01 .g_btn_sel{vertical-align:middle}
+.insur_info_inner .g_table_01 .g_text_01 + .g_btn_sel{margin-top:5px}
+.insur_info_inner .btn_wrap_center{margin-top:30px}
+.insur_info_inner > .g_text_01{margin-bottom:30px}
+.required_msg{text-align:right; margin:-27px 0 10px}
+.insur_info_inner .tinfo{/*display:block;*/ font-size:14px; font-weight:normal}
+
+.ipt_ph_wrap{display:block}
+.ipt_ph_wrap select{width:90px}
+.ipt_ph_wrap input{width:93px}
+.insur_info_inner .g_btn_sel + .ipt_ph_wrap{margin-top:10px}
+
+.insur_step_02 .ipt_email_wrap input{width:168px}
+.insur_step_02 .ipt_email_wrap select{width:170px}
+
+.ipt_srch_wrap .adrs{width:440px}
+.ipt_srch_wrap .job{width:120px}
+.ipt_srch_wrap .com{width:315px}
+/*.ipt_srch_wrap .pos{width:171px}*/
+.ipt_srch_wrap a, .ipt_srch_wrap input{vertical-align:middle}
+.insur_info_inner .g_btn_sel + .ipt_srch_wrap{margin-top:10px}
+
+.job_choice{margin-top:7px; font-size:15px}
+.job_choice:after{display:block; content:''; clear:both}
+.job_choice dt{float:left; color:#222; font-weight:normal; line-height:34px}
+.job_choice dd{float:left; margin-left:7px}
+.job_choice dd a{display:inline-block; line-height:34px; margin-left:2px; padding:0 7px; color:#555; background:#f1f1f1}
+
+.chk_view_list > .tit{padding:12px 19px; margin-top:20px; width:690px; border:1px solid #dedede; background:#f3f3f3}
+.chk_view_list > .tit:first-child{margin-top:0}
+.chk_view_list > .tit:after{display:block; content:''; clear:both}
+.chk_view_list > .tit > strong,
+.chk_view_list > .tit > .g_text_02{display:inline-block; margin-right:20px; width:493px; vertical-align:middle}
+.chk_view_list > .tit > .g_text_02{line-height:22px}
+.chk_view_list > .tit .g_btn_sel{vertical-align:middle}
+.chk_view_list > .tit .g_btn_sel.only a{width:170px}
+.chk_view_list > .tit .g_title_04{line-height:34px}
+.chk_view_list > .tit .g_title_05{font-size:14px; font-weight:normal}
+.chk_view_list .view{padding:12px 19px; border:1px solid #dedede; border-top:none; background:#fff}
+.chk_view_list .view .g_text_01 + .ipt_wrap{margin-top:20px}
+.chk_view_list .view .ipt_wrap .g_input_01{width:115px}
+.chk_view_list .view .ipt_wrap:after{display:block; content:''; clear:both}
+.chk_view_list .view .ipt_wrap .ip_area{float:left; display:block; margin-left:25px}
+.chk_view_list .view .ipt_wrap .ip_area:first-child{margin-left:0}
+.chk_view_list .view .ipt_wrap select{width:115px}
+
+.insur_step_02 .chk_view_list > .tit > strong{width:453px}
+.insur_step_02 .chk_view_list > .view{display:none}
+.insur_step_02 .chk_view_list > .tit .btn_toggle{float:right; display:inline-block; width:21px; height:30px; text-indent:-9999em; background:url('../images/application/btn_up_down.png') 0 -78px no-repeat}
+.insur_step_02 .chk_view_list > .tit.on .btn_toggle{background-position:0 8px}
+
+/* 오른쪽 영역 */
+.insur_show_info{position:absolute; right:60px; top:36px}
+.insur_show_box{position:relative; z-index:2; border-top:2px solid #0093e3; width:219px; background:#eaf6fc}
+.insur_show_box:before{display:block; content:''; position:absolute; top:15px; left:20px; width:39px; height:36px; background:url('../images/application/icon_insur_box.png') 0 0 no-repeat}
+.insur_show_box .g_title_06{display:block; margin:0; padding:20px 0 20px 66px; color:#004986}
+.insur_show_box .plan_info{width:182px; margin:0 auto}
+.insur_show_box .plan_amount{padding-top:12px; height:84px; text-align:center; background:url('../images/application/bg_insur_box.png') 0 0 no-repeat}
+.insur_show_box .plan_amount strong{display:block; font-size:18px; color:#222}
+.insur_show_box .plan_amount span{font-size:18px; color:#222; font-weight:bold}
+.insur_show_box .plan_amount span em{display:inline-block; margin-right:5px; font-size:33px; color:#0093e3; letter-spacing:-1px}
+.insur_show_box .plan_items{position:relative; padding:12px; box-sizing:border-box; border-right:1px solid #dee9ef; background-color:#fff}
+.insur_show_box .plan_items ul{height:78px; overflow:hidden}
+.insur_show_box .plan_items li{font-size:12px; color:#000}
+.insur_show_box .plan_items li:after{display:block; content:''; clear:both}
+.insur_show_box .plan_items li span{float:left}
+.insur_show_box .plan_items li strong{float:right}
+.insur_show_box .plan_items a.btn_show_others{position:absolute; left:0; bottom:-15px; display:block; width:182px; height:15px; text-indent:-9999em; background:url('../images/application/btn_togger_info.png') 0 0 no-repeat}
+.insur_show_box .plan_items a.btn_show_others.expand{background-position:0 100%}
+.insur_show_box .plan_box{padding:15px 20px; margin-top:16px}
+.insur_show_box .plan_box li{border-bottom:1px dotted #bec2c4; line-height:35px}
+.insur_show_box .plan_box li:last-child{border-bottom:none}
+.insur_show_box .plan_box li:after{display:block; content:''; clear:both}
+.insur_show_box .plan_box li > strong {display:inline-block; float:left; color:#222}
+.insur_show_box .plan_box li em{color:#205e9f; font-size:20px; font-weight:normal}
+.insur_show_box .plan_box li > span{float:right; color:#333}
+.insur_show_box .g_text_01{margin-top:-10px; padding:0 20px 15px; font-size:12px; letter-spacing:-1px; line-height:16px}
+
+.insur_show_info .insur_dc_banner{margin-top:10px}
+.insur_show_info .insur_dc_banner img{width:219px; height:auto}
+
+/* 팁레이어(공통) */
+.has_layer{position:relative}
+.btn_tip{display:inline-block; vertical-align:middle; width:18px; height:18px; text-indent:-9999em; background:url('../images/application/icon_tip.png') 0 0 no-repeat}
+.layer_tip_box{position:absolute;  z-index:9; padding:24px 15px; width:190px; border:2px solid #0093e3; background-color:#fff}
+.layer_tip_box:before{content:""; display:block; width:12px; height:22px; position:absolute; left:-12px; top:146px; background:url('../images/application/bg_tip_point.png') 0 0 no-repeat}
+.layer_tip_box .inner{position:relative}
+.layer_tip_box .inner .btn_tip_close{position:absolute; top:-25px; right:-15px; display:block; width:20px; height:20px; text-indent:-9999em; background:url('../images/application/btn_tip_close.png') 0 0 no-repeat}
+.layer_tip_box .tit{padding:0 0 15px; color:#333; font-size:14px; font-weight:bold; border-bottom:1px dotted #c5c5c5}
+.layer_tip_box .cont{padding-top:15px; font-size:13px; font-weight:normal; color:#555; line-height:22px}
+.layer_tip_box .cont .g_list_01 li{margin-top:15px}
+
+.insur_step_02 .layer_tip_box{top:-149px; right:-270px}
+
+/* step03: 가입 전 알릴 의무사항 
+------------------------------------------ */
+.g_box_01.insur_step_03 .chk_view_list{min-height:700px}
+.g_box_01.notice_guide_txt{padding:20px 60px 0}
+.g_box_01.notice_guide_txt .g_text_01 + .g_text_01{margin-top:10px; padding-bottom:20px; border-bottom:1px solid #c4c7ca}
+.chk_view_list .g_chkrdo_wrap label{margin:5px 18px 5px 0}
+.chk_view_list .ipt_list li{float:left; margin:5px 0; width:50%; box-sizing:border-box}
+.chk_view_list .ipt_list:after{display:block; content:''; clear:both}
+.chk_view_list .ipt_list .tit{display:inline-block}
+.chk_view_list .ipt_list .odd .tit{width:140px}
+.chk_view_list .ipt_list .even{padding-left:10px}
+.chk_view_list .ipt_list .even .tit{width:125px}
+.chk_view_list .ipt_list .g_input_01.size01{width:150px}
+.chk_view_list .ipt_list .g_input_01.size02{width:74px}
+.chk_view_list .ipt_list .g_input_01.size03{width:77px}
+.chk_view_list .ipt_list .g_input_01.size04{width:175px}
+.chk_view_list .ipt_list select{width:107px}
+.chk_view_list .ipt_list select.size05{width:89px}
+.chk_view_list .ipt_list select.size05 + select.size05{width:77px; letter-spacing:-1px}
+
+/* step06: 고객강화의무 edd layer 추가 2016-11-10 
+------------------------------------------ */
+.edd_layer.g_layer_box .inner{width:820px}
+.edd_layer h2.g_title_04{padding-bottom:30px; letter-spacing:-0.05em}
+.edd_layer .insur_info{padding:30px 27px; border:1px solid #d9d9d9; background-color:#fafafa}
+.edd_layer .insur_info:after{display:block; content:''; clear:both}
+.edd_layer .insur_info *{letter-spacing:-0.05em}
+
+.edd_layer .insur_info > p{margin:22px 0 8px; color:#222; font-size:14px; font-weight:bold}
+.edd_layer .insur_info > p:first-child{margin-top:0}
+.edd_layer .insur_info strong{margin-left:6px; font-weight:normal}
+.edd_layer .g_chkrdo_wrap{width:560px}
+.edd_layer .g_chkrdo_wrap label{width:109px; height:34px; line-height:34px; margin:0 0 4px 0;}
+.edd_layer .g_chkrdo_wrap input[class^='g_radio_'] + label{background-position: 0 9px}
+.edd_layer .g_chkrdo_wrap input.g_radio_01:checked + label{background-position:0 -81px}
+.edd_layer .g_chkrdo_wrap label[for='income05']{width:auto}
+.edd_layer .g_chkrdo_wrap input[type='text']{width:275px; margin-left:5px; vertical-align:top}
+.edd_layer .g_chkrdo_wrap input.disable{background:#ebebe4}
+
+/* step04: 가입문서확인/결제 
+------------------------------------------ */
+.join_document .txt_info strong{display:block; color:#1960a3; font-size:17px; line-height:22px}
+.join_document .txt_info strong + span{display:block; color:#333; font-size:15px; line-height:26px}
+.join_document .txt_info strong + span + span{display:block; color:#555; font-size:15px; line-height:24px}
+.join_document .doc_list{padding-top:30px; margin:0 auto; width:664px}
+.join_document .doc_list li{float:left; width:164px; margin:0 28px; box-sizing:border-box; text-align:center}
+.join_document .doc_list:after{display:block; content:''; clear:both}
+.join_document .doc_list span{display:block; padding-top:115px; line-height:30px; font-weight:normal; background:url('../images/application/bg_join_doc.png') 50% 0 no-repeat}
+.join_document .doc_list .lst_01 span{background-position:50% 0}
+.join_document .doc_list .lst_02 span{background-position:50% -200px}
+.join_document .doc_list .lst_03 span{background-position:50% -400px}
+.join_document .doc_list .lst_04 span{background-position:50% -600px}
+.pay_info_wrap{margin-top:40px}
+.pay_info_wrap .g_title_06 + .g_title_04{margin-top:-8px}
+.pay_info_wrap .g_title_04{margin-bottom:15px}
+.pay_info_wrap .g_table_01 + h4.g_title_04{margin-top:30px}
+.pay_info_wrap .g_table_01 select{width:150px}
+.pay_info_wrap .ipt_card_wrap .g_input_01{width:77px}
+.pay_info_wrap .ipt_account_wrap .g_input_01{width:283px}
+.pay_info_wrap .g_table_01 .g_btn_04, .pay_info_wrap .g_table_01 .g_btn_06{vertical-align:middle}
+.pay_info_wrap .g_table_01 + .g_list_01{margin-top:5px}
+.ipt_expdate_wrap .chk_wrap{margin-left:25px}
+
+.agree_and_pay{margin-top:30px; padding-left:250px; text-align:center}
+.agree_and_pay span{display:inline-block; color:#333; font-weight:bold; font-size:16px}
+
+/* 가입신청완료 */
+.join_finished{padding:50px 200px}
+.join_finished .g_text_03{font-size:23px;margin-bottom:45px; padding-left:215px; min-height:103px; background:url('../images/application/bg_finished.png') 0 0 no-repeat}
+.join_finished .g_text_04{margin-top:40px}
+.join_finished .g_text_04 + .g_text_04{margin:8px 0 -6px}
+.join_finished .g_list_01{margin-top:30px}
+.join_finished .g_list_01 li{color:#333;margin-bottom:12px;}
+.join_finished .insur_dc_banner{margin-top:30px}
+.join_finished .insur_dc_banner img{width:702px; height:auto}
+.join_finished .g_text_02 {color:#777777;}
+
+/* 보험가입중단 */
+.join_stop{padding:50px 170px}
+.join_stop .cont{padding-top:20px; padding-left:215px; min-height:117px; font-size:15px; color:#222; line-height:25px; background:url('../images/application/bg_stop.png') 0 0 no-repeat}
+
+/* 가입불가안내 */
+.cant_join_guide{padding:50px 170px}
+.cant_join_guide .top_tit_wrap{padding-left:200px; min-height:132px; background:url('../images/application/bg_cant_join.png') 0 10px no-repeat}
+.cant_join_guide .g_title_09{font-size:26px}
+.cant_join_guide .g_text_04{padding-top:27px; font-weight:normal; line-height:25px}
+.cant_join_guide .customer_info{margin-top:40px; padding:25px 20px 31px 200px; background-color:#eaf6fc}
+.cant_join_guide .customer_info strong{font-size:22px; line-height:30px; letter-spacing:-1px; color:#333}
+.cant_join_guide .customer_info strong span{margin-left:10px; font-size:28px; color:#004986; vertical-align:top}
+.cant_join_guide .customer_info p{margin-top:10px; font-size:15px; line-height:20px}
+
+/* 레이어팝업
+------------------------------------------ */
+/* 개인정보처리동의 */
+.l_personal_agree .inner{width:820px}
+.l_personal_agree .g_layer_container{overflow-y:scroll}
+.l_personal_agree .g_layer_footer{padding-top:15px}
+.l_personal_agree .g_layer_footer .txt_guide{color:#555}
+
+.l_personal_agree .g_title_04 + .g_title_05{margin-top:25px}
+.l_personal_agree .g_text_01{margin-top:7px}
+.l_personal_agree .g_box_02{position:relative; margin-top:25px}
+.l_personal_agree .g_box_02 .g_btn_sel{position:absolute; top:50%; right:30px; margin-top:-17px; height:34px}
+.l_personal_agree .btn_wrap_center{margin-top:40px}
+.l_personal_agree .btn_all_agree{margin-top:10px}
+.l_personal_agree .g_text_07{margin-bottom:15px}
+
+.agreement_list{margin-top:15px; border-right:1px solid #dedede; border-left:1px solid #dedede}
+.agreement_list .tit{position:relative; padding:14px 28px; margin-top:0; border-top:1px solid #dedede; line-height:30px}
+.agreement_list .tit > span{color:#333; font-size:15px}
+.agreement_list .tit .g_btn_sel{position:absolute; right:70px; top:50%; margin-top:-15px; height:30px}
+.agreement_list.option .g_btn_sel{right:28px}
+.agreement_list .cont{padding:30px 28px; border-top:1px solid #dedede; line-height:23px; background:#f3f3f3}
+.agreement_list .js_acont{display:none;}
+.agreement_list .cont .g_chkrdo_wrap{display:block; margin-top:10px}
+.agreement_list .cont .g_chkrdo_wrap label{width:80px}
+.agreement_list .cont .g_chkrdo_wrap.tb label {font-size:12pt !important;font-weight:bold;}
+.agreement_list li.on .cont{display:block; border-top:1px solid #dedede}
+.agreement_list li .cont * {font-size:10pt !important;}
+.agreement_list li .cont * span.tb {font-size:12pt !important;font-weight:bold;}
+.agreement_list li .cont .tR {text-align:right;}
+.agreement_list li:last-child .tit{border-bottom:1px solid #dedede}
+.agreement_list li:last-child .cont{border-bottom:1px solid #dedede; border-top:none}
+.agreement_list li .btn_toggle{float:right; display:inline-block; width:21px; height:30px; text-indent:-9999em; background:url('../images/application/btn_up_down.png') 0 -78px no-repeat}
+.agreement_list li.on .btn_toggle{background-position:0 8px}
+.agreement_list .g_title_05{display:block; margin-top:30px; font-size:14px}
+.agreement_list .g_title_05:first-child{margin-top:0}
+
+/* 도움말안내 & 가입 전 알릴 의무사항 안내 */
+.l_help_guide .g_text_05{margin-bottom:20px; letter-spacing:-.07em}
+.l_help_guide .customer_info{margin:0 auto; padding:25px 0 31px 100px; box-sizing:border-box; background-color:#f2f6f7}
+.l_help_guide .customer_info strong{font-size:22px; line-height:30px; letter-spacing:-1px; color:#333}
+.l_help_guide .customer_info strong span{margin-left:10px; font-size:28px; color:#004986; vertical-align:top}
+.l_help_guide .customer_info p{margin-top:10px}
+/*.l_help_guide .customer_link{float:right; width:130px}
+.l_help_guide .customer_link a{margin-top:10px; width:100%; font-weight:bold; font-size:15px; padding:0}
+.l_help_guide .customer_link a:first-child{margin-top:0}
+.l_help_guide .btn_wrap_center{padding-top:30px; clear:both}*/
+
+/* 보장내역 & 해지환급금 */
+.l_assure_his .inner{width:820px}
+.l_assure_his .g_title_04{margin:45px 0 15px}
+.l_assure_his .g_title_04:first-child{margin-top:0}
+.l_assure_his .insur_info{padding:10px 30px 20px; border:1px solid #d9d9d9; background-color:#fafafa}
+.l_assure_his .insur_info:after{display:block; content:''; clear:both}
+.l_assure_his .insur_info ul{float:left; margin-left:85px}
+.l_assure_his .insur_info ul:first-child{margin-left:0}
+.l_assure_his .insur_info li{position:relative; margin-top:10px; padding-left:10px}
+.l_assure_his .insur_info li:before{position:absolute; top:8px; left:0; display:inline-block; content:''; width:3px; height:3px; background-color:#666}
+.l_assure_his .insur_info li .amount02{margin-top:10px; text-align:right}
+.l_assure_his .insur_info li .amount02 span{margin-right:14px}
+.l_assure_his .insur_info span{color:#222; font-size:14px; font-weight:bold}
+.l_assure_his .insur_info strong{margin-left:6px; font-weight:normal}
+
+.l_assure_his .box_goods_price{padding:9px 16px; margin:7px 0; background-color:#f8f8f8} /* 테이블 안에 리스트 박스 배경*/
+.l_assure_his .box_goods_price .g_list_01 > li{margin-top:0; line-height:21px} /* 테이블 안에 리스트 간격*/
+.l_assure_his .g_list_02{padding-top:13px}/* 보장내용 _ 리스트 간격 */
+.l_assure_his .g_title_05{margin:-10px 0 15px}
+.l_assure_his .g_title_wrap{margin-top:45px}
+
+/* 직업찾기 */
+.l_find_job .g_layer_container{overflow-y:scroll}
+.l_find_job .g_search_01{margin:30px 20px}
+.l_find_job .g_title_04{margin-bottom:15px}
+.l_find_job .search_result_list li{margin-top:7px; position:relative}
+.l_find_job .search_result_list li:first-child{margin-top:0}
+
+.l_find_job .direct_input_wrap{margin-bottom:30px; padding:19px; box-sizing:border-box; border:1px solid #dedede; height:200px; overflow-y:scroll}
+.l_find_job .job_cate_wrap{position:relative; margin:30px 0 30px 78px; box-sizing:border-box; border:1px solid #dedede}
+.l_find_job .job_cate_item{border-top:1px dashed #c2c7cc; padding:0 15px; height:104px; overflow-y:scroll}
+.l_find_job .job_cate_item:first-of-type{border-top:0}
+.l_find_job .job_cate_wrap .search_result_list{padding:15px 0}
+.l_find_job .job_cate_wrap .g_title_04{position:absolute; left:-78px}
+
+/* 주소찾기 */
+.l_find_adrs .inner {width:650px}
+.l_find_adrs .g_layer_container {position:relative; z-index:90;}
+.cover_btn .g_layer_footer2 {display:block}
+.g_layer_footer2 {position:relative; z-index:95; margin-top:-60px; display: none}
+.g_layer_footer2 .btn_wrap_center {margin-top:0; width:97%; padding: 10px 0; background-color:#fff}
+.l_find_adrs .search_box{padding:7px 15px; height:34px; border-top:2px solid #444; border-bottom:1px solid #444}
+.l_find_adrs .search_visibility {position:relative; min-height:380px }
+.l_find_adrs .search_visibility.hidden {visibility:hidden}
+.l_find_adrs .search_visibility.visible {visibility:visible}
+.l_find_adrs .search_visibility.none {display:none}
+.l_find_adrs .adrs_select_wrap{box-sizing:border-box; border:1px solid #dfdfdf; height:165px; overflow-y:scroll}
+.l_find_adrs .adrs_select_wrap li:first-child{border:none}
+.l_find_adrs .adrs_select_wrap li{border-top:1px solid #dfdfdf; line-height:40px; background:#f8f8f8}
+.l_find_adrs .adrs_select_wrap li a{color:#555; font-size:14px}
+.l_find_adrs .adrs_select_wrap li a:hover, .l_find_adrs .adrs_select_wrap li a:hover span{text-decoration:underline; color:#004986}
+.l_find_adrs .result_list .post{display:inline-block; padding:0 15px; width:78px; box-sizing:border-box}
+.l_find_adrs .btn_adrs{padding:0; min-width:86px; height:87px; font-size:17px; line-height:87px}
+.l_find_adrs .g_title_04{padding:20px 0 15px; font-weight:normal}
+.l_find_adrs .highway_name select{width:116px}
+.l_find_adrs .highway_name input.size01{width:75px}
+.l_find_adrs .highway_name input.size02{width:79px}
+.l_find_adrs .highway_name input.size03{width:78px}
+.l_find_adrs .highway_name .dash{width:auto}
+
+/* 전화가입 신청 */
+.l_regi_phone .g_layer_container{overflow-y:scroll}
+.l_regi_phone .regi_phone_input{margin:30px 0}
+.l_regi_phone .agreement_list .txt_normal{margin-top:20px}
+.l_regi_phone .ipt_ph_wrap input{width:78px}
+.l_regi_phone .ipt_ph_wrap select{width:80px}
+.l_regi_phone .btn_sel_sex{display:block; border:1px solid #4e5a6b}
+.l_regi_phone .btn_sel_sex:after{display:block; content:''; clear:both}
+.l_regi_phone .btn_sel_sex a{display:block; float:left; width:50%; height:34px; line-height:32px; text-align:center; font-size:15px; font-weight:bold; box-sizing:border-box; color:#555}
+.l_regi_phone .btn_sel_sex a.on{color:#fff; background-color:#4e5a6b}
+
+/* 예금자 보호관계 계약자 확인 및 수익자 지정 등 */
+.l_add_confirm .inner{width:820px}
+.l_add_confirm .insur_step_02{position:static}
+.l_add_confirm .chk_view_list{margin-top:30px}
+.l_add_confirm .chk_view_list > .tit{position:relative; width:auto; margin-top:-1px}
+.l_add_confirm .btn_all_agree{float:right; margin-top:-25px}
+.l_add_confirm .chk_view_list .g_btn_sel{position:absolute; top:12px; right:70px}
+
+/* gnb 유지되는 타입
+------------------------------------------ */
+.app .page_head{padding-top:180px; height:420px}
+.app .page_cont{padding-top:0; margin-top:-355px}
+.app .g_box_01{position:relative; min-height:300px; border-bottom:1px solid #eaeaea}
+.app .g_box_01.notice_guide_txt{min-height:auto; border-bottom:0}
+.app .g_box_01:before, .app .g_box_01:after{position:absolute; top:0; display:inline-block; content:''; width:1px; height:100%; background-color:#eaeaea}
+.app .g_box_01:before{left:0}
+.app .g_box_01:after{right:0}
+.app .g_title_01, .app .g_title_02{border:solid #eaeaea; border-width:1px 1px 0}
+.app .g_step_01 li{border-color:#fff}
+.app .g_step_01 li.on{border-color:#0096eb}
+
+/* 카카오페이 인증 팝업  */
+.agree_and_pay{margin-top:30px; padding-left:0; text-align:center}
+.btn_wrap_center.bWrap2 {width:730px}
+.btn_wrap_center.bWrap2 a.g_btn_01.bigger2 {min-width:90px;height:50px;padding:3px 30px 2px;line-height:1.2;font-size:18px;vertical-align:top}
+.btn_wrap_center.bWrap2 a.g_btn_01.bigger2 span {font-size:12px;}
+.kaPy {padding:22px 25px;background:#fdfdfd;text-align:center;border:1px solid #f5f5f5;color:#222;}
+.kaPy > strong {display:block;margin:0 0 14px;font-size:20px;font-weight:bold;line-height:1.4;letter-spacing:-1px;}
+.kaPy img {display:block;margin:0 auto 14px;}
+.kaPy p {font-size:14px;line-height:1.4;letter-spacing:-1px;}
+.kaPy p.kaT1 {margin:0 0 14px;padding:0 0 13px;border-bottom:1px solid #efefef;}
+.kaPy p.kaT1 span {display:block;font-size:12px;}
+
+/* 카카오페이 인증 팝업 2017-07-26 */
+#PayPopS01 {}
+#PayPopS01 .ppS1t {margin-bottom:26px;font-size:19px;font-weight:bold;color:#222;text-align:center;letter-spacing:-1px;}
+#PayPopS01 .kakaBox {position:relative;background:#f7f7f7;padding:12px 20px 18px;margin-bottom:24px;font-size:14px;color:#222;border:1px solid #cdcdcd;}
+#PayPopS01 .kakaBox:after, #PayPopS01 .kakaBox:before {position:absolute;left:25%;top:100%;border:solid transparent;content:'';width:0;height:0;pointer-events:none;}
+#PayPopS01 .kakaBox:after {border-color:rgba(247,247,247,0);border-top-color:#f7f7f7;border-width:14px;margin-left:-14px;}
+#PayPopS01 .kakaBox:before {border-color:rgba(0,0,0,0);border-top-color:#cdcdcd;border-width:16px;margin-left:-16px;}
+#PayPopS01 .kakaBox h2 {height:30px;line-height:30px;padding:0 0 0 10px;background:url(../images/application/bul_black_p.gif) no-repeat 0 14px;font-size:16px;color:#222;}
+#PayPopS01 .kakaBox p {font-size:14px;margin-bottom:5px;letter-spacing:-1px;}
+#PayPopS01 .kakaBox span {display:block;font-size:12px;color:#4b4b4b;}
+#PayPopS01 .btn_wrap_half {}
+#PayPopS01 .btn_wrap_half a {font-size:15px;font-weight:bold;height:40px;line-height:40px;}
+#PayPopS01 .btn_wrap_half a.bTkaka {background:#ffdb00;color:#000;}
+#PayPopS01 .btn_wrap_half a.bTkaka:before {display:inline-block;vertical-align:top;content:'';width:28px;height:40px;background:url(../images/application/icon_kakao_pay_s.png) no-repeat center;background-size:28px auto;}
+
+#PayPopS02 {}
+#PayPopS02 .kaPy2 {margin-bottom:20px;}
+#PayPopS02 .kaPy2 {text-align:center;}
+#PayPopS02 .kaPy2 img {display:block;margin:0 auto 16px;}
+#PayPopS02 .kaPy2 p.kaT1 {font-size:19px;font-weight:bold;margin:0 0 15px;padding:0 0 19px;border-bottom:1px solid #d8d8d8;color:#222;letter-spacing:-1px;}
+#PayPopS02 .kaPy2 p.kaT1 strong {display:block;}
+#PayPopS02 .kaPy2 p.kaT2 {font-size:19px;color:#555;letter-spacing:-1px;;}
+#PayPopS02 .kaPy2 p.kaT2 strong {color:#0093e3;}
+#PayPopS02 .btn_wrap_half a {height:40px;font-size:15px;line-height:40px;}
+
+/* 플랜 배너 */
+.inPlanBanner {}
+.inPlanBanner img {max-width:100%;display:block;}
+
+
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 청약 프로세스 개선 Style @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.applicationRe {min-width:1100px; background:#5e5956 url('../images/common/bg_application.jpg') 50% 0 no-repeat}
+.applicationRe #header {background:url('../images/common/bg_app_header.png') 0 100% repeat-x}
+.applicationRe #allmenu {padding-top:71px; margin-top:-71px}
+.applicationRe #container {padding-bottom:100px}
+.applicationRe #head,
+.applicationRe #contents {width:1100px; margin:0 auto}
+.applicationRe #head .app_prd_name {padding:35px 0; font-size:26px; line-height:30px; color:#fff; letter-spacing:-1px}
+
+/* 청약개선 > 공통 폰 */
+.applicationRe input[type='text'],.applicationRe input[type='password'],.applicationRe input[type='date'],.applicationRe input[type='number'],.applicationRe input[type='tel'],.applicationRe input[type='email'],.applicationRe input[type='search'],.applicationRe input[type='tel'] {box-sizing:border-box; -webkit-appearance:none;border-radius:4px; height:40px;padding:0 10px;color:#333;font-size:16px; line-height:38px; vertical-align:middle;border:1px solid #bebebe;background:#fff;font-weight:normal;}
+.applicationRe input[type='text']:focus,.applicationRe input[type='password']:focus,.applicationRe input[type='date']:focus,.applicationRe input[type='number']:focus,.applicationRe input[type='tel']:focus,.applicationRe input[type='email']:focus,.applicationRe input[type='search']:focus,.applicationRe input[type='tel']:focus {border-color:#0093e3;}
+.applicationRe select {box-sizing:border-box;border-radius:4px;height:40px;padding:8px 5px;color:#222;font-size:15px; /* line-height:100%; */ vertical-align:middle;border:1px solid #bebebe;font-weight:normal;}
+.applicationRe input:read-only,.applicationRe input:disabled,.applicationRe select:disabled,.applicationRe textarea:disabled {background-color:#f8f8f8;-webkit-opacity:1; -webkit-text-fill-color:currentcolor;}
+.applicationRe ::-webkit-input-placeholder{color:#666}
+.applicationRe :-moz-placeholder{color:#666}
+.applicationRe ::-moz-placeholder{color:#666}
+.applicationRe :-ms-input-placeholder{color:#666}
+.applicationRe .fw {width:100%}
+.applicationRe input[type='checkbox'],
+.applicationRe input[type='radio'] {position:absolute;display:inline-block; -webkit-appearance:none; border:0;opacity:0;border-radius:0; width:18px; height:18px;filter:alpha(opacity=0);}
+.applicationRe input[type='radio'] + label{display:inline-block;padding-left:27px;line-height:22px;background:url('../images/common/bg_radio.png') 0 2px no-repeat;cursor:pointer;}
+.applicationRe input[type='radio']:checked + label{background-position:0 -88px}
+.applicationRe input[type='checkbox'] + label {display:inline-block;font-size:14px;cursor:pointer;font-weight:bold;padding-left:27px; line-height:22px;background:url('../images/common/bg_checkbox.png') 0 -179px no-repeat}
+.applicationRe input[type='checkbox']:checked + label {background-position:0 -270px}
+.applicationRe input[type='radio']:focus + label,
+.applicationRe input[type='checkbox']:focus + label {text-decoration:underline;}
+
+/* 청약개선 > 버튼 */
+.applicationRe .btnBox {position:relative;text-align:center;}
+.applicationRe .btnBox a {display:block;margin-bottom:5px;font-size:15px;font-weight:bold;line-height:20px;text-align:center;border-radius:4px;padding:10px 0;background:#888;color:#fff;}
+.applicationRe .btnBox button {display:inline-block;background:#888;border-radius:4px;overflow:hidden;min-width:100px;margin:0 2px;height:40px;line-height:40px;color:#fff;font-size:15px;font-weight:bold;text-align:center;padding:0 10px;border:0 none;box-sizing:content-box;}
+.applicationRe .btnBox .bu {background:#127bb2;}
+.applicationRe .btnBox a.on {background:#127bb2;}
+.applicationRe .btnBox a.wt {border:1px solid #127bb2;color:#127bb2;background:#fff;}
+.applicationRe .btnBox.d {display:flex;justify-content:space-between;}
+.applicationRe .btnBox.d a {flex-basis:49%;margin-bottom:0;}
+
+.applicationRe .btnBox.c a {display:inline-block;min-width:100px;padding:10px;}
+.applicationRe .btnBox a.on:before{display:inline-block; content:''; margin-top:-5px; margin-right:2px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe .btnBox a.on:after{display:inline-block;margin-left:4px;content:' 완료';}
+
+.applicationRe .btnBox input[type="radio"] {position:absolute;left:-9999em;}
+.applicationRe .btnBox input[type="radio"] + label {display:inline-block;border-radius:4px;overflow:hidden;min-width:88px;margin:0px;height:33px;line-height:31px;border:1px solid #127bb2;color:#127bb2;background:#fff;font-size:14px;font-weight:bold;text-align:center;padding:0 5px;cursor:pointer;}
+.applicationRe .btnBox input[type="radio"]:focus + label {/* outline:1px dotted red; */text-decoration:none;}
+.applicationRe .btnBox input[type="radio"]:checked + label {background:#127bb2;color:#fff;}
+.applicationRe .btnBox input[type="radio"]:checked + label:before{display:inline-block; content:''; margin-top:-3px; margin-right:4px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+
+.applicationRe .btnBox input[type="checkbox"] {position:absolute;left:-9999em;}
+.applicationRe .btnBox input[type="checkbox"] + label {display:inline-block;border-radius:4px;overflow:hidden;min-width:88px;margin:0px;height:33px;line-height:31px;border:1px solid #127bb2;color:#127bb2;background:#fff;font-size:14px;font-weight:bold;text-align:center;padding:0 5px;cursor:pointer;}
+.applicationRe .btnBox input[type="checkbox"]:focus + label {/* outline:1px dotted red; */text-decoration:none;}
+.applicationRe .btnBox input[type="checkbox"]:checked + label {background:#127bb2;color:#fff;}
+.applicationRe .btnBox input[type="checkbox"]:checked + label:before{display:inline-block; content:''; margin-top:-3px; margin-right:4px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe .btnBox input[type="checkbox"]:checked + label:after{display:inline-block;margin-left:4px;content:' 완료';}
+
+.applicationRe .SeBtnBox {position:relative;text-align:center;}
+.applicationRe .SeBtnBox a {display:inline-block;width:155px;margin:0 2px;font-size:15px;font-weight:bold;line-height:25px;text-align:center;border-radius:4px;padding:10px 5px;background:#888;color:#fff;}
+.applicationRe .SeBtnBox a.on {background:#004986;color:#fff;}
+.applicationRe .SeBtnBox a.wt {border:1px solid #127bb2;color:#127bb2;background:#fff;padding:9px 4px;}
+.applicationRe .g_layer_box.l_find_job .SeBtnBox {margin-top:30px;}
+.applicationRe .g_layer_box.l_find_adrs .SeBtnBox {margin-top:30px;}
+.applicationRe .g_layer_box.l_agree .SeBtnBox {margin-top:30px;}
+.applicationRe .g_layer_box.l_phone_certifi .SeBtnBox {margin-top:30px;}
+.applicationRe .g_layer_box.l_personal_agree .SeBtnBox {margin-top:30px;}
+.applicationRe .g_layer_box .SeBtnBox a {width:135px;font-size:16px;}
+
+.applicationRe .NeBtnBox {width:730px;padding:30px 0 0 0;text-align:center;}
+.applicationRe .NeBtnBox a {display:inline-block;font-size:15px;font-weight:bold;min-width:155px;height:45px;line-height:45px;text-align:center;border-radius:4px;padding:0 5px;background:#888;color:#fff;}
+.applicationRe .NeBtnBox a.on {background:#004986;color:#fff;border:0 none;}
+.applicationRe .NeBtnBox.n {}
+.applicationRe .NeBtnBox.n a {min-width:110px;}
+.applicationRe .NeBtnBox.n a.on {min-width:155px;}
+
+.applicationRe .onBtnBox {position:relative;text-align:center;padding:0 10%;}
+.applicationRe .onBtnBox a {display:block;margin-bottom:5px;font-size:15px;font-weight:bold;line-height:20px;text-align:center;border-radius:4px;padding:10px 0;background:#127bb2;color:#fff;}
+.applicationRe .onBtnBox a.on {background:#127bb2;color:#fff;}
+.applicationRe .onBtnBox.add a {background:#127bb2;color:#fff;}
+
+.applicationRe .g_layer_box {position:fixed;top:0;left:0;width:100%;height:100%;z-index:99;background:url('../images/common/bg_repeat_01.png') 0 0 repeat;display:none;}
+.applicationRe .g_layer_box .inner {position:relative;top:50%;left:50%;width:500px;box-sizing:border-box;border-radius:10px;overflow:hidden;}
+.applicationRe .g_layer_box .g_layer_header {padding:0 30px; height:60px; line-height:58px; color:#fff; background-color:#127bb2;}
+.applicationRe .g_layer_box .g_layer_header h1 {font-size:22px;letter-spacing:-2px}
+.applicationRe .g_layer_box .g_layer_container {overflow-y:auto; background-color:#fff;border-radius:0 0 9px 9px;}
+.applicationRe .g_layer_box .g_layer_container .inside{padding:30px}
+.applicationRe .g_layer_box .g_layer_footer{border-top:1px solid #e6e6e6; padding:30px; box-sizing:border-box; background-color:#fff}
+.applicationRe .g_layer_box .g_layer_footer .btn_wrap_center{margin-top:0}
+.applicationRe .g_layer_box .inner > .btn_layer_close{position:absolute; top:17px; right:30px; width:26px; height:26px; text-indent:-9999em; background:url('../images/common/btn_layer_close.png') 0 0 no-repeat}
+.applicationRe .g_layer_box .inner > .btn_layer_close2{position:absolute; top:17px; right:30px; width:26px; height:26px; text-indent:-9999em; background:url('../images/common/btn_layer_close.png') 0 0 no-repeat}
+
+/* 청약개선 > 테이블 타입 01 */
+.applicationRe table.tb01 {width:100%;margin:0 0 10px;}
+.applicationRe table.tb01 tbody {}
+.applicationRe table.tb01 tbody tr {}
+.applicationRe table.tb01 tbody tr th,
+.applicationRe table.tb01 tbody tr td {padding:10px 12px;font-size:15px;border:1px solid #e5e5e5;border-left:0 none;border-right:0 none;text-align:left;}
+.applicationRe table.tb01 tbody tr th {padding:10px 18px;color:#333;font-weight:bold;background:#f2f6f7;}
+.applicationRe table.tb01 tbody tr td {color:#666;background:#fff;line-height:1.6;}
+.applicationRe table.tb01 tbody tr td input[type='text'] {width:183px;}
+.applicationRe table.tb01 tbody tr td input.s1 {width:380px;}
+.applicationRe table.tb01 tbody tr td .tblSecNum {position:relative;}
+.applicationRe table.tb01 tbody tr td .tblSecNum:after {display:block;content:'';clear:both}
+.applicationRe table.tb01 tbody tr td .tblSecNum input {float:left;width:183px}
+.applicationRe table.tb01 tbody tr td .tblSecNum a {float:left;margin-left:-10px;width:50%;display:block;font-size:12px;line-height:35px;text-align:center;border-radius:4px;;background:#888;color:#fff;}
+.applicationRe table.tb01 tbody tr td .tblSecNum a:last-child {margin-left:10px}
+.applicationRe table.tb01 tbody tr td .tblSecNum span.d {float:left;width:14px;height:34px;line-height:34px;color:#bebebe;text-align:center;}
+.applicationRe table.tb01 tbody tr td .tblPhNum {position:relative;}
+.applicationRe table.tb01 tbody tr td .tblPhNum:after {display:block;content:'';clear:both}
+.applicationRe table.tb01 tbody tr td .tblPhNum select {float:left;width:183px}
+.applicationRe table.tb01 tbody tr td .tblPhNum input {float:left;width:183px}
+.applicationRe table.tb01 tbody tr td .tblPhNum span.d {float:left;width:14px;height:34px;line-height:34px;color:#bebebe;text-align:center;}
+.applicationRe table.tb01 tbody tr td .tblPhNum a {float:left;width:163px;font-size:15px;font-weight:bold;height:38px;line-height:38px;text-align:center;border-radius:4px;;background:#fff;color:#127bb2;border:1px solid #127bb2;}
+.applicationRe table.tb01 tbody tr td .tblPhNum a:last-child {margin-left:10px}
+.applicationRe table.tb01 tbody tr td .tblPhNum a.on {background:#127bb2;color:#fff;}
+.applicationRe table.tb01 tbody tr td .tblPhNum a.on:before{display:inline-block; content:''; margin-top:-5px; margin-right:2px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe table.tb01 tbody tr td .tblPhNum a.on:after{display:inline-block;margin-left:4px;content:' 완료';}
+.applicationRe table.tb01 tbody tr td .tblSearch {position:relative;}
+.applicationRe table.tb01 tbody tr td .tblSearch:after {display:block;content:'';clear:both}
+.applicationRe table.tb01 tbody tr td .tblSearch span {float:left;width:360px;border:1px solid #bebebe;border-radius:4px;line-height:24px;padding:7px 10px;}
+.applicationRe table.tb01 tbody tr td .tblSearch a {float:right;width:165px;font-size:15px;font-weight:bold;height:40px;line-height:40px;text-align:center;border-radius:4px;;background:#127bb2;color:#fff;}
+.applicationRe table.tb01 tbody tr td .tblSearch2 {position:relative;}
+.applicationRe table.tb01 tbody tr td .tblSearch2:after {display:block;content:'';clear:both}
+.applicationRe table.tb01 tbody tr td .tblSearch2 input {float:left;width:170px;margin-left:10px;}
+.applicationRe table.tb01 tbody tr td .tblSearch2 input:first-child {width:200px;margin-left:0;}
+.applicationRe table.tb01 tbody tr td .tblSearch2 a {float:right;width:165px;font-size:15px;font-weight:bold;height:40px;line-height:40px;text-align:center;border-radius:4px;;background:#127bb2;color:#fff;}
+.applicationRe table.tb01 tbody tr td.st {background:#f8f8f8;}
+.applicationRe table.tb01 tbody tr td strong {font-size:15px;font-weight:bold;color:#1699dd;}
+.applicationRe table.tb01 tbody tr td strong.inT {font-size:15px;font-weight:bold;color:#127bb5;}
+.applicationRe table.tb01 tr td.tdr {text-align:right;}
+.applicationRe table.tb01 tfoot tr th,
+.applicationRe table.tb01 tfoot tr td {padding:10px 5px;/* height:35px; */border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;text-align:left;}
+.applicationRe table.tb01 tfoot tr th {color:#127bb2;font-size:16px;font-weight:bold;line-height:1.2;}
+.applicationRe table.tb01 tfoot tr th span {font-size:13px;font-weight:normal;}
+.applicationRe table.tb01 tfoot tr td {font-size:13px;color:#666;vertical-align:top;}
+.applicationRe table.tb01 tfoot tr td strong {font-size:24px;font-weight:bold;color:#117cb4;}
+
+/* 청약개선 > 탭 메뉴 */
+.applicationRe .adTab {margin:0 0 20px 0;}
+.applicationRe .adTab:after {display:block;content:'';clear:both;}
+.applicationRe .adTab li {float:left;width:50%;border-top:1px solid #d0d0d0;}
+.applicationRe .adTab li a {display:block;box-sizing:border-box;height:45px;line-height:44px;font-weight:bold;font-size:14px;text-align:center;background:#f9f9f9;border-bottom:1px solid #d0d0d0;color:#333;}
+.applicationRe .adTab li.on a {position:relative;border-bottom:2px solid #127bb2;color:#127bb2;background:#fff;}
+
+.applicationRe .adTab2 {position:relative;padding:66px 0 0 0;}
+.applicationRe .adTab2:after {display:block;content:'';clear:both;}
+.applicationRe .adTab2 li {}
+.applicationRe .adTab2 li a.bTab_t {position:absolute;border-top:1px solid #d0d0d0;width:50%;display:block;box-sizing:border-box;height:50px;line-height:48px;font-weight:bold;font-size:17px;text-align:center;background:#fff;border-bottom:1px solid #d0d0d0;color:#888;}
+.applicationRe .adTab2 li.on > a.bTab_t {border-bottom:2px solid #127bb2;color:#127bb2;background:#fff;}
+.applicationRe .adTab2 li a.bTab_t {left:50%;top:0;}
+.applicationRe .adTab2 li:first-child a.bTab_t {left:0;top:0;}
+.applicationRe .adTab2 li:last-child a.bTab_t {left:50%;top:0;}
+
+/* 청약개선 > 탭 메뉴 > 휴대폰 동의 팝업 탭 */
+.applicationRe .ctTab {position:relative;padding:75px 0 0 0;}
+.applicationRe .ctTab li {}
+.applicationRe .ctTab li a {position:absolute;top:0;border:1px solid #bebebe;border-left:0 none;}
+.applicationRe .ctTab li.ct01 a {width:16%;left:0;border-left:1px solid #bebebe;border-radius:4px 0 0 4px;}
+.applicationRe .ctTab li.ct02 a {width:16%;left:16%;}
+.applicationRe .ctTab li.ct03 a {width:17%;left:32%;}
+.applicationRe .ctTab li.ct04 a {width:17%;left:49%;}
+.applicationRe .ctTab li.ct05 a {width:17%;left:66%;}
+.applicationRe .ctTab li.ct06 a {width:17%;right:0;border-radius:0 4px 4px 0;}
+.applicationRe .ctTab li a {display:block;box-sizing:border-box;height:45px;line-height:43px;font-size:15px;font-weight:bold;color:#666;text-align:center;background-color:#fff;}
+.applicationRe .ctTab li.on a {color:#fff;background-color:#127bb2;}
+
+/* .applicationRe .ctTab {border:1px solid #bebebe;border-radius:4px;overflow:hidden;}
+.applicationRe .ctTab:after {display:block;content:'';clear:both;}
+.applicationRe .ctTab li {float:left;width:16.6%;box-sizing:border-box;border-left:1px solid #bebebe;}
+.applicationRe .ctTab li:first-child {border-left:0 none;}
+.applicationRe .ctTab li:last-child {float:none;width:auto;overflow:hidden;}
+.applicationRe .ctTab li a {display:block;box-sizing:border-box;height:43px;line-height:43px;font-size:15px;font-weight:bold;color:#666;text-align:center;background-color:#fff;}
+.applicationRe .ctTab li.on a {position:relative;color:#fff;background-color:#127bb2;} */
+
+/* 청약개선 > 레이어팝업 공통 */
+.applicationRe .g_layer_box {right:0;bottom:0;}
+.applicationRe .g_layer_box.onTest {display:block !important;}
+.applicationRe .tip_layer_help .inner {margin-top:-164px;}
+.applicationRe .tip_layer_help .tip_cont {padding:15px 15px 0;font-size:13px;}
+.applicationRe .tip_layer_help .tip_cont .g_text_04 {font-size:13px;}
+.applicationRe .tip_layer_help .tip_cont .btnBox {margin-top:15px;}
+.applicationRe .g_layer_container h2 {font-size:17px;color:#222;font-weight:bold;margin-bottom:15px;}
+.applicationRe .g_layer_container h3 {font-size:17px;color:#222;font-weight:bold;margin-bottom:10px;}
+.applicationRe .planPop {padding:0 15px;}
+.applicationRe .payPopC {}
+.applicationRe .payPopC .inside {padding:22px 15px 15px;}
+.applicationRe .g_layer_container h2 em {position:absolute;right:0;font-size:12px;color:#666;font-weight:normal;}
+
+/* 청약개선 > 확인사항 문구 공통 */
+.applicationRe .cusBoxN {padding:20px 30px 5px;background:#fafafa;border:1px solid #d9d9d9;border-radius:4px;overflow:hidden;}
+.applicationRe .cusBoxN h4 {padding-top:10px;height:22px;line-height:22px;padding-left:25px;font-size:17px;font-weight:bold;color:#333;margin-bottom:10px;background:url(../images/applicationRe/icon_cus_h.png) no-repeat 0 11px;}
+.applicationRe .cusBoxN h4:first-child {border-top:0 none;padding-top:0;background-position:0 1px;}
+.applicationRe .cusBoxN p {font-size:14px;color:#555;line-height:1.65;margin-bottom:15px;letter-spacing:-1px;}
+.applicationRe .cusBoxN p a {font-weight:bold;color:#127bb2;}
+.applicationRe .cusBoxN p strong {font-weight:bold;color:#127bb2;}
+.applicationRe .cusBoxN ul {margin-bottom:15px;}
+.applicationRe .cusBoxN ul li {line-height:1.4;margin-bottom:8px;padding-left:8px;color:#333;font-size:13px; background:url('../images/applicationRe/bg_bul_01.png') no-repeat 0 8px; background-size:2px}
+.applicationRe .cusBoxN ul li strong {font-weight:bold;}
+
+/* 청약개선 > 청약 단계 Nav */
+.applicationRe .insurStepNav {margin-bottom:30px;}
+.applicationRe .insurStepNav.st01 {background:url(../images/applicationRe/bg_insur_s_nav.png) no-repeat 0 0;}
+.applicationRe .insurStepNav.st02 {background:url(../images/applicationRe/bg_insur_s_nav.png) no-repeat 0 -60px;}
+.applicationRe .insurStepNav.st03 {background:url(../images/applicationRe/bg_insur_s_nav.png) no-repeat 0 -120px;}
+.applicationRe .insurStepNav:after {display:block;content:'';clear:both;}
+.applicationRe .insurStepNav li {float:left;width:375px;height:60px;line-height:60px;font-size:18px;font-weight:bold;color:#666;text-align:center;}
+.applicationRe .insurStepNav li:first-child {width:350px;}
+.applicationRe .insurStepNav li span {position:relative;top:-2px;display:inline-block;width:25px;height:25px;line-height:22px;border-radius:50%;vertical-align:middle;font-size:20px;color:#fff;background:#888;}
+.applicationRe .insurStepNav li.on {font-size:20px;color:#fff;}
+.applicationRe .insurStepNav li.on span {top:-1px;color:#009bd7;background:#fff;}
+
+/* 청약개선 > 청약 정보 입력 영역 */
+.applicationRe .insurStepWrap {position:relative;border-radius:10px;background:#fff;padding:56px 60px 60px;}
+.applicationRe .insurStepWrap .insurStepLeft h3 {line-height:26px;font-size:22px;color:#000;font-weight:bold;letter-spacing:-1px;margin:43px 0 15px;}
+.applicationRe .insurStepWrap .insurStepLeft h3:first-child {margin-top:0;}
+.applicationRe .insurStepWrap .insurStepLeft h3 span {display:block;color:#127bb2;padding-top:5px;}
+.applicationRe .insurStepWrap .insurStepLeft h3 em {color:#127bb2;}
+
+/* 청약개선 > 청약 정보 입력 영역 > 왼쪽 영역 */
+.applicationRe .insurStepLeft {width:730px}
+.applicationRe .insurStepLeft .g_table_01 .g_btn_sel {vertical-align:middle}
+.applicationRe .insurStepLeft .g_table_01 .g_text_01 + .g_btn_sel {margin-top:5px}
+.applicationRe .insurStepLeft > .g_text_01 {margin-bottom:30px}
+.applicationRe .insurStepLeft .tinfo {/*display:block;*/ font-size:14px; font-weight:normal}
+.applicationRe .insurStepLeft .g_btn_sel + .ipt_ph_wrap {margin-top:10px}
+.applicationRe .insurStepLeft .g_btn_sel + .ipt_srch_wrap {margin-top:10px}
+
+/* 청약개선 > 청약 정보 입력 영역 > 오른쪽 영역 */
+.applicationRe .insurStepRight {position:absolute;right:60px;top:97px;width:224px;}
+.applicationRe .insurStepRight .insurShowRop {border:1px solid #d9d9d9;border-radius:6px;background:#fafafa;padding:10px 22px;font-size:14px;color:#222;line-height:1.45;margin-bottom:18px;letter-spacing:-1px;}
+.applicationRe .insurStepRight .insurShowRop strong {display:block;color:#127bb2;font-weight:normal;}
+.applicationRe .insurStepRight .insurShowBox {position:relative; z-index:2;border:2px solid #127bb2;width:192px;padding:0 14px 18px;border-radius:6px;background:#fff;}
+.applicationRe .insurStepRight .insurShowBox h3 {height:35px;line-height:35px;padding:10px 0;font-size:20px;font-weight:bold;text-align:center;color:#222;letter-spacing:-2px;}
+.applicationRe .insurStepRight .insurShowBox .plan_info {margin-bottom:10px;}
+.applicationRe .insurStepRight .insurShowBox .plan_amount {padding:8px 15px 15px;letter-spacing:-1px;text-align:right;background:#f2f6f7;border:1px solid #f2f6f7;font-size:12px;color:#222;border-radius:4px;margin-bottom:10px;}
+.applicationRe .insurStepRight .insurShowBox .plan_amount em {display:block;text-align:left;line-height:30px;font-size:16px;font-weight:bold;color:#222;}
+.applicationRe .insurStepRight .insurShowBox .plan_amount strong {height:45px;overflow:hidden;line-height:45px;margin-bottom:5px;display:block;text-align:center;letter-spacing:-2px;;font-size:40px;font-weight:bold;color:#127bb2;vertical-align:baseline;}
+.applicationRe .insurStepRight .insurShowBox .plan_amount strong span {margin-left:4px;position:relative;top:-3px;font-size:19px;color:#222;vertical-align:baseline;}
+.applicationRe .insurStepRight .insurShowBox .plan_items {position:relative;padding:0 5px;margin-bottom:25px;box-sizing:border-box;}
+.applicationRe .insurStepRight .insurShowBox .plan_items ul {height:72px; overflow:hidden}
+.applicationRe .insurStepRight .insurShowBox .plan_items li {line-height:24px;font-size:14px;color:#222;background:none;padding-left:0;margin-top:0;}
+.applicationRe .insurStepRight .insurShowBox .plan_items li:after {display:block; content:''; clear:both}
+.applicationRe .insurStepRight .insurShowBox .plan_items li span {float:left}
+.applicationRe .insurStepRight .insurShowBox .plan_items li strong {float:right;font-weight:bold;}
+.applicationRe .insurStepRight .insurShowBox .plan_items a.btn_show_others {position:absolute;left:0;bottom:-20px;display:block;width:100%;height:18px;text-indent:-9999em;background:url('../images/applicationRe/btn_togger_info.png') center 0 no-repeat;}
+.applicationRe .insurStepRight .insurShowBox .plan_items a.btn_show_others.expand {background-position:0 -20px;}
+.applicationRe .insurStepRight .insurShowBox .plan_box {padding:0 5px;margin:0 0 0;}
+.applicationRe .insurStepRight .insurShowBox .plan_box li {line-height:22px;}
+.applicationRe .insurStepRight .insurShowBox .plan_box li:after {display:block;content:'';clear:both;}
+.applicationRe .insurStepRight .insurShowBox .plan_box li > strong {float:left;font-size:13px;color:#222;font-weight:normal;}
+.applicationRe .insurStepRight .insurShowBox .plan_box li > span {float:right;font-size:13px;color:#666;}
+.applicationRe .insurStepRight .insurShowBox .g_text_01 {margin-top:13px;padding:0 4px 0 12px;text-indent:-8px;font-size:12px;letter-spacing:-1px;color:#666;line-height:1.4;}
+.applicationRe .insurStepRight .insurShowBox .g_text_01 span {font-weight:bold;}
+.applicationRe .insurStepRight .insur_dc_banner {margin-top:10px}
+.applicationRe .insurStepRight .insur_dc_banner img {width:219px; height:auto}
+
+/* 청약개선 > 1단계 : 개인정보 입력 */
+.applicationRe .insCheBo {padding:0 12px 10px;border-bottom:1px solid #e5e5e5;}
+.applicationRe .insCheBo:after {display:block;content:'';clear:both;}
+.applicationRe .insCheBo span {float:left;line-height:40px;font-size:15px;color:#222;font-weight:bold;}
+.applicationRe .insCheBo a {float:right;width:163px;font-size:15px;font-weight:bold;line-height:20px;text-align:center;border-radius:4px;padding:9px 0;background:#fff;color:#127bb2;border:1px solid #127bb2;}
+.applicationRe .insCheBo a.on {background:#127bb2;color:#fff;}
+
+/* 청약개선 > 1단계 : 빠른 직업입력 */
+.applicationRe .jobQuWrap {margin-bottom:15px;}
+.applicationRe .jobQuWrap:after {display:block;content:'';clear:both;}
+.applicationRe .jobQuWrap > em {float:left;color:#222;font-size:15px;line-height:24px;padding:7px 0;}
+.applicationRe .qJobList {float:right;width:450px;box-sizing:border-box;border-radius:4px;border:1px solid #888;background-color:#fff;overflow:hidden;}
+.applicationRe .qJobList li {position:relative;float:left;width:20%;height:38px;box-sizing:border-box;border-left:1px solid #888;}
+.applicationRe .qJobList li:first-child {border-left:0 none;}
+.applicationRe .qJobList li a {display:block;height:38px;line-height:38px;font-size:15px;color:#666;background:#fff;text-align:center;}
+.applicationRe .qJobList li a.on {background:#888;color:#fff;text-decoration:underline;}
+.applicationRe .qJobList li input[type="radio"] {position:absolute;left:-9999em;}
+.applicationRe .qJobList li input[type="radio"] + label {display:block;background:#888;overflow:hidden;height:38px;line-height:38px;color:#666;background:#fff;font-size:15px;text-align:center;cursor:pointer;padding:0;}
+.applicationRe .qJobList li input[type="radio"]:focus + label {/* outline:1px dotted red; */}
+.applicationRe .qJobList li input[type="radio"]:checked + label {background:#127bb2;color:#fff;}
+.applicationRe .qJobList li input[type="radio"]:checked + label:before{display:inline-block; content:''; margin-top:-4px; margin-right:3px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe .t01_addOt {border-top:1px solid #e5e5e5;margin-top:50px;}
+.applicationRe .t01_addOt li {padding:10px 30px;background:#fff;border-bottom:1px solid #e5e5e5;}
+.applicationRe .t01_addOt li:after {display:block;content:'';clear:both;}
+.applicationRe .t01_addOt li strong {float:left;width:460px;line-height:35px;font-size:14px;font-weight:bold;color:#222;font-weight:normal;}
+.applicationRe .t01_addOt li .btnBox {float:right;width:205px;height:35px;overflow:hidden;}
+.applicationRe .t01_addOt li .btnBox a {width:203px;height:33px;padding:0;margin-bottom:0;line-height:35px;border:1px solid #127bb2;color:#127bb2;background:#fff;}
+.applicationRe .t01_addOt li .btnBox a.on {background:#127bb2;color:#fff;}
+.applicationRe .t01_addOt li .btnBox a.on:before{display:inline-block; content:''; margin-top:-4px; margin-right:3px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe .kiCList {width:380px;box-sizing:border-box;border-radius:4px;border:1px solid #888;background-color:#fff;overflow:hidden;}
+.applicationRe .kiCList:after {display:block;content:'';clear:both;}
+.applicationRe .kiCList li {position:relative;float:left;width:25%;height:38px;box-sizing:border-box;border-left:1px solid #888;}
+.applicationRe .kiCList li:first-child {border-left:0 none;}
+.applicationRe .kiCList li a {display:block;height:38px;line-height:38px;font-size:15px;color:#666;background:#fff;text-align:center;}
+.applicationRe .kiCList li a.on {background:#888;color:#fff;text-decoration:underline;}
+.applicationRe .kiCList li input[type="radio"] {position:absolute;left:-9999em;}
+.applicationRe .kiCList li input[type="radio"] + label {display:block;background:#888;overflow:hidden;height:38px;line-height:38px;color:#666;background:#fff;font-size:15px;text-align:center;cursor:pointer;padding:0;}
+.applicationRe .kiCList li input[type="radio"]:focus + label {/* outline:1px dotted red; */}
+.applicationRe .kiCList li input[type="radio"]:checked + label {background:#127bb2;color:#fff;}
+.applicationRe .kiCList li input[type="radio"]:checked + label:before{display:inline-block; content:''; margin-top:-4px; margin-right:3px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+
+/* 청약개선 > 1단계 : 추가확인사항 */
+.applicationRe .inSelAgr {}
+.applicationRe .inSelAgr li .tit a {position:relative;display:block;box-sizing:border-box;line-height:20px;padding:10px;font-size:14px;letter-spacing:-1px;border-bottom:1px solid #ccc;background:url(../images/applicationRe/bg_toggle_arrow_down.png) no-repeat #f9f9f9 95% center;font-weight:bold;color:#333;}
+.applicationRe .inSelAgr li.on .tit a {background-image:url(../images/applicationRe/bg_toggle_arrow_up.png);}
+.applicationRe .inSelAgr .finish .tit a {}
+.applicationRe .inSelAgr .g_text_04,
+.applicationRe .inSelAgr .g_box_03 {font-size:14px;margin-bottom:5px;color:#555;font-weight:normal;}
+.applicationRe .inSelAgr .g_box_03 {padding:0 15px;}
+.applicationRe .inSelAgr .g_box_03 li {color:#333;}
+.applicationRe .inSelAgr .g_btn_sel {margin-bottom:15px}
+.applicationRe .inSelAgr .inSelA04Y {padding:0 15px 0;}
+.applicationRe .inSelAgr .inSelA04Y h5 {font-size:14px;margin-bottom:12px;color:#555;}
+.applicationRe .inSelAgr .inSelA04Y input {width:100px !important;}
+.applicationRe .inSelAgr .inSelA04Y select {width:165px !important;}
+.applicationRe .inSelAgr .cont {padding:15px 0;border-bottom:1px solid #ccc;background:#fff;f}
+.applicationRe .inSelAgr .cont .ipt_list li{padding:0}
+.applicationRe .inSelAgr .cont .ipt_list li:last-child{margin-bottom:20px}
+.applicationRe .inSelAgr .inner_isa {padding-top:20px;}
+.applicationRe .inSelAgr .inner_isa .tit a {background:url(../images/applicationRe/bg_toggle_arrow_down2.png) no-repeat #f7fcff 95% center;}
+.applicationRe .inSelAgr .inner_isa .on .tit a {background-image:url(../images/applicationRe/bg_toggle_arrow_up2.png);}
+.applicationRe .inSelAgr .inSelBox {position:relative;margin-top:20px;border:1px solid #dedede;border-radius:4px;}
+.applicationRe .inSelAgr .inSelBox:first-child {margin-top:0;}
+.applicationRe .inSelAgr .inSelBox h4 {font-size:17px;color:#222;border-radius:3px 3px 0 0;font-weight:bold;height:58px;line-height:58px;padding:0 20px;border-bottom:1px solid #dedede;background:#f9f9f9;}
+.applicationRe .inSelAgr .inSelBox .inSelTxtB {padding:18px 20px;}
+.applicationRe .inSelAgr .inSelBox ul.g_list_01 {}
+.applicationRe .inSelAgr .inSelBox ul.g_list_01 li {line-height:22px;padding-left:8px;font-size:14px;color:#555;background-position:left 10px;}
+.applicationRe .inSelAgr .inSelBox ul.g_list_01 li strong {color:#127bb2;}
+.applicationRe .inSelAgr .inSelBox .btnBox {position:absolute;width:206px;right:10px;top:12px;z-index:99;}
+.applicationRe .inSelAgr .inSelBox .btnBox label.fw2 {width:192px;}
+.applicationRe .inSelAgr .agree_box {padding:10px 0 0 0;}
+.applicationRe .inSelAgr .agree_box ul {}
+.applicationRe .inSelAgr .agree_box ul li {font-size:14px;letter-spacing:-0.05em;;color:#555;line-height:20px;/* background:url('../images/applicationRe/bg_bul_01.png')no-repeat 0 center;background-size:2px; */}
+.applicationRe .inSelAgr .agree_box ul li input {position:absolute;opacity:0;width:18px; height:18px}
+.applicationRe .inSelAgr .agree_box ul li label {display:inline-block;font-size:14px;font-weight:bold;padding-left:27px; line-height:22px;background:url('../images/common/bg_checkbox.png') 0 -179px no-repeat}
+.applicationRe .inSelAgr .agree_box ul li input:checked + label {background-position:0 -270px}
+.applicationRe .inSelAgr .agree_box ul li p {padding-top:6px;margin-bottom:15px;}
+.applicationRe .inSelAgr .agree_box ul li.c {padding-left:14px;text-indent:-14px;}
+
+/* 청약개선 > 1단계 : 추가확인사항 > 팁 레이어 */
+.applicationRe .inSelAgr .inSelBox .tipBtnWrap {display:inline;position:relative;}
+.applicationRe .inSelAgr .inSelBox .btn_tip {display:inline-block;vertical-align:middle;width:18px;height:18px;text-indent:-9999em; background:url('../images/applicationRe/icon_tip.png') 0 0 no-repeat}
+.applicationRe .inSelAgr .inSelBox .layer_tip_box {position:absolute;left:30px;top:-30px;border-radius:4px;z-index:9;padding:12px 10px;width:250px;border:2px solid #e1e3e2;background-color:#f7f7f7;}
+.applicationRe .inSelAgr .inSelBox .layer_tip_box:before {content:""; display:block;width:13px;height:23px;position:absolute;left:-13px;top:30px; background:url('../images/applicationRe/bg_tip_point.png') 0 0 no-repeat}
+.applicationRe .inSelAgr .inSelBox .layer_tip_box .inner {position:relative;font-size:12px; font-weight:normal; color:#333; line-height:1.5;}
+.applicationRe .inSelAgr .inSelBox .layer_tip_box .inner .btn_tip_close {position:absolute;top:-9px;right:-7px;display:block;width:17px; height:17px;text-indent:-9999em;background:url('../images/applicationRe/btn_tip_close.png') 0 0 no-repeat}
+.applicationRe .inSelAgr .inSelBox .layer_tip_box .tiTxt {}
+.applicationRe .inSelAgr .inSelBox .layer_tip_box .tiList li {font-size:12px;line-height:1.5;color:#333;background:url('../images/common/bg_bul_01.png') 0 8px no-repeat;}
+
+/* 청약개선 > 1단계 : 레이어팝업 > 주소찾기 */
+.applicationRe .g_layer_box.l_find_adrs .inner {width:650px}
+.applicationRe .g_layer_box.l_find_adrs .inside{min-height:590px;}
+.applicationRe .addSearWrap {margin-bottom:40px;}
+.applicationRe .addSearWrap .addSearBox {position:relative;padding:0 145px 0 89px;}
+.applicationRe .addSearWrap .addSearBox label {position:absolute;left:0;top:0;display:block;width:89px;height:45px;line-height:45px;font-size:16px;color:#222;font-weight:bold;}
+.applicationRe .addSearWrap .addSearBox input {width:100%;height:45px;margin-right:5px;}
+.applicationRe .addSearWrap .addSearBox a {position:absolute;right:0;top:0;display:block;width:140px;height:45px;line-height:45px;color:#fff;background:#127bb2;border-radius:4px;text-align:center;font-size:16px;font-weight:bold;}
+.applicationRe .addReWrap {margin-bottom:40px;}
+.applicationRe .addReWrap p {margin:-4px 0 10px;font-size:14px;color:#666;line-height:20px;}
+.applicationRe .addReWrap .addSelBox {max-height:219px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;overflow-y:scroll;}
+.applicationRe .addReWrap .addSelBox .reList {border-bottom:0 none;}
+.applicationRe .addReWrap .addSelBox .reList li:first-child {border-top:0 none;}
+.applicationRe .l_find_adrs .reList {border-bottom:1px solid #ccc;}
+.applicationRe .l_find_adrs .reList li {position:relative;font-size:16px;line-height:20px;color:#666; background-color:#fff;border-top:1px solid #ccc;padding:11px 15px 12px 105px;}
+.applicationRe .l_find_adrs .reList li a {font-size:16px;line-height:20px;color:#666; background-color:#fff}
+.applicationRe .l_find_adrs .reList li a:hover {text-decoration:underline;}
+.applicationRe .l_find_adrs .reList li a:hover span {text-decoration:underline;}
+.applicationRe .l_find_adrs .reList li span {display:block; position:absolute; top:0; left:0;bottom:0;width:90px;height:100%;background:#f7fcff;text-align:center;border-right:1px solid #ddd;line-height:43px;}
+.applicationRe .addDetWrap {margin-bottom:40px;}
+.applicationRe .addDetWrap .reList {margin-bottom:15px;}
+.applicationRe .addDetWrap .addDetBtn {position:relative;padding:0 145px 25px 0;}
+.applicationRe .addDetWrap .addDetBtn p {position:absolute;bottom:0;left:0;font-size:14px;color:#666;line-height:20px;}
+.applicationRe .addDetWrap .addDetBtn input {width:100%;height:45px;margin-right:5px;}
+.applicationRe .addDetWrap .addDetBtn a {position:absolute;right:0;top:0;display:block;width:140px;height:45px;line-height:45px;color:#fff;background:#127bb2;border-radius:4px;text-align:center;font-size:16px;font-weight:bold;}
+.applicationRe .addChoWrap .btnBox {padding:0;}
+.applicationRe .addChoWrap .btnBox .bu {background:#004986;}
+.applicationRe .addChoWrap .reList {margin-bottom:15px;}
+.applicationRe .addNSearWrap {margin-bottom:20px;}
+.applicationRe .addNSearWrap h2 {display:none;}
+.applicationRe .addNSearWrap .addNSearBox:after {display:block;content:'';clear:both;}
+.applicationRe .addNSearWrap .addNSearBox select {width:140px;height:45px;}
+.applicationRe .addNSearWrap .addNSearBox input {width:90px;height:45px;}
+.applicationRe .addNSearWrap .addNSearBox label {margin-right:4px;font-size:16px;font-weight:bold;color:#222;line-height:45px;}
+.applicationRe .addNSearWrap .addNSearBox .adNs01 {float:left;margin-bottom:20px;margin-right:38px;}
+.applicationRe .addNSearWrap .addNSearBox .adNs02 {float:left;margin-bottom:20px;}
+.applicationRe .addNSearWrap .addNSearBox .adNs03 {float:right;margin-bottom:20px;}
+.applicationRe .addNSearWrap .addNSearBox .adNs04 {clear:both;float:left;margin-bottom:20px;}
+.applicationRe .addNSearWrap .addNSearBox .adNsBtn {float:right;margin-bottom:20px;}
+.applicationRe .addNSearWrap .addNSearBox .adNsBtn a {display:block;width:165px;height:45px;line-height:45px;color:#fff;background:#127bb2;border-radius:4px;text-align:center;font-size:16px;font-weight:bold;}
+
+/* 청약개선 > 1단계 : 레이어팝업 > 직업찾기 */
+.applicationRe .g_layer_box.l_find_job .inner {width:650px}
+.applicationRe .jobCateWrap {margin-bottom:20px;}
+.applicationRe .jobCateWrap:after {display:block;content:'';clear:both;}
+.applicationRe .jobCateWrap h2 {margin-bottom:20px}
+.applicationRe .jobCateWrap .jobCateItem {float:left;width:177px;}
+.applicationRe .jobCateWrap .jobCateItem.jt01 {margin-left:0;}
+.applicationRe .jobCateWrap .jobCateItem.jt02 {margin-left:4%}
+.applicationRe .jobCateWrap .jobCateItem.jt03 {float:right;}
+.applicationRe .jobCateWrap .jobCateItem h3 {}
+.applicationRe .jobCateWrap .jobCateItem .jobListBox {height:219px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;overflow-y:scroll;}
+.applicationRe .jobCateWrap .reList {border-bottom:0 none;}
+.applicationRe .jobCateWrap .reList li {position:relative;font-size:16px;color:#666;background-color:#fff;border-top:1px solid #ccc;}
+.applicationRe .jobCateWrap .reList li:first-child {border-top:0 none;}
+.applicationRe .jobCateWrap .reList li.noList {line-height:20px;text-align:center;padding:90px 0 89px;}
+.applicationRe .jobCateWrap .reList input[type='radio'] + label{display:block;line-height:20px;padding:10px 5px 13px 35px;background:url('../images/common/bg_radio.png') 10px 12px no-repeat;cursor:pointer;}
+.applicationRe .jobCateWrap .reList input[type='radio']:checked + label{background-position:10px -78px;background-color:#f7fcff;}
+.applicationRe .jobCom {}
+.applicationRe .jobCom table.tb01 tbody th {font-weight:normal;font-size:16px;color:#666;text-align:left;}
+.applicationRe .jobCom table.tb01 tbody td {padding-left:28px;}
+.applicationRe .jobCom table.tb01 tbody td input[type="text"] {width:356px;}
+.applicationRe .jobCom .jComB {width:334px;line-height:23px;border:1px solid #bebebe;background:#efefef;border-radius:4px;padding:10px;}
+.applicationRe .jobSearchB {margin-bottom:40px;}
+.applicationRe .jobSearchB .jobSearBox {position:relative;padding:0 145px 0 0;}
+.applicationRe .jobSearchB .jobSearBox input {width:100%;height:45px;margin-right:5px;}
+.applicationRe .jobSearchB .jobSearBox a {position:absolute;right:0;top:0;display:block;width:140px;height:45px;line-height:45px;color:#fff;background:#127bb2;border-radius:4px;text-align:center;font-size:16px;font-weight:bold;}
+.applicationRe .jobSeCom {margin-bottom:40px;}
+.applicationRe .jobSeCom h2 {position:relative;}
+.applicationRe .jobSeCom h2 em {position:absolute;bottom:-9px;right:0;font-size:15px;color:#666;font-weight:normal;}
+.applicationRe .jobSeCom .jobCateList {max-height:219px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;overflow-y:scroll;}
+.applicationRe .jobSeCom .jobCateList .reList {border-bottom:0 none;}
+.applicationRe .jobSeCom .jobCateList .reList li {position:relative;font-size:16px;color:#666;background-color:#fff;border-top:1px solid #ccc;}
+.applicationRe .jobSeCom .jobCateList .reList li:first-child {border-top:0 none;}
+.applicationRe .jobSeCom .jobCateList .reList li.noList {line-height:20px;text-align:center;padding:90px 0 89px;}
+.applicationRe .jobSeCom .jobCateList .reList input[type='radio'] + label{display:block;line-height:20px;padding:10px 5px 13px 35px;background:url('../images/common/bg_radio.png') 10px 12px no-repeat;cursor:pointer;}
+.applicationRe .jobSeCom .jobCateList .reList input[type='radio']:checked + label{background-position:10px -78px;background-color:#f7fcff;}
+
+/* 청약개선 > 1단계 : 레이어팝업 > 휴대폰 본인인증 */
+.applicationRe .g_layer_box.l_agree .inner {width:650px}
+.applicationRe .LagForm {margin-bottom:40px;}
+.applicationRe .LagForm .lagFoBox {position:relative;padding:0 0 0 145px;}
+.applicationRe .LagForm select {position:absolute;left:0;top:0;width:140px;height:45px;}
+.applicationRe .LagForm span {display:block;line-height:23px;border:1px solid #bebebe;background:#efefef;border-radius:4px;padding:10px;color:#656565;font-size:16px;}
+.applicationRe .LagChek {position:relative;margin-bottom:40px;}
+.applicationRe .LagChek .btnBox {position:absolute;right:0;top:-5px;}
+.applicationRe .LagChek .btnBox input[type="checkbox"] + label {height:31px;line-height:31px;margin:0 auto;padding:0 10px;}
+.applicationRe .LagChek .btnBox input[type="checkbox"] + label:after{display:none;}
+.applicationRe .LagChek .agree_box {padding:7px 20px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;}
+.applicationRe .LagChek .agree_box ul {}
+.applicationRe .LagChek .agree_box ul li {position:relative;font-size:14px;color:#555;line-height:22px;background:none;padding:6px 0;}
+.applicationRe .LagChek .agree_box ul li input {width:20px;height:20px;}
+.applicationRe .LagChek .agree_box ul li label {line-height:22px;padding-left:24px;font-weight:normal;}
+.applicationRe .LagChek .agree_box ul li .btn_more {position:absolute;display:block;top:6px;right:0;height:22px;line-height:22px;font-size:13px; color:#555;background:url('../images/applicationRe/bg_btn_more.png') right 2px no-repeat;padding-right:25px;}
+.applicationRe .LagNum {position:relative;padding-top:38px;}
+.applicationRe .LagNum h2 {display:none;}
+.applicationRe .LagNum .LagCode {position:relative;padding:0 145px;}
+.applicationRe .LagNum .LagCode a {position:absolute;right:0;top:0;width:140px;height:45px;line-height:45px;display:block;font-size:16px;font-weight:bold;line-height:45px;text-align:center;border-radius:4px;padding:0 0;color:#fff;background:#127bb2;}
+.applicationRe .LagNum .LagCode input {width:100%;height:45px;/* padding-right:130px; */}
+.applicationRe .LagNum .LagCode span {position:absolute;top:-38px;left:0px;padding:0;display:block;font-size:16px;height:38px;line-height:38px;color:#656565;background:#fff;}
+.applicationRe .LagNum .LagCode button {position:absolute;cursor:pointer;left:0;top:0;width:140px;height:45px;display:block;font-size:16px;font-weight:bold;line-height:43px;text-align:center;border-radius:4px;padding:0 0;background:#888;color:#fff;border:1px solid #888;box-sizing:border-box;}
+
+/* 청약개선 > 1단계 : 레이어팝업 > 휴대폰 본인인증 > 동의 팝업 */
+.applicationRe .g_layer_box.l_phone_certifi .inner {width:820px}
+.applicationRe .g_layer_box.l_phone_certifi {position:fixed;top:0;left:0;width:100%;height:100%;z-index:99;background:none;display:none;}
+.applicationRe .g_layer_box.l_phone_certifi .certiTerCont {padding:0;font-size:14px;color:#555;line-height:1.65;}
+.applicationRe .l_phone_certifi .certiTerCont .REjs_tcont {height:380px;overflow-y:auto}
+.applicationRe .l_phone_certifi .certiTerCont .REjs_tcont .term_intro:first-child span {margin-top:0}
+.applicationRe .l_phone_certifi .certiTerCont .term_intro {}
+.applicationRe .l_phone_certifi .certiTerCont .term_intro span {display:block;margin:22px 0 6px;}
+.applicationRe .l_phone_certifi .certiTerCont .term_tit_01 {font-size:17px;font-weight:bold;color:#333;}
+.applicationRe .l_phone_certifi .certiTerCont .term_tit_02 {display:block;font-weight:normal;margin:22px 0 3px;}
+.applicationRe .l_phone_certifi .certiTerCont table.tb01 tbody tr th,
+.applicationRe .l_phone_certifi .certiTerCont table.tb01 tbody tr td {font-size:14px;color:#555;font-weight:normal;}
+
+/* 청약개선 > 1단계 : 레이어팝업 > 개인(신용)정보처리 동의 팝업 */
+.applicationRe .g_layer_box.l_personal_agree .inner {width:820px;}
+.applicationRe .g_layer_box.l_personal_agree#l_personal_agree_1 .inner {margin-top:-325px !important;}
+.applicationRe .g_layer_box.l_personal_agree#l_personal_agree_1 .g_layer_container {height:591px !important;}
+.applicationRe .perAgree {padding:0;}
+.applicationRe .perAgree h2 {margin-bottom:20px;}
+.applicationRe .perAgree .PerATxt {margin-bottom:40px;line-height:1.5;font-size:14px;color:#555;}
+.applicationRe .perAgree .PerATxt strong {font-size:15px;font-weight:bold;display:block;margin-bottom:8px;color:#333;}
+.applicationRe .perAgree .inSelBox {position:relative;margin-top:20px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
+.applicationRe .perAgree .inSelBox.to {margin-top:0;}
+.applicationRe .perAgree .inSelBox h3 {font-size:15px;color:#222;font-weight:bold;line-height:25px;padding:12px 235px 12px 20px;border-bottom:1px solid #ddd;background:#f9f9f9;}
+.applicationRe .perAgree .inSelBox .inSelTxtB {margin:20px 20px 30px;border:1px solid #d9d9d9;border-radius:4px;overflow:hidden;}
+.applicationRe .perAgree .inSelBox .inSelTxtB .overBox {padding:10px;height:100px;overflow-y:scroll;}
+.applicationRe .perAgree .inSelBox .inSelTxtB .overBox * {font-size:13px !important;}
+.applicationRe .perAgree .inSelBox .inSelTxtB .overBox span.tb {font-size:16px !important;font-weight:bold;margin-top:12px;}
+.applicationRe .perAgree .inSelBox .inSelTxtB .overBox .tR {padding:15px 0 10px;text-align:right;}
+.applicationRe .perAgree .inSelBox .g_title_04 {display:block; margin:15px 0 5px; font-size:13px; line-height:20px; font-weight:bold}
+.applicationRe .perAgree .inSelBox .g_title_04:first-child {margin-top:0}
+.applicationRe .perAgree .inSelBox .g_text_03 {margin-bottom:10px; font-size:13px; color:#333; line-height:20px}
+.applicationRe .perAgree .inSelBox .g_list_01 {margin-bottom:6px;}
+.applicationRe .perAgree .inSelBox .btnBox {position:absolute;width:206px;right:20px;top:7px;z-index:99;}
+.applicationRe .perAgree .cusBoxN {margin-top:50px;}
+.applicationRe .chBx {margin-top:-10px;padding:0 30px 20px}
+.applicationRe .chBx .g_title_04 {font-weight:bold;}
+.applicationRe .chBx .g_chkrdo_wrap {display:block;margin-top:5px}
+.applicationRe .chBx .g_chkrdo_wrap span {display:inline-block;margin-bottom:5px}
+.applicationRe .chBx .g_chkrdo_wrap label {margin-right:15px;vertical-align:middle}
+.applicationRe .chBx .tb {font-size:12pt !important;font-weight:bold;color:#555;}
+.applicationRe .chBx .g_chkrdo_wrap.tb label {font-size:12pt !important;font-weight:bold;color:#555;}
+
+
+
+
+
+
+
+
+
+
+/* 청약개선 > 2단계 : 가입전 알릴 의무사항 */
+.applicationRe .joBefoCho {border-top:1px solid #e5e5e5;}
+.applicationRe .joBefoCho .inSelBox {position:relative;padding:11px 30px 8px;border-bottom:1px solid #e5e5e5;font-size:13px;}
+.applicationRe .joBefoCho .inSelBox:after {display:block;content:'';clear:both;}
+.applicationRe .joBefoCho .inSelBox .inSeNum {position:absolute;top:18px;left:30px;display:block;width:20px;height:20px;line-height:19px;font-weight:normal;text-align:center;color:#fff;font-size:15px;background:#999;border-radius:50%;}
+.applicationRe .joBefoCho .inSelBox .inSelTx {float:left;clear:both;padding:5px 0 0 24px;}
+.applicationRe .joBefoCho .inSelBox .inSelTx p {font-size:14px;color:#222;line-height:1.6;margin-bottom:10px;font-weight:normal;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox {clear:both;padding:10px 0;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox p {font-size:14px;color:#555;margin-bottom:15px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .tb01 {}
+.applicationRe .joBefoCho .inSelBox .inSeaddBox .tb01 th {text-align:center;padding:10px 0;}
+.applicationRe .joBefoCho .inSelBox .tb01 th {padding:10px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .tb01 td select {width:80px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .tb01 td select.fw {width:165px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .tb01 td button {width:31px;height:31px;overflow:hidden;text-indent:-9999em;border:0 none;cursor:pointer;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .tb01 td button.addTb {background:url(../images/applicationRe/btn_se_box_add.png) no-repeat 0 0;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .tb01 td button.delTb {background:url(../images/applicationRe/btn_se_box_del.png) no-repeat 0 0;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .tb01 .s2CloneC {dis play:none;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .chLi {}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .chLi:after {display:block;content:'';clear:both;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .chLi li {float:left;margin:0 14px 8px 0;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox .chLi li label {margin-left:4px;font-weight:normal;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox.canSm .tb01 th {text-align:left;padding:10px;letter-spacing:-1px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox.canSm .tb01 td span {letter-spacing:-1px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox.canSm .tb01 input {width:80px;padding:0 5px;text-align:right;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox.canSm .tb01 input.t2 {width:50px;padding:0 5px;text-align:right;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox.canSm .tb01 td select {width:100px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox.hob .tb01 th {text-align:left;padding:10px;letter-spacing:-1px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox.hob .tb01 input {width:100%;padding:0 5px;}
+.applicationRe .joBefoCho .inSelBox .inSeAddBox.hob .tb01 input.t2 {width:60px;padding:0 5px;text-align:right;}
+
+.applicationRe .joBefoCho .inSelBox .al {margin-bottom:10px;}
+.applicationRe .joBefoCho .inSelBox .al input {width:80px;}
+.applicationRe .joBefoCho .inSelBox .al .ti {display:inline-block;width:50%;}
+.applicationRe .joBefoCho .inSelBox .al select {width:50%;}
+.applicationRe .joBefoCho .inSelBox ul.g_list_01 {}
+.applicationRe .joBefoCho .inSelBox ul.g_list_01 li {line-height:19px;padding-left:8px;font-size:13px;color:#666;background-position:left 8px;}
+.applicationRe .joBefoCho .inSelBox .btnBox {float:right;height:38px;margin:0;}
+
+/* 고객강화의무 edd layer 추가 2017-12-19 
+------------------------------------------ */
+.applicationRe .edd_layer.g_layer_box .inner{width:820px}
+.applicationRe .edd_layer h2.g_title_04{padding-bottom:30px; letter-spacing:-0.05em}
+.applicationRe .edd_layer .insur_info{padding:30px 27px; border:1px solid #d9d9d9; background-color:#fafafa}
+.applicationRe .edd_layer .insur_info:after{display:block; content:''; clear:both}
+.applicationRe .edd_layer .insur_info *{letter-spacing:-0.05em}
+
+.applicationRe .edd_layer .insur_info > p{margin:22px 0 8px; color:#222; font-size:14px; font-weight:bold}
+.applicationRe .edd_layer .insur_info > p:first-child{margin-top:0}
+.applicationRe .edd_layer .insur_info strong{margin-left:6px; font-weight:normal}
+.applicationRe .edd_layer .g_chkrdo_wrap{width:560px}
+.applicationRe .edd_layer .g_chkrdo_wrap label{width:109px; height:34px; line-height:34px; margin:0 0 4px 0;}
+.applicationRe .edd_layer .g_chkrdo_wrap input[class^='g_radio_'] + label{background-position: 0 9px}
+.applicationRe .edd_layer .g_chkrdo_wrap input.g_radio_01:checked + label{background-position:0 -81px}
+.applicationRe .edd_layer .g_chkrdo_wrap label[for='income05']{width:auto}
+.applicationRe .edd_layer .g_chkrdo_wrap input[type='text']{width:275px; margin-left:5px; vertical-align:top}
+.applicationRe .edd_layer .g_chkrdo_wrap input.disable{background:#ebebe4}
+
+/* 청약개선 > 3단계 : 가입 문서 확인 및 보험료 납부 */
+.applicationRe .insDocChek {}
+.applicationRe .insDocChek > p {font-size:14px;color:#555;}
+.applicationRe .insDocChek .iDList {position:relative;padding-top:20px;}
+.applicationRe .insDocChek .iDList:after {display:block;content:'';clear:both;}
+.applicationRe .insDocChek .iDList li {float:left;width:33.3%;padding:117px 0 0 0;}
+.applicationRe .insDocChek .iDList.n3 li {float:left;width:33.3%;}
+.applicationRe .insDocChek .iDList.n4 li {float:left;width:25%;}
+.applicationRe .insDocChek .iDList li.idL01 {background:url(../images/applicationRe/bg_i_dlist_01.png) no-repeat center 0;}
+.applicationRe .insDocChek .iDList li.idL02 {background:url(../images/applicationRe/bg_i_dlist_02.png) no-repeat center 0;}
+.applicationRe .insDocChek .iDList li.idL03 {background:url(../images/applicationRe/bg_i_dlist_03.png) no-repeat center 0;}
+.applicationRe .insDocChek .iDList li.idL04 {background:url(../images/applicationRe/bg_i_dlist_04.png) no-repeat center 0;}
+.applicationRe .insDocChek .iDList li a {display:block;width:148px;margin:0 auto ;font-size:14px;line-height:1.3;text-align:center;border-radius:4px;padding:7px 0 9px;background:#fff;color:#127bb2;border:1px solid #127bb2;}
+.applicationRe .insDocChek .iDList li a.on {background:#127bb2;color:#fff;}
+.applicationRe .insDocChek .iDList li a.on:before{display:inline-block; content:''; margin-top:-3px; margin-right:6px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe .insDocChek .iDList li a.on span:after{display:inline-block;margin-left:4px;content:'완료';}
+.applicationRe .insDocChek .iDList li a span {display:inline-block;text-align:center;vertical-align:middle;}
+.applicationRe .insDocChek .iDList li a span {display:inline-block;text-align:center;vertical-align:middle;}
+
+/* 청약개선 > 3단계 : 가입 문서 확인 및 보험료 납부 > 납부정보 입력 */
+.applicationRe table.payTb {margin-bottom:50px;}
+.applicationRe table.payTb .cardNumb select {width:145px;margin-right:4px;}
+.applicationRe table.payTb .cardNumb input {width:80px !important;}
+.applicationRe table.payTb .cardNumb span.d {height:34px;line-height:34px;color:#bebebe;text-align:center;}
+.applicationRe table.payTb .cardDate select {width:100px;margin-right:4px;text-align:right;}
+.applicationRe table.payTb .cardDate a.cardCk {display:inline-block;width:120px;text-align:center;font-size:15px;color:#fff;height:38px;line-height:38px;border:1px solid #127bb2;color:#127bb2;background:#fff;vertical-align:middle;border-radius:4px;}
+.applicationRe table.payTb .cardDate a.cardCk.on {background:#127bb2;color:#fff;}
+.applicationRe table.payTb .cardDate a.cardCk.on:before{display:inline-block; content:''; margin-top:-4px; margin-right:3px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe table.payTb .bankNumb select {width:145px;margin-right:4px;}
+.applicationRe table.payTb .bankNumb input {width:245px !important;}
+.applicationRe table.payTb .bankNumb .bnTxt {display:block;font-size:14px;color:#666;padding:6px 0 0 0;}
+.applicationRe table.payTb .bankDate:after {display:block;content:'';clear:both;}
+.applicationRe table.payTb .bankDate a.bankCk {display:inline-block;width:120px;text-align:center;font-size:15px;color:#fff;height:38px;line-height:38px;border:1px solid #127bb2;color:#127bb2;background:#fff;vertical-align:middle;border-radius:4px;}
+.applicationRe table.payTb .bankDate a.bankCk.on {background:#127bb2;color:#fff;}
+.applicationRe table.payTb .bankDate a.bankCk.on:before{display:inline-block; content:''; margin-top:-4px; margin-right:3px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe table.payTb .bankDate .bDList {display:inline-block;vertical-align:middle;;width:325px;box-sizing:border-box;border-radius:4px;border:1px solid #bebebe;background-color:#fff;overflow:hidden;}
+.applicationRe table.payTb .bankDate .bDList li {position:relative;float:left;width:25%;height:38px;box-sizing:border-box;border-left:1px solid #bebebe;}
+.applicationRe table.payTb .bankDate .bDList li:first-child {border-left:0 none;}
+.applicationRe table.payTb .bankDate .bDList li input[type="radio"] {position:absolute;left:-9999em;}
+.applicationRe table.payTb .bankDate .bDList li input[type="radio"] + label {display:block;cursor:pointer;overflow:hidden;height:38px;line-height:38px;color:#666;background:#fff;font-size:15px;text-align:center;padding:0 4px;}
+.applicationRe table.payTb .bankDate .bDList li input[type="radio"]:focus + label {/* outline:1px dotted red; */}
+.applicationRe table.payTb .bankDate .bDList li input[type="radio"]:checked + label {background:#127bb2;color:#fff;}
+.applicationRe table.payTb .bankDate .bDList li input[type="radio"]:checked + label:before{display:inline-block; content:''; margin-top:-4px; margin-right:3px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+
+/* 청약개선 > 3단계 : 가입 문서 확인 및 보험료 납부 > 납부방법 탭 */
+.applicationRe .bTab {position:relative;}
+.applicationRe .bTab:after {display:block;content:'';clear:both;}
+.applicationRe .bTab li {float:left;}
+.applicationRe .bTab li a.bTab_t {width:120px;display:block;box-sizing:border-box;height:40px;line-height:38px;font-weight:normal;font-size:15px;text-align:center;background:#fff;border:1px solid #bebebe;color:#666666;}
+.applicationRe .bTab li.on > a.bTab_t {color:#fff;background:#127bb2;border-color:#127bb2;}
+.applicationRe .bTab li.on > a.bTab_t:before{display:inline-block; content:''; margin-top:-3px; margin-right:4px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe .bTab li:first-child a.bTab_t {border-radius:4px 0 0 4px;border-right:0;}
+.applicationRe .bTab li:last-child a.bTab_t {border-radius:0 4px 4px 0;border-left:0;}
+
+/* 청약개선 > 3단계 : 가입 문서 확인 및 보험료 납부 > 포인트결제 */
+.applicationRe .cardP .btnBox:after {display:block;content:'';clear:both;}
+.applicationRe .cardP .btnBox input[type="radio"] {position:absolute;left:-9999em;}
+.applicationRe .cardP .btnBox input[type="radio"] + label {width:120px;float:left;box-sizing:border-box;height:40px;line-height:38px;font-size:15px;text-align:center;background:#fff;border:1px solid #bebebe;color:#666666;font-weight:normal;}
+.applicationRe .cardP .btnBox input[type="radio"]:focus + label {/* outline:1px dotted red; */}
+.applicationRe .cardP .btnBox input[type="radio"]:checked + label {color:#fff;background:#127bb2;border-color:#127bb2;}
+.applicationRe .cardP .btnBox input[type="radio"]:checked + label:before{display:inline-block; content:''; margin-top:-3px; margin-right:4px; width:16px; height:12px; vertical-align:middle; background:url('../images/applicationRe/bg_btn_sel.png') 0 50% no-repeat;}
+.applicationRe .cardP .btnBox input + label:nth-of-type(1) {border-radius:4px 0 0 4px;}
+.applicationRe .cardP .btnBox input + label:nth-of-type(2) {border-radius:0 4px 4px 0;border-left:0;}
+
+.applicationRe .agrPayC {margin:25px 0 0;}
+.applicationRe .agrPayC input {}
+.applicationRe .agrPayC label {font-size:14px;color:#127bb4;font-weight:normal !important;}
+
+.applicationRe .agrPayC input.ie8 {position:static !important; margin-top:-5px;filter:alpha(opacity=100);}
+.applicationRe .agrPayC input.ie8 + label,
+.applicationRe .agrPayC input.ie8 + label {padding-left:0 !important; background-image:none !important;}
+
+/* 청약개선 > 3단계 : 레이어팝업 > 전자 서명 및 보험료 납부, 카카오페이 인증 안내 */
+.applicationRe #PayPopUp01 {}
+.applicationRe #PayPopUp01 .ppS1t {margin-bottom:24px;text-align:center;font-size:17px;line-height:1.5;font-weight:normal;color:#333;letter-spacing:-0.06em;}
+.applicationRe #PayPopUp01 .ppS1t strong {font-weight:bold;}
+.applicationRe #PayPopUp01 .btnBox {margin-bottom:25px;}
+.applicationRe #PayPopUp01 .btnBox a {height:40px;border:0 none;font-size:18px;font-weight:bold;color:#fff;line-height:40px;border-radius:4px;margin-bottom:0;background:#004986;}
+.applicationRe #PayPopUp01 .btnBox a.BtnC {background:#ffdb00;color:#000;border:0 none;}
+.applicationRe #PayPopUp01 .btnBox a.BtnC:before {display:inline-block;vertical-align:top;margin-right:6px;content:'';width:30px;height:40px;background:url(../images/applicationRe/icon_kakao_pay_b.png) no-repeat center;}
+.applicationRe #PayPopUp01 .kkTxt {position:relative;background:#fff;font-size:14px;color:#666;padding:10px 15px 15px 55px;border:1px solid #ccc;border-radius:4px;letter-spacing:-1px;}
+.applicationRe #PayPopUp01 .kkTxt strong {height:25px;margin:0 0 4px -40px;line-height:25px;padding-left:40px;background:url(../images/applicationRe/icon_kakao_pay_s.png) no-repeat 0 0;display:block;font-weight:bold;color:#333;}
+.applicationRe #PayPopUp01 .kkTxt:after,
+.applicationRe #PayPopUp01 .kkTxt:before {bottom:100%;left:80%;border:solid transparent;content:'';width:0;height:0;position:absolute;pointer-events:none;}
+.applicationRe #PayPopUp01 .kkTxt:after {border-color:rgba(255,255,255,0);border-bottom-color:#fff;border-width:10px;margin-left:-10px;}
+.applicationRe #PayPopUp01 .kkTxt:before {border-color:rgba(255,255,255,0);border-bottom-color:#ccc;border-width:12px;margin-left:-12px;}
+.applicationRe #PayPopUp02 {}
+.applicationRe #PayPopUp02 .kaPy2 {padding-left:80px;background:url(../images/applicationRe/icon_kakao_pay.png) no-repeat 0 0;}
+.applicationRe #PayPopUp02 .kaPy2 p.kaT1 {margin-bottom:15px;font-size:17px;font-weight:bold;line-height:1.5;color:#333;letter-spacing:-0.06em;}
+.applicationRe #PayPopUp02 .kaPy2 p.kaT2 {font-size:14px;color:#333;line-height:1.7;margin-bottom:25px;}
+
+/* 청약개선 > 입력 외 영역 */
+.applicationRe .insurNotiWrap {position:relative;border-radius:10px;background:#fff;padding:50px 185px;}
+.applicationRe .insurNotiWrap .SeBtnBox {margin-top:50px;}
+
+/* 청약개선 > 가입신청완료 */
+.applicationRe .insComP {background:url('../images/applicationRe/bg_ins_comp.png') 25px 0 no-repeat;}
+.applicationRe .insComP > h3 {min-height:110px;padding-left:240px;margin-bottom:38px;font-size:26px;font-weight:normal;color:#222;line-height:1.5;letter-spacing:-2px;}
+.applicationRe .insComP .tb01 {margin-bottom:40px;}
+
+/* 청약개선 > 가입불가안내 */
+.applicationRe .outInsur .top_guide {padding-left:240px;margin-bottom:38px;background:url('../images/applicationRe/bg_out_insur.png') 26px 31px no-repeat;}
+.applicationRe .outInsur .top_guide h3 {font-size:26px;margin-bottom:15px;font-weight:normal;color:#222;line-height:1.5;letter-spacing:-2px;}
+.applicationRe .outInsur .top_guide p {font-size:15px;color:#666;line-height:1.6;}
+.applicationRe .customer_info {padding:20px 30px;background:#fafafa;border:1px solid #d9d9d9;border-radius:4px;overflow:hidden;}
+.applicationRe .customer_info .inner {text-align:center;}
+.applicationRe .customer_info span {display:block;font-size:15px;color:#555;margin-bottom:2px;letter-spacing:-0.03em;;}
+.applicationRe .customer_info strong {display:block;font-size:22px;font-weight:bold;letter-spacing:-1px;color:#222;line-height:36px;margin-bottom:2px;}
+.applicationRe .customer_info strong em {font-size:27px;color:#127bb2;vertical-align:top;margin-left:3px;}
+.applicationRe .customer_info p {font-size:16px;color:#666;}
+.applicationRe .outInsur.seIng .top_guide {background:url('../images/applicationRe/bg_out_se_ing.png') 26px 36px no-repeat;}
+.applicationRe .outInsur.seIng .SeBtnBox {margin:0 0 50px}
+.applicationRe .outInsur.seEnd .top_guide {min-height:106px;background:url('../images/applicationRe/bg_out_se_end.png') 26px 0 no-repeat;}
+
+/*=======================================
+	스타일 재정의 20180419 ~
+=======================================*/
+
+/* 가입전 알릴 의무사항 스타일 추가 */
+.applicationRe .insurStepTwo .inSeAddBox .tb01 input[type='text'] {width: 100%;}
+.applicationRe .insurStepTwo .inSeAddBox .tb01 input.w1 {width: 65px;}
+.applicationRe .insurStepTwo .inSeAddBox .tb01 input.w2 {width: 40px;}
+.applicationRe .insurStepTwo .inSeAddBox .tb01 input.w3 {width: 50px;}
+.applicationRe .insurStepTwo .inSeAddBox .tb01 input.w4 {width: 80px;}
+.applicationRe .insurStepTwo .inSeAddBox .tb01 .rowLast {padding: 0; text-align: center; border-left: 1px solid #e5e5e5;}
+
+/* 공통 width */
+.W100 {width: 100% !important;}
+

@@ -1,0 +1,381 @@
+@CHARSET "UTF-8";
+ 
+body, button {
+	margin: 0 auto;
+	font-family:'Malgun Gothic', Dotum,Verdana,AppleGothic,Sans-serif;
+	font-size: 12px;
+	color: #383838;
+	line-height: 1.5;
+	letter-spacing: -0.5px;
+	*letter-spacing: -0.8px;
+}
+
+h3 {
+    font-size: 25px;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+h3 span{
+	color:#147bfd;
+}
+
+
+/* Q&A */
+.qna_list{margin-top:15px;border-bottom:1px solid #222}
+.qna_list li:first-child .tit{border-top:1px solid #222}
+.qna_list li:last-child .tit{border-bottom:0 none}
+.qna_list li:last-child .cont{border-bottom:0 none; border-top:1px solid #c0c0c0}
+.qna_list li .tit{position:relative;padding:10px 0;margin-top:0;border-top:1px solid #c0c0c0;line-height:30px;font-size:15px;color:#555;box-sizing:border-box}
+.qna_list li .tit .sort{display:inline-block;width:180px; text-align:center;font-weight:bold}
+.qna_list li .tit .qst{display:inline-block; position:relative; width:820px; padding-left:45px; color:#333; line-height:28px}
+.qna_list li .tit .qst strong, .qna_list li .cont .answer strong{display:block; position:absolute; top:0; left:10px; width:28px; height:28px; text-indent:-9999em; background:url('/images/customerRe/bg_qna_icon.png') 0 0 no-repeat}
+.qna_list li .cont .answer strong{background-position:0 -28px}
+.qna_list li .cont{padding:30px 28px 30px 184px;line-height:20px;border-top:1px solid #c0c0c0}
+.qna_list li .cont .answer{display:inline-block;position:relative;padding:5px 0 0 40px;color:#555;vertical-align:top}
+.qna_list li .tit .qst:after{position:absolute; top:0; right:-125px; display:block; content:''; width:21px; height:30px; text-indent:-9999em; background:url('/images/customerRe/btn_up_down.png') 0 -78px no-repeat}
+.qna_list li.on .tit .qst:after{background-position:0 8px}
+.qna_list li.on .tit .qst{font-weight:bold;text-decoration:underline}
+
+.sort_box div[class^='js_tcont']{padding:30px 0 42px;/*min-height:655px*/min-height:615px}
+.many_tab_wrap{position:relative;margin:50px 0 30px}
+.many_tab_wrap .many_tabs{height:68px}
+.many_tab_wrap ul{position:absolute; top:0; left:0}
+.many_tab_wrap .many_tab_nav{display:none}
+.many_tab_wrap a[class^='btn_tab_']{position:absolute; top:0; display:block; float:left; width:35px; border:1px solid #fff;height:62px; box-sizing:border-box; text-indent:-9999em; background-color:#fff; background-image:url('../images/common/bg_tab_arrow.png'); background-repeat:no-repeat}
+.many_tab_wrap .btn_tab_prev{left:0;background-position:10px 14px}
+.many_tab_wrap .btn_tab_next{right:0; margin-left:-1px; width:36px;background-position:10px -114px}
+.many_tab_wrap.on{padding:0 35px; overflow:hidden}
+.many_tab_wrap.on ul{left:34px}
+.many_tab_wrap.on .many_tab_nav{display:block}
+.sort_box .many_tab_wrap.on li{width:172px}
+.sort_box .many_tab_wrap li a{vertical-align:middle;font-size:16px}
+
+.qna_help{border:1px solid #d7d7d7;padding:17px 30px;margin-top:5px;clear:both}
+.qna_help .qs{float:left}
+.qna_help .qs strong{font-size:15px;font-weight:bold}
+.qna_help .qs strong:before{margin:2px 10px 0 0;vertical-align:top;display:inline-block;content:"?";width:18px;padding-left:2px;height:20px;line-height:21px;background:#147bfd;border-radius:50%;color:#fff;text-align:center;font-size:15px;font-weight:normal}
+.qna_help .answer{float:right;font-size:15px;font-weight:bold}
+.qna_help .answer .tel{color:#147bfd}
+.qna_help .answer .time{color:#717071}
+.qna_help:after{display:block; content:''; clear:both}
+
+
+
+.box_faq{
+	position:relative;
+}
+
+ .box_faq .g_btn_04 {
+ 	position:absolute; 
+ 	top:5px; 
+ 	right:0px;
+    float:right;
+    overflow:hidden;
+}
+
+
+.installPC_wrap {
+	 text-align:center;
+}
+
+
+.installPC_wrap .container {
+	width: 740px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.installMSG ul {
+	text-align: left;
+	margin: 10px 0px 20px 0px ;
+}
+
+.installMSG li {
+	*margin-left: 30px;
+}
+
+#VP_msg_installed ul, #VP_msg_notinstall ul, #VP_msg_unsupported ul, #pcInfo_area ul {
+	text-align: left;
+	margin: 10px 0px 20px 0px ;
+}
+
+#VP_msg_installed li, #VP_msg_notinstall li, #VP_msg_unsupported ul {
+	*margin-left: 30px;
+}
+
+#pcInfo_area li{
+	padding-right: 7px;
+	margin-left : -15px;
+	*margin-left : 30px;
+}
+
+.installPC_wrap #pcInfo_area{
+	width: 650px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 1px solid #888888;
+	background-color: #FAFCFF;
+}
+
+
+/*********************************/
+/*            table              */
+/*********************************/
+
+.tbl_install {
+	border-top: 1px solid #777777;
+	width: 680px;
+	margin: 0 auto;
+}
+.tbl_install tr th {
+	background-color: #efefef;
+	height: 30px;
+}
+
+.tbl_install tr td{
+	font-size: 13px;
+	height: 60px;
+	border-bottom: 1px solid #e0e1e2;
+}
+
+.tbl_install tr:nth-of-type(odd) {
+  	background-color:#ffffff;
+}
+
+.tbl_install tr:nth-of-type(even) {
+  	background-color:#ffffff;
+}
+.tbl_install_org tr:nth-of-type(even) {
+	background-color:#FCFDFF;
+	border-radius:4px;
+}
+
+.g_table_01 .gubun_01{
+	color:#147bfd;
+	border:1px solid #147bfd;
+	width:50px;
+	height: 23px;
+	border-radius:15px;
+	font-size: 12px;
+	line-height: 23px;
+	margin-left: 8px;	
+}
+
+.g_table_01 th {
+    background-color: #147bfd;
+    color:#fff;
+    font-size: 13px;
+    padding: 11px 5px 12px;
+    height: auto;
+}
+
+.g_table_01 .gubun_02{
+	/* 
+	color:#009b9a; 
+	border:1px solid #009b9a; 
+	 */
+	color:#777; 
+	border:1px solid #777777; 	
+	width:50px;
+	height: 23px;
+	border-radius:15px;
+	font-size: 12px;
+	line-height: 23px;
+	margin-left: 8px;	
+}
+
+.g_table_01 .gubun_03{
+	color:#009b9a; 
+	border:1px solid #009b9a; 
+	width:50px;
+	height: 23px;
+	border-radius:15px;
+	font-size: 12px;
+	line-height: 23px;
+	margin-left: 8px;	
+}
+
+.g_table_01 #name{
+	text-align:left;
+	padding-left:15px;
+}
+
+.g_table_01 #name b{
+	color: #147bfd;
+	font-size:14px;
+}
+
+.g_table_01 #info{
+	font-size: 12px;
+	text-align: left;
+}
+
+.g_table_01 #status{
+	/* color:#0074b7; */
+	text-align: center;
+	color:#333;
+}
+
+.g_table_01 span.install_yes {
+	color:#147bfd;
+	/* color:#333; */
+}
+.g_table_01 span.install_no{
+	font-weight: bold;
+	color:#f6a02f;
+	/* color:#333; */
+}
+
+.g_table_01.mb50 tbody td{
+	padding:0;
+}
+
+.g_table_01 span{
+	color:	#147bfd;
+	font-weight:bold;
+}
+
+.box_faq{
+	text-align:left;
+}
+
+.tit_faq {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 28px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: #222;
+}
+
+/*********************************/
+/*            button             */
+/*********************************/
+button {
+	/* font-weight:bold; */
+	margin-top: 5px;
+	padding: 4px;
+	*padding: 3px;
+	background-color: #555;
+	border:0;
+	color:#ffffff;
+	overflow:visible; 		/* ie6,7에서 버튼의 너비가 가변적인 경우 여분의 패딩이 생기는것을 위한 코드*/
+	cursor: pointer;
+}
+
+.wh65{
+	width:65px;
+	/* border-radius:5px; */
+}
+
+/* 버튼 : 통합설치다운로드/ */
+#btn_area button{
+	font-size: 15px;
+	margin: 5px;
+	padding: 8px;
+	color: #ffffff;
+	background-color: #2C65BC;
+}
+
+/* 버튼 : 홈페이지로 */
+#btn_area .goHOME{
+	/* 
+	font-size: 15px;
+	border: 1px solid #1E3D92;
+	color: #1E3D92;
+	background-color: #ffffff;
+	 */
+	border-radius: 5px;
+    color: #ffffff;
+    background: #888888;
+    border: 0;
+    width: 150px;
+}
+.goHOME a{
+	color:#fff;
+	text-decoration:none;
+	display:inline-block; 
+}
+.goHOME a:hover{
+	color:#fff;
+}
+.g_list_04.whBox{
+	/* width:922px; */ 
+	height:118px; 
+	border:1px solid #cfd6d9;
+	line-height:169px;
+	padding:20px;
+	background: #fafafa;
+}
+
+.mgtop5{
+	margin-top:5px;
+}
+
+.g_list_04 li{line-height:25px; color: #444; padding:0 0 0 10px;position:relative;}
+.g_list_04 li:after{content:''; display:block; width:3px; height:3px; background-color:#666; position:absolute; left:0; top:10px}
+.g_list_04 .fn_l{font-size:15px;font-weight:bold}
+
+
+#btn_area .installBtn01{
+	/* 
+	font-size: 15px;
+	border: 1px solid #1E3D92;
+	color: #1E3D92;
+	background-color: #ffffff;
+	border-radius: 5px; 
+	*/
+    color: #ffffff;
+    background: #147bfd;
+    border: 0;
+    width: 200px;
+    height:45px;
+    font-family:'Noto Sans bold';
+}
+
+#btn_area .installBtn02{
+	/* 
+	font-size: 15px;
+	border: 1px solid #1E3D92;
+	color: #1E3D92;
+	background-color: #ffffff;
+	 */
+	border-radius: 5px;
+    color: #ffffff;
+    background: #024886;
+    border: 0;
+    width: 120px;
+}
+
+/* 버튼 : 통합설치다운로드/ */
+#btn_area_small button{
+	font-size: 12px;
+	margin: 5px;
+	padding: 8px;
+	color: #ffffff;
+	background-color: #2C65BC;
+}
+
+/* 버튼 : 홈페이지로 */
+#btn_area_small .goHOME{
+	font-size: 12px;
+	border: 1px solid #1E3D92;
+	color: #1E3D92;
+	background-color: #ffffff;
+}
+
+a {color: #777777;text-decoration: none;}
+a:hover{color:#E92952;}
+
+.qna_list {
+   margin-top:50px;
+   text-align:left;
+}
+.qna_list li .cont{
+	padding: 30px 28px 30px 30px;
+    line-height: 20px;
+    border-top: 1px solid #c0c0c0;
+}
+
+

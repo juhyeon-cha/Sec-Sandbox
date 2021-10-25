@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Progma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+	<link type="text/css" rel="stylesheet" href="./css/import.css">
+    <title>::: 프로그램 설치안내 :::</title>
+
+    <!-- 베라포트: 공통 -->
+    <script type="text/javascript">//_SITE_SystemLang="ENG";</script>
+    <script type="text/javascript">_SITE_CreateObject=false;</script>
+    <script type="text/javascript" src="./wizvera/veraport/veraport20.js"></script>               <!-- 베라포트공통JS -->
+
+    <!-- 베라포트: 멀티OS용: jquery: 업무에 사용중인 다른 버전으로 교체하세요-->
+    <script type="text/javascript" src="./wizvera/veraport/jquery/jquery-1.6.4.min.js"></script>  <!-- URL핸들러/멀티OS용 -->
+    <script type="text/javascript" src="./wizvera/veraport/veraport20_multi.js"></script>         <!-- 멀티OS용JS -->
+    <script type="text/javascript" src="./wizvera/veraport/veraport20_handler.js"></script>       <!-- URL핸들러용 JS -->
+    <link   type="text/css" href="./wizvera/veraport/sitelogo/veraport20.css" rel="stylesheet" /> <!-- 멀티OS용UI_CSS -->
+
+    <!-- 베라포트: 통합설치용 -->
+    <script type="text/javascript" src="./wizvera/veraport/install20/install_internal.js"></script>            <!-- 통합설치공통JS -->
+    <script type="text/javascript" src="./wizvera/veraport/install20/install_config.js"></script>              <!-- 통합설치설정JS -->
+    <link   type="text/css" href="./wizvera/veraport/install20/images/install_pc.css" rel="stylesheet" />      <!-- 통합설치샘플CSS -->
+
+    <!-- 아래 내용은 필요시 공통 스크립트(ex install_download.js)로 만들어서 사용하세요 -->
+    <script type="text/javascript">
+
+    //통할설치 초기화 완료후 베라포트 설치여부 확인: G3만해당됨: 미사용시 지워주세요.
+    function SITE_vpInstalCheckResult(isInstall) {
+        //if (!isInstall) alert("통합설치프로그램이 설치되지 않았습니다.\n'통합설치프로그램다운로드'를 클릭하여 설치하시기 바랍니다.");
+        if (!isInstall && !(VP_platformInfo.Linux && !VP_platformInfo.Fedora && !VP_platformInfo.Ubuntu)) {
+            //if (typeof(fn_download_Veraport) == "function") fn_download_Veraport(''); //미설치시 설치파일 다운로드 처리
+        } 
+    }
+
+    //통할설치 초기화 완료 후 미설치제품 갯수 확인: G3만해당됨: 미사용시 지워주세요.
+    function SITE_vpUninstallCnt(unInstallCnt, isVpInstall) {
+        if (isVpInstall) return; //베라포트 미설치시는 제외
+        if (unInstallCnt == 0) {
+            if (confirm(instMsg.result[instCode.RESULT_INST_OK])) fn_goHomePage(false);
+        } else {
+            //alert(unInstallCnt + "개의 보안프로그램이 미설치 되어 있습니다.\n설치하기를 클릭하여 설치하시기 바랍니다.");
+        }
+    }
+
+    //Veraport 다운로드 URL 설정
+    function fn_download_Veraport(pkgType) {
+        if ((pkgType == "RPM" || VP_platformInfo.Fedora) && VP_config.useHandler){
+            alert("브라우저를 종료 한후, 어플리케이션 메뉴에서 베라포트(Veraport)를 실행하세요.\n(또는 커맨드라인에서 veraport를 입력하여 실행하세요.)");
+        }
+        document.location = fn_getVpDownloadURL(pkgType, true);
+    }
+
+    function fn_download_noitce(objectName, pkgType, downURL) {
+        var notice = "설치 후에는 반드시 새로고침을 하거나 다시 접속해주세요.";
+        if (instConfig.isDebug) notice += "\n\n설치파일다운로드정보[" + objectName + "]["+VP_platformInfo.type+","+VP_platformInfo.name+"]["+pkgType+"]\n" + downURL;
+
+        alert(notice);
+        if (downURL != "") document.location = downURL;
+    }
+
+    //Delfino 다운로드 URL 설정 샘플
+    function fn_download_Delfino(pkgType) {
+        var _baseURL = "http://help.wizvera.com/svc/wizvera/delfino";
+        var downURL = _baseURL + "/delfino.exe";
+        if (VP_platformInfo.x64) downURL = _baseURL + "/delfino-x64.exe";
+
+        //멀티OS용 다운로드 설정
+        if ((pkgType == "DEV") || (pkgType == "" && VP_platformInfo.Ubuntu)) {
+            downURL = _baseURL + "/delfino_i386.deb";
+            if (VP_platformInfo.x64) downURL = _baseURL + "/delfino_amd64.deb";
+        }
+        else if ((pkgType == "RPM") || (pkgType == "" && VP_platformInfo.Fedora)) {
+            downURL = _baseURL + "/delfino.i386.rpm";
+            if (VP_platformInfo.x64) downURL = _baseURL + "/delfino.x86_64.rpm";
+        }
+        else if (VP_platformInfo.Mac) {
+            downURL = _baseURL + "/delfino.pkg";
+        }
+
+        fn_download_noitce("Delfino", pkgType, downURL);
+    }
+
+    //DelfinoG3 다운로드 URL 설정 샘플
+    function fn_download_DelfinoG3(pkgType) {
+        var _baseURL = document.location.protocol+"//"+document.location.host+"/wizvera/delfino/down";        
+        var downURL = _baseURL + "/delfino-g3.exe";
+        //if (VP_platformInfo.x64) downURL = _baseURL + "/delfino-g3.exe";
+
+        //멀티OS용 다운로드 설정
+        if ((pkgType == "DEV") || (pkgType == "" && VP_platformInfo.Ubuntu)) {
+            downURL = _baseURL + "/delfino-g3_i386.deb";
+            if (VP_platformInfo.x64) downURL = _baseURL + "/delfino-g3_amd64.deb";
+        }
+        else if ((pkgType == "RPM") || (pkgType == "" && VP_platformInfo.Fedora)) {
+            downURL = _baseURL + "/delfino-g3.i386.rpm";
+            if (VP_platformInfo.x64) downURL = _baseURL + "/delfino-g3.x86_64.rpm";
+        }
+        else if (VP_platformInfo.Mac) {
+            downURL = _baseURL + "/delfino-g3.pkg";
+        }
+
+        fn_download_noitce("DelfinoG3", pkgType, downURL);
+    }
+
+    //TouchEnNxKey 다운로드 URL 설정 샘플
+//     function fn_download_TouchEnNxKey(pkgType) {
+//         var _baseURL = document.location.protocol+"//"+document.location.host+"/raonnx/nxKey/module";
+//         var downURL = _baseURL + "/TouchEn_nxKey_32bit.exe";
+//         if (VP_platformInfo.x64) {
+//             downURL = _baseURL + "/TouchEn_nxKey_64bit.exe"; //MSIE에서만 64Bit설치
+//             if (!VP_browserInfo.MSIE) downURL = _baseURL + "/TouchEn_nxKey_32bit.exe"; //멀티브라우저 및 엣지브라우저 32bit설치(?)
+//         }
+
+//         fn_download_noitce("TouchEnNxKey", pkgType, downURL);
+//     }
+	
+	//TouchEn NxFirewall 다운로드 URL 설정 샘플	
+	function fn_download_TouchEnNxFirewall(pkgType) {
+        var _baseURL = document.location.protocol+"//"+document.location.host+"/raonnx/nxFw/module";
+        var downURL = _baseURL + "/TEFW_Installer.exe";
+        if (VP_platformInfo.x64) {
+            downURL = _baseURL + "/TEFW_Installer64.exe"; //MSIE에서만 64Bit설치
+            if (!VP_browserInfo.MSIE) downURL = _baseURL + "/TEFW_Installer.exe"; //멀티브라우저 및 엣지브라우저 32bit설치(?)
+        }
+
+        fn_download_noitce("TouchEn nxFirewall", pkgType, downURL);
+    }
+    </script>
+</head>
+<body>
+
+<!-- [필수]베라포트: ActiveX/Plugin 설치 확인 및 모듈 로딩/START-->
+<div id="VP_object_load"></div>
+<script type="text/javascript">timer_vpObjectLoad();</script>
+<!-- [필수]베라포트: ActiveX/Plugin 설치 확인 및 모듈 로딩/END -->
+
+<div class="installPC_wrap">
+    <div class="container" style="width:962px;padding-bottom:40px;">
+         <h3>안전한 사이트 이용을 위해 <span>보안프로그램</span>을 설치합니다.</h3>
+         
+        <div id="VP_msg_installed" style="display:block;"> <!-- VeraPort 설치완료 -->
+            <ul class="g_list_04 whBox">
+                <li>우선 각 프로그램의 ‘자세히보기’를 클릭하시어 기능을 확인하시기 바랍니다.</li>
+                <li><span style="color:#147bfd;">[설치하기]</span>를 클릭하시면 자동으로 설치가 진행됩니다.</li>
+            </ul>
+        </div>
+        <div id="VP_msg_notinstall" style="display:none;"> <!-- VeraPort 미설치 -->
+            <ul class="g_list_04 whBox">
+                <li>보안 프로그램 설치 전에 현재 페이지를 제외한 다른 페이지(브라우저)를 닫아주세요.</span></li>
+                <li><span style="color:#147bfd;">[설치하기] 클릭 시</span> 통합설치 프로그램, 백신 방화벽, 공인인증서 보안 프로그램이 자동으로 설치됩니다.</li>
+                <li>보안 프로그램 전체 설치가 원활하지 않을경우 아래 보안 프로그램을 수동으로 각각 설치해주세요.</li>
+            </ul>
+        </div>
+        <div id="VP_msg_unsupported" style="display:none;"> <!-- VeraPort 미지원 -->
+            <ul class="g_list_04">
+                 <li>고객님의 컴퓨터(PC)성능에 따라 <span style="color:#147bfd;">10초~1분 정도 소요</span>될 수 있습니다.</li>
+                <li>원활한 설치를 위해 보안프로그램 설치 전에 현재 페이지를 제외한 다른 페이지는 모두 닫아주시기 바랍니다.</li>
+                <li><span style="color:#147bfd;">'설치하기'버튼을 누르시면 자동으로 설치가 진행</span>됩니다.</li>
+                <li>프로그램 설치 중에 오류가 발생하면 '제어판>프로그램 및 기능'에서 아래 프로그램명의 프로그램을 삭제하신 후 다시 전체 설치 해주세요.</li>
+            </ul>
+        </div>
+        <script type="text/javascript">timer_vpMsgUpdate();</script> <!-- [필수]베라포트: 설치여부별 /안내메시지 변경 함수 -->
+
+        <div id="btn_area">
+            <button id="VP_btn_install"  style="display:none;" class="installALL installBtn01" type="button" onclick="javascript:SITE_axInstallVP(instConfig.objectDefType, false);">설치하기</button>
+           <!-- 설치하기 버튼 -->
+           <button id="VP_btn_download" style="display:none;" class="installVP installBtn01"  type="button" onclick="javascript:fn_download_Veraport('');">설치하기</button>
+        </div>
+        <script type="text/javascript">timer_vpBtnUpdate();</script><!-- [필수]베라포트: 설치여부별 /설치하기,다운로드 버튼 변경 함수 -->
+
+        <br/>
+        <div id="contents" class="contents">
+            <table class="g_table_01 mb50">
+            	<caption>보안프로그램별 정보,설치상태를 표시하는 테이블</caption>
+                <colgroup>
+			        <col width="155px">
+			        <col width="627px">
+			        <col width="66px">
+			    </colgroup>
+			    <thead>
+                <tr>
+                    <th scope="col">프로그램명</th>
+		            <th scope="col">기능</th>
+		            <th scope="col">설치상태</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                	 <td>
+                		<span>통합설치 프로그램<br/>(VeraPort)</span>
+                	</td>
+                    <td id="name">
+                    	안전하고 편리한 인터넷 서비스를 위해 반드시 설치해야 하는 프로그램을 자동으로 통합 설치해주는 프로그램입니다.
+                    </td>
+                    <td id="status">
+                    	  <div id="object_status_Veraport">-</div> <!-- 설치됨/미설치/미지원 -->
+                    </td>
+                    <script type="text/javascript">timer_objectUpdate(instCode.VERAPORT);</script> <!-- 베라포트: 설치여부별 /상태,다운로드 버튼 변경 함수 -->
+                </tr>
+                <tr id="nonplugin_DelfinoG3">
+                	 <td>
+                	 	<span>공인인증서 보안<br/>(WizIN-Delfino G3)</span>
+                	 </td>
+                    <td id="name">
+                    	공인인증서 로그인과 거래내역에 대한 전자서명을 위한 프로그램입니다.
+                    </td>
+                    <td id="status">
+                        <div id="object_status_DelfinoG3">-</div>
+                    </td>
+                    <script type="text/javascript">timer_objectUpdate("DelfinoG3");</script> <!-- 공인인증: 설치여부별 /상태,다운로드 버튼 변경 함수 -->
+                </tr>
+                <tr>
+                	<td>
+                	  	<span>백신방화벽<br/>(TouchEn NxFirewall)</span>
+                	 </td>
+                    <td id="name">
+                    	 개인 PC방화벽과 키보드 보안, 고객정보 부정거래 여부 확인을 위한 프로그램입니다.
+                    </td>
+                    <td id="status">
+                        <div id="object_status_TouchEn nxFirewall" class="object_status_TouchEn_nxFirewall">-</div>
+                    </td>
+                    <script type="text/javascript">timer_objectUpdate("TouchEn nxFirewall");</script> 
+                </tr>
+               </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" name="install_check_yn" id="install_check_yn" value="N" />
+
+<!-- [필수]베라포트: 멀티OS용 설치화면/START -->
+<div id="dialog" style="display:none"></div>
+<div id="dialogex" style="display:none"></div>
+<script type="text/javascript">SITE_vpmInstallDialog();</script>
+<!-- [필수]베라포트: 멀티OS용 설치화면/END -->
+
+
+<!-- [필수]베라포트: 자동설치 및 차단감지/START-->
+<div id="VP_object_install"></div>
+<script type="text/javascript">SITE_vpObjectInstall();</script>
+<!-- [필수]베라포트: 자동설치 및 차단감지/END -->
+
+
+<!-- [필수]베라포트: non-Plugin 설치 확인/START-->
+<script type="text/javascript">if (VP_config.useHandler) execVP_isInstall(timer_vpHandlerLoad);</script>
+<!-- [필수]베라포트: non-Plugin 설치 확인/END -->
+
+<!-- 키보드보안, 웹 방화벽 설치 체크용 -->
+<script type="text/javascript" src="./raonnx/cmn/TouchEnNx_check.js"></script>    
+
+<!-- Delfino 설치 체크용 -->
+<script src="./wizvera/delfino/delfino_config.js" charset="utf-8"></script>
+<script src="./wizvera/delfino/delfino_internal_check.min.js" charset="utf-8"></script>
+<script src="./wizvera/delfino/delfino_check.js" charset="utf-8"></script>
+<script src="./wizvera/delfino/delfino_site.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	Delfino.login("login=certLogin",{cacheCertFilter:true, cacheCert:true, resetCertificate:true});
+});
+
+</script>
+</body>
+</html>
