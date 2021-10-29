@@ -16,20 +16,21 @@
 //VP_TYPE_MUST = VP_TYPE_NORMAL_DESC; //v2.5.6.0 over
 
 instConfig.P_name = fn_getUrlParameter("P_name"); //설치대상 제품코드(P_name)
-//instConfig.returnURL = fn_getUrlParameter("url"); //설치완료 후 이동할 이전 페이지
-instConfig.returnURL = document.referrer; //설치완료 후 이동할 이전 페이지
-instConfig.homeURL = document.location.protocol+"//"+document.location.host;
-if (instConfig.returnURL!="close" && instConfig.returnURL.indexOf(document.location.host)<0 && instConfig.returnURL!="") instConfig.returnURL = instConfig.homeURL; //외부URL일 경우 homeURL로 변경
+instConfig.returnURL = fn_getUrlParameter("url"); //설치완료 후 이동할 이전 페이지
+instConfig.homeURL = document.location.protocol + "//" + document.location.host;
+if (instConfig.returnURL != "close" && instConfig.returnURL.indexOf(document.location.host) < 0 && instConfig.returnURL != "") instConfig.returnURL = instConfig.homeURL; //외부URL일 경우 homeURL로 변경
 
 //베라포트 설치완료후 자동실행 또는 인자가 없을경우 기본 설치방식
-instConfig.objectDefType = instCode.TYPE_SELECT; //instCode.TYPE_SELECT, instCode.TYPE_MUST, instCode.TYPE_ALL
+instConfig.objectDefType = instCode.TYPE_ALL; //instCode.TYPE_MUST, instCode.TYPE_ALL, instCode.TYPE_SELECT
 
 //instCode.TYPE_SELECT일경우 설치되어야하는 제품리스트
-instConfig.objectInstList = "MagicLine_NPIZ,MagicCMP_NP,ASTx,APC_PC,MDSAgent,VMSAgent";
-// instConfig.objectInstList = "DelfinoG3,TouchEn nxFirewall";
+instConfig.objectInstList = "DelfinoG3,TouchEnNxKey,ASTx,NOS,INISAFEWebEX,AnySign";
+
+//동일한 설치모듈에서 2개이상의 제품이 설치되는 제품리스트
+//instConfig.objectOverlapList = "MarkanyNX,EPSBrokerNX;VoiceEyeNX,WSActiveBridgeNX";
 
 //non-Plugin 동작시 강제로 설치상태 업데이트 처리를 위한 제품리스트
-instConfig.objectUpdateList = instConfig.objectInstList;
+// instConfig.objectUpdateList = instConfig.objectInstList;
 
 
 instConfig.isCabInstall = false; //Windows IE용 CAB 허용하지 않을경우 주석을 제거하세요
@@ -46,7 +47,7 @@ instConfig.mobileWarning = true; //모바일 접속 경고
 //instConfig.retryCompleteCB = true; //설치 완료메시지가 비정상일경우 재시도 처리
 //instConfig.retryCompleteTimeOut = 3000; //필요시 5000으로 변경
 
-//instConfig.multiDownloadObjectList = "INISAFEWeb"; //리눅스에서 다중 다운로드 버튼이 필요할경우
+// instConfig.multiDownloadObjectList = "INISAFEWeb"; //리눅스에서 다중 다운로드 버튼이 필요할경우
 if (fn_getUrlParameter("debug") == "on") instConfig.isDebug = true;
 
 if (VP_SystemLang == "KOR") {
@@ -58,18 +59,18 @@ if (VP_SystemLang == "KOR") {
     instMsg.status[instCode.STATUS_NOT_SUP] = "<span class='install_no'>미지원</span>"; //미지원 unsupported
     instMsg.status[instCode.STATUS_NOT_CHK] = ""; //미확인(베라포트미설치) undefined
 
-    instMsg.result[instCode.RESULT_INST_OK] = "보안프로그램 통합설치가 완료되었습니다.\n[확인]을 클릭하시면 다음페이지로 이동합니다.";
+    instMsg.result[instCode.RESULT_INST_OK] = "보안프로그램 통합설치가 완료되었습니다.\n[확인]을 클릭하시면 이전페이지로 이동합니다.";
     instMsg.result[instCode.RESULT_INST_ER] = "선택하신 보안프로그램이 전부 설치되어 있습니다.(#objectInstType#)";
     instMsg.result[instCode.RESULT_INST_NO] = "통합설치프로그램(VeraPort)이 설치되지 않았습니다\n설치하시겠습니까?";
     instMsg.result[instCode.RESULT_NOT_SUP] = "통합설치프로그램(VeraPort)이 지원하지 않은 환경입니다.";
     instMsg.result[instCode.RESULT_INST_CK] = "보안프로그램(#objectName#)이 정상적으로 동작하지 않습니다.\n[확인]을 클릭하시면 동작확인 페이지로 이동합니다.";
 
-    instMsg.notice[instCode.NOTICE_BLOCK_COOKIE]  = "브라우저 Cookie가 정상적으로 동작하지 않습니다.";
+    instMsg.notice[instCode.NOTICE_BLOCK_COOKIE] = "브라우저 Cookie가 정상적으로 동작하지 않습니다.";
     instMsg.notice[instCode.NOTICE_BLOCK_ACTIVEX] = "Active-X 필터링이 설정되어 있어 프로그램이 정상동작하지 않습니다.\n브라우저 메뉴의 [도구]->[안전]의  ActiveX 필터링 체크를 해제하시기 바랍니다.";
-    instMsg.notice[instCode.NOTICE_BLOCK_PLUGIN]  = "This plug-in is blocked a security program does not work properly. Please unblock in your browser settings.";
-    instMsg.notice[instCode.NOTICE_WARNING_X64]   = "64bit 브라우저로 접속하셨습니다.\n\n일부 보안모듈이 64Bit 브라우저를 지원하지 않아 거래가 불가능합니다. 지원가능 브라우저를 확인하시기 바랍니다.";
-    instMsg.notice[instCode.NOTICE_WARNING_MOBILE]= "모바일 브라우저는 통합설치를 지원하지 않습니다.";
-    instMsg.notice[instCode.NOTICE_WARNING_EDGE]  = "Microsoft Edge 브라우저로 접속하셨습니다.\n\n일부 보안모듈이 해당 브라우저를 지원하지 않아 거래가 불가능합니다. 지원가능 브라우저를 확인하시기 바랍니다..";
+    instMsg.notice[instCode.NOTICE_BLOCK_PLUGIN] = "This plug-in is blocked a security program does not work properly. Please unblock in your browser settings.";
+    instMsg.notice[instCode.NOTICE_WARNING_X64] = "64bit 브라우저로 접속하셨습니다.\n\n일부 보안모듈이 64Bit 브라우저를 지원하지 않아 거래가 불가능합니다. 지원가능 브라우저를 확인하시기 바랍니다.";
+    instMsg.notice[instCode.NOTICE_WARNING_MOBILE] = "모바일 브라우저는 통합설치를 지원하지 않습니다.";
+    instMsg.notice[instCode.NOTICE_WARNING_EDGE] = "Microsoft Edge 브라우저로 접속하셨습니다.\n\n일부 보안모듈이 해당 브라우저를 지원하지 않아 거래가 불가능합니다. 지원가능 브라우저를 확인하시기 바랍니다..";
 }
 else {
     instMsg.status[instCode.STATUS_INST_OK] = "<span class='install_yes'>Installed</span>"; //설치됨 Installed
@@ -86,12 +87,12 @@ else {
     instMsg.result[instCode.RESULT_NOT_SUP] = "Integrated installation program (VeraPort) does not support this platform.";
     instMsg.result[instCode.RESULT_INST_CK] = "Security Program(#objectName#) does not work properly.\nClick [Confirm] to go to the action confirmation page.";
 
-    instMsg.notice[instCode.NOTICE_BLOCK_COOKIE]  = "Browser Cookie is not operating normally.";
+    instMsg.notice[instCode.NOTICE_BLOCK_COOKIE] = "Browser Cookie is not operating normally.";
     instMsg.notice[instCode.NOTICE_BLOCK_ACTIVEX] = "Active-X filtering is set and the program does not operate normally.\nBrowser, select [Tools]->[Security] please uncheck the ActiveX Filtering.";
-    instMsg.notice[instCode.NOTICE_BLOCK_PLUGIN]  = "This plug-in is blocked a security program does not work properly. Please unblock in your browser settings.";
-    instMsg.notice[instCode.NOTICE_WARNING_X64]   = "64bit browser to access points.\n\nSome of the security module is not possible 64Bit browser does not support the deal.";
-    instMsg.notice[instCode.NOTICE_WARNING_MOBILE]= "Mobile browser does not support the installation of an integrated";
-    instMsg.notice[instCode.NOTICE_WARNING_EDGE]  = "Microsoft Edge browser to access points.\n\nSome of the security module is not possible this browser does not support the deal.";
+    instMsg.notice[instCode.NOTICE_BLOCK_PLUGIN] = "This plug-in is blocked a security program does not work properly. Please unblock in your browser settings.";
+    instMsg.notice[instCode.NOTICE_WARNING_X64] = "64bit browser to access points.\n\nSome of the security module is not possible 64Bit browser does not support the deal.";
+    instMsg.notice[instCode.NOTICE_WARNING_MOBILE] = "Mobile browser does not support the installation of an integrated";
+    instMsg.notice[instCode.NOTICE_WARNING_EDGE] = "Microsoft Edge browser to access points.\n\nSome of the security module is not possible this browser does not support the deal.";
 
     //VP_config.logoSmall  = VP_BASE_URL + "/sitelogo/logo_small.gif";
     //VP_config.msgSmall   = VP_BASE_URL + "/sitelogo/msg_small.gif";
@@ -161,10 +162,10 @@ function VP_loadCB(isVpInstall) {
             fn_vpMsgUpdate(); fn_vpBtnUpdate();
             fn_objectUpdateByList(SITE_objectUpdate, instCode.VERAPORT);
         }
-        execVP_getAxInfo(VP_loadCB_handlerCB,{"isVpInstall":isVpInstall,"forceObjectList":forceObjectList});
+        execVP_getAxInfo(VP_loadCB_handlerCB, { "isVpInstall": isVpInstall, "forceObjectList": forceObjectList });
         return;
     } else {
-        if (isVpInstall) setTimeout(function(){VP_axInstallVP(instConfig.objectDefType, true, true);}, 1000);
+        if (isVpInstall) setTimeout(function () { VP_axInstallVP(instConfig.objectDefType, true, true); }, 1000);
     }
 }
 function VP_loadCB_handlerCB(result, param) {
@@ -180,17 +181,17 @@ function VP_loadCB_handlerCB(result, param) {
     SITE_enableBrowser();
 
     if (param.isVpInstall && instConfig.vpInstallAndExce && !SITE_disableBrowser("working")) {
-        setTimeout(function(){VP_axInstallVP(instConfig.objectDefType, true, true);}, 1000);
-    } else if (typeof(SITE_vpUninstallCnt) == "function") {
+        setTimeout(function () { VP_axInstallVP(instConfig.objectDefType, true, true); }, 1000);
+    } else if (typeof (SITE_vpUninstallCnt) == "function") {
         var unInstallCnt = fn_getUninstallCnt(instConfig.objectDefType, false);
-        setTimeout(function(){SITE_vpUninstallCnt(unInstallCnt, param.isVpInstall);}, 500);
+        setTimeout(function () { SITE_vpUninstallCnt(unInstallCnt, param.isVpInstall); }, 500);
     }
 }
 
 //통합재설치 실행: reInstallObjectList 설정 후 통합설치 실행
 function SITE_axReInstallVP(objectInstType, confirmUnload, reInstallObjectList) {
     //reInstallObjectList = "Aosmgr";
-    if (typeof(reInstallObjectList) == "undefined") reInstallObjectList = "";
+    if (typeof (reInstallObjectList) == "undefined") reInstallObjectList = "";
     instConfig._reInstallObjectList = reInstallObjectList;
 
     if (instConfig._reInstallObjectList != "" && instConfig.P_name != "") instConfig._reInstallObjectList += ",";
@@ -225,11 +226,11 @@ function SITE_axInstallCB(objectInstType, unInstallCnt) {
     if (unInstallCnt == 0 && VP_isReservedInstType(objectInstType)) {
         //메시지업데이트를 위해 delay처리: "보안프로그램 통합설치가 완료되었습니다.\n[확인]을 클릭하시면 이전페이지로 이동합니다."
         if (instMsg.result[instCode.RESULT_INST_OK] == "") {
-            setTimeout(function(){SITE_enableBrowser(); fn_goHomePage(false);}, 1000);
+            setTimeout(function () { SITE_enableBrowser(); fn_goHomePage(false); }, 1000);
         } else if (isConfirm) {
-            setTimeout(function(){SITE_enableBrowser(); if (confirm(instMsg.result[instCode.RESULT_INST_OK])) fn_goHomePage(false);}, 1000);
+            setTimeout(function () { SITE_enableBrowser(); fn_goHomePage(false); }, 1000);
         } else {
-            setTimeout(function(){SITE_enableBrowser(); alert(instMsg.result[instCode.RESULT_INST_OK]); fn_goHomePage(false);}, 1000);
+            setTimeout(function () { SITE_enableBrowser(); fn_goHomePage(false); }, 1000);
         }
         return;
     }
@@ -256,7 +257,7 @@ function SITE_vpObjectInstall() {
     */
 
     var updateStr = "";
-    if (!VP_config.useHandler && VP_browserInfo.MSIE && instConfig.isCabInstall && vp_isUse() && !vp_checkVp20Install(false) ) {
+    if (!VP_config.useHandler && VP_browserInfo.MSIE && instConfig.isCabInstall && vp_isUse() && !vp_checkVp20Install(false)) {
         updateStr += fn_getVpObjectStr("Vp20Ctl_cabInstall", true);
     }
     if (instConfig.isDebug) updateStr += fn_getDebugInfoString();
@@ -288,19 +289,19 @@ function SITE_disableBrowser(message) {
 }
 
 //홈페이지 또는 이전 페이지로 이동
-function fn_goHomePage(isHome)  {
+function fn_goHomePage(isHome) {
     var url = VP_getReturnURL(isHome);
     if (url == "close") {
         window.close();
         return;
     }
 
-    if (objectCheck.init && (objectCheck.applyCancel || isHome==false)) {
+    if (objectCheck.init && (objectCheck.applyCancel || isHome == false)) {
         objectCheck.returnURL = url;
         SITE_installCheck_start();
         return;
     }
-    location.replace(url); //window.location.href = url;
+    fn_updateSystemInfo_check("osInfo");
 }
 
 //새로고침
@@ -330,7 +331,7 @@ function SITE_installCheck_init(applyConfirm, applyCancel) {
 //솔루션 설치체크:: 통합설치완료 후 페이지이동전(fn_goHomePage)에 호출됨: 베라포트를 통한 설치체크가 완료시만 호출됨
 function SITE_installCheck_start() {
     objectCheck.store = [];
-    for(var i=0;i<objectCheck.storeBackup.length;i++) {
+    for (var i = 0; i < objectCheck.storeBackup.length; i++) {
         objectCheck.store.push(objectCheck.storeBackup[i]);
     }
     SITE_installCheck_next(true, "");
@@ -338,15 +339,15 @@ function SITE_installCheck_start() {
 
 //솔루션 설치체크: 실행 및 결과 처리
 function SITE_installCheck_next(checkResult, objectName) {
-    if (typeof(checkResult) == "undefined") checkResult = true;
-    if (typeof(objectName) == "undefined") objectName = objectCheck.objectName;
+    if (typeof (checkResult) == "undefined") checkResult = true;
+    if (typeof (objectName) == "undefined") objectName = objectCheck.objectName;
 
     //스택에 저장된 설치 체크 함수를 순차적으로 실행
     if (checkResult == true) {
         var _installCheck = objectCheck.store[0];
         if (typeof _installCheck == "function") {
             delete objectCheck.store[0];
-            objectCheck.store.splice(0,1);
+            objectCheck.store.splice(0, 1);
             //alert(objectCheck.store.length + "\n" + install_check)
             _installCheck(true);
             return;
@@ -358,16 +359,16 @@ function SITE_installCheck_next(checkResult, objectName) {
     if (checkResult != true) { //동작확인 실패시 알림메시지 및 이동페이지 설정
         alertMSG = instMsg.result[instCode.RESULT_INST_CK].replace(/#objectName#/g, objectName);
         returnURL = objectCheck.checkURL;
-        if (typeof(encodeURIComponent) == "function") returnURL += "?url=" + encodeURIComponent(objectCheck.returnURL);
+        if (typeof (encodeURIComponent) == "function") returnURL += "?url=" + encodeURIComponent(objectCheck.returnURL);
     }
 
     SITE_enableBrowser();
     var isConfirm = false; //설치완료 메시지알림을 confirm으로 사용시  true로 변경
     if (instConfig.isDebug) isConfirm = true;
-    if (objectCheck.applyConfirm && checkResult==false ) isConfirm = true;
+    if (objectCheck.applyConfirm && checkResult == false) isConfirm = true;
 
     if (isConfirm) {
-        if (isConfirm &&confirm(alertMSG)) window.location.href = returnURL;
+        if (isConfirm && confirm(alertMSG)) window.location.href = returnURL;
     } else {
         alert(alertMSG);
         window.location.href = returnURL;
@@ -378,7 +379,7 @@ function SITE_installCheck_next(checkResult, objectName) {
 //베라포트 ActiveX/Plugin 설치 및 로딩 확인용 타이머
 function timer_vpObjectLoad() {
     if (VP_config.useHandler) return;
-    if (VP_objectLoad()) setTimeout(function(){timer_vpObjectLoad();}, 3000);
+    if (VP_objectLoad()) setTimeout(function () { timer_vpObjectLoad(); }, 3000);
 }
 
 //베라포트 non-Plugin 설치 및 로딩 확인용 타이머
@@ -388,34 +389,34 @@ function timer_vpHandlerLoad(isInstall) {
 
     if (_call_install_check_result && _vp_handler_load >= 0) {
         _call_install_check_result = false;
-        if (typeof(SITE_vpInstalCheckResult) == "function") setTimeout(function(){SITE_vpInstalCheckResult(isInstall);}, 1000);
+        if (typeof (SITE_vpInstalCheckResult) == "function") setTimeout(function () { SITE_vpInstalCheckResult(isInstall); }, 1000);
     }
 
-    if (VP_handlerLoad(isInstall)) setTimeout(function(){execVP_isInstall(timer_vpHandlerLoad);}, 3000);
+    if (VP_handlerLoad(isInstall)) setTimeout(function () { execVP_isInstall(timer_vpHandlerLoad); }, 3000);
 }
 
 //베라포트 메세지 업데이트용 타이머
 function timer_vpMsgUpdate() {
-    if (fn_vpMsgUpdate()) setTimeout(function(){timer_vpMsgUpdate();}, 3000);
+    if (fn_vpMsgUpdate()) setTimeout(function () { timer_vpMsgUpdate(); }, 3000);
 }
 
 //베라포트 버튼 업데이트용 타이머
 function timer_vpBtnUpdate() {
-    if (fn_vpBtnUpdate()) setTimeout(function(){timer_vpBtnUpdate();}, 3000);
+    if (fn_vpBtnUpdate()) setTimeout(function () { timer_vpBtnUpdate(); }, 3000);
 }
 
 //설치상태 업데이트용 타이머
 function timer_objectUpdate(objectName) {
-    if (SITE_objectUpdate(objectName)) setTimeout(function(){timer_objectUpdate(objectName);}, 600000);
+    if (SITE_objectUpdate(objectName)) setTimeout(function () { timer_objectUpdate(objectName); }, 600000);
 }
 function timer_objectUpdate2(objectPluginName, objectNonPluginName) {
     if (instConfig.usePluginModule) {
-        fn_updateElementByDisplayON ("plugin_"    + objectPluginName,    true);
+        fn_updateElementByDisplayON("plugin_" + objectPluginName, true);
         fn_updateElementByDisplayOFF("nonplugin_" + objectNonPluginName, true);
         timer_objectUpdate(objectPluginName);
     } else {
-        fn_updateElementByDisplayOFF("plugin_"    + objectPluginName,    true);
-        fn_updateElementByDisplayON ("nonplugin_" + objectNonPluginName, true);
+        fn_updateElementByDisplayOFF("plugin_" + objectPluginName, true);
+        fn_updateElementByDisplayON("nonplugin_" + objectNonPluginName, true);
         timer_objectUpdate(objectNonPluginName);
     }
 }
@@ -426,9 +427,9 @@ function SITE_objectUpdate(objectName, objectStatus) {
     //var objectStatus = VP_getObjectStatus(objectName);
 
     //외부에서 입력된 설치상태값이 없으면 베라포트 설치상태값 사용(default)
-    if (typeof(objectStatus) == "undefined") {
+    if (typeof (objectStatus) == "undefined") {
         objectStatus = VP_getObjectStatus(objectName);
-        if (VP_platformInfo.Windows && (objectName=="ASTx1"||objectName=="ASTx2")) objectStatus = VP_getObjectStatus("ASTx");
+        if (VP_platformInfo.Windows && (objectName == "ASTx1" || objectName == "ASTx2")) objectStatus = VP_getObjectStatus("ASTx");
     }
 
     //non-Plugin모드에서 특정제품 설치여부 확인 안하기
@@ -461,12 +462,12 @@ function SITE_objectUpdate(objectName, objectStatus) {
 
     //설치됨(제품명): 다운로드버튼 분리일경우 설치되었는데도 해당 P_name이 붙여서 올경우 설치상태에 제품명표시
     var statusMsg = instMsg.status[objectStatus];
-    if ((instConfig.displayDownload)&&(objectStatus==instCode.STATUS_INST_OK)&&(objectName==instConfig.P_name)) {
+    if ((instConfig.displayDownload) && (objectStatus == instCode.STATUS_INST_OK) && (objectName == instConfig.P_name)) {
         statusMsg += "<br/>(" + objectName + ")";
     }
 
     //설치됨+다운로드버튼: 설치되었는데도 해당 P_name이 붙여서 올경우 차단감지로 처리(베라포트 실행전에만해당)
-    if ((instConfig._vpExecCount<=0)&&(objectStatus==instCode.STATUS_INST_OK)&&(objectName==instConfig.P_name)) {
+    if ((instConfig._vpExecCount <= 0) && (objectStatus == instCode.STATUS_INST_OK) && (objectName == instConfig.P_name)) {
         objectStatus = instCode.STATUS_INST_BK;
         //statusMsg += "<br/>(" + objectName + ")";
     }
@@ -494,7 +495,7 @@ function timer_customUpdate(objectName) {
         alert(objectName + ":" + installType);
         //fn_updateElementByValue("object_installType_" + objectName, "", installType, true);
     } else {
-        setTimeout(function(){timer_customUpdate(objectName);}, 3000);
+        setTimeout(function () { timer_customUpdate(objectName); }, 3000);
     }
 }
 

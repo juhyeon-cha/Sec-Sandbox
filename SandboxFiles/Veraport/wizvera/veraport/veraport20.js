@@ -1,7 +1,7 @@
 /**
  *  @name Veraport V2 - veraport20.js
  *  @author wizvera
- *  @date 2017-12-19 with Windows v3.7.1.2 (3.7.0.1)
+ *  @date 2020-07-24 with Windows v3.8.5.1 (3.8.5.1)
 **/
 var VP_SystemLang = "KOR";  //"KOR", "ENG", "CHN", "JPN"
 if (typeof _SITE_SystemLang != "undefined") VP_SystemLang = _SITE_SystemLang;
@@ -19,6 +19,7 @@ var VP_CONTEXT_NAME = vp_getContextName("wizvera");
 
 var VP_SITE_URL     = document.location.protocol+"//"+document.location.host;
 var VP_BASE_URL     = document.location.protocol+"//"+document.location.host + "/wizvera/veraport";
+var VP_BASE_URL     = "./wizvera/veraport";
 var VP_HTML_URL     = VP_BASE_URL;
 var VP_UPDATE_URL   = "";
 
@@ -44,8 +45,8 @@ try {
 /* default config */
 var VP_config = {
     useHandler      : true,
-    version         : "2,7,1,2", //plug-in version(2561)
-    version_g3      : "3,8,5,1", //handler version
+    version         : "2,8,5,1", //plug-in version(2561)
+    version_g3      : "3,8,5,6", //handler version
     mimeType        : "application/x-veraport20-plugin",
     CLSID           : "CLSID:477D5B9A-6479-44F8-9718-9340119B0308",
 
@@ -79,12 +80,13 @@ var VP_config = {
 
     installType     : "", //NONE, TOP
     domainCookie    : false,
-    useSHA2         : true,
+    useSHA2         : false,
     isCreateObject  : true,
     isCabInstall    : false,
     installCB       : false,
     useJsonParse    : false,
     sendMacAddr     : false,
+    showVerifyAlert : false,
 
     skin            : "", // "undertaker"
     logoSmall       : VP_BASE_URL + "/sitelogo/logo_small.gif",
@@ -98,8 +100,20 @@ var VP_config = {
     processingImgURL: VP_BASE_URL + "/sitelogo/install_processing.gif",
     addInfoURL      : VP_BASE_URL + "/siteui/addinfo.json", //v2.5.6.0
 
-    cliInfoSendURL  : VP_SITE_URL + "/wizvera/recv/recvClientInfo.jsp",
-    logInfoSendURL  : VP_SITE_URL + "/wizvera/recv/recvInstallLog.jsp"
+	cliInfoSendURL  : VP_BASE_URL + "/logging/recvClientInfo.asp",
+    logInfoSendURL  : VP_BASE_URL + "/logging/recvInstallLog.asp",
+	
+    // *.test.com
+    // license : "eG/BTGnlFPHB9jIvfL2VOHuaix0eG/r2tALvZyJQilbQCT2uKHBchx8GOP3X+BYNDaTzHxddUpwlqS5g1hXhSV7DAm2G2b04aODucYQJztdZQOq6iBj4Size+Hvgk5Z+qDzI1P4i2rVJiH4zeKKhIadLlFv3fCjRS2YQRmpLcJi90qgqX1KfZpFb2XqlQ3B/6gUvULGj/V7aWi0XadK5Gl7MUkev+mV6jmdZHVDhBeQbwEJVE1HCHMPjqPIPkhe88n3zNy14s5XHweuoPZvRy3R0QIJO7uXBpE9rzijKTJdoUg4N78ZXj31QK6lHih6zCrlZRasuHcVoKExhresdGyrlvRUrwA+Ro4z7gE8jk14WvogWHyBLbJFfiGxca9WXyfN8osEEiDuTl0+6gA63XQ==",
+    // vp.test.com
+    // license : "eG/BTGnlFPHB9jIvfL2VOF7byxpzNs8GJ4b8ftm9lMAzKQhP07LUqLUgfdtblJ3V4EaytdcfHkFeJcy3JBHwjaCNieBt6wfZdh+2gSwHBSfMuACyeJ/l7EUBctaRwJs6jqPdOUmlSA4UCuoCYhqqTdAl/xJUlFOkdskQP23ZSRNyke/vk0p+hNBOoupUTRk+1wiFLo5NaFVHKqD1L1Ek83nQyB3mZfv9QffehzoPACeMCdqhrNSthWq1JLU262FznuSfUIA3EQyT96kOlXTP1VD7XoQ/qRybK5VFBjMCVaJ8xHQNwAHFhmsM7sv6Ix8ULrxdLgWtkwnShq96NEHoVxI7zGWxnWQcnFlwico3z2XGheQMfTMGcUIPFrLKifR6slDG7xAtHosQnOGFbuyN+g==",
+    // vpn2.samsungfire.com,42.1.188.126
+    // license : "uy0qhdKKJXvMkQ43W2kL8bL4QtYjFGAfSFm7bkB75tXGXNyJjINRPFBsmC7if0EIDalgq2sfLM1NdFJXP/1wWGA58iOI10S8Hl1xnrKP7EEg689oGzDKctOOAxFOzRu5gMyp3Unzda8lE1axzTZf/XFgig6VygizdBSYODKO9QrrmewW7RibUav2YhqNMs4CD+ENzMvRfosx5yU2XJJNamnp+SOj6SmYZ7CbHdm0HQlnp5zaLWDNBZIxk7zyedMbeEqmxlXqub/E2w1N1bFISJog+HX/B3AvSZqc/ezC76dhBeXnnQ0fuyO1evWrFofbHlT5W+fDHp6FYh+P7kUgA5WC5cu2E6zkRreHC8+NDWD9jUOZXdxQ2EkU/xUgN3OhMQk6vOhiyYfBimIcwLvSa2LcoGij0CZvSMdXejEpPePzz6vEfcbaSjnohEEmpbfPys48CMud8anxhTuzlglGyTspWMpzMKYcpi4gEpQib2rN5ydtdk3RLcUMNMLduXre9z9PsBDh6UNU2C3trJhDZAzj/NeGbHUFeThTzY/dSCmUvKMvkvknFnicotFiW6D8NHckajFO4AgQ22K9+iOryu3cfcGZ9HGdOW3Fl3kE9XxksLpwAS1/dhdktAt1Uxdl",
+    //
+    ext : {
+        useAxInfoExt : true,
+        systemInfoLevel : 2
+    }
 };
 
 //windows NT 6.1 이상만 sha2 설치, 특정브라우저 또는 개발도메인에서 sha2 사용한함
@@ -128,10 +142,7 @@ if (VP_config.useSHA2 && !navigator.userAgent.match(/NT 5./i) && !navigator.user
 /* //WIZVERA_TEST_START
 if (document.location.hostname.indexOf("wizvera.com")>=0) {
     VP_DOMAIN_URL = "http://help.wizvera.com";
-    if (document.location.hostname.indexOf("demo.wizvera.com") >= 0) VP_config.useHandler = false;
-    if (document.location.hostname.indexOf("help.wizvera.com") >= 0) VP_config.useHandler = false;
-    if (document.location.hostname.indexOf("ts2.wizvera.com") >= 0) VP_config.useHandler = false;
-    if (document.location.hostname.indexOf("test2.wizvera.com") >= 0) VP_config.useHandler = false;
+    if (document.location.hostname.indexOf("2.wizvera.com") >= 0 && VP_browserInfo.MSIE) VP_config.useHandler = false;
     VP_config.cliInfoSendURL="http://help.wizvera.com/help/wizvera/recvVeraport.jsp?recvType=cliInfo&siteId=test";
     VP_config.logInfoSendURL="http://help.wizvera.com/help/wizvera/recvVeraport.jsp?recvType=logInfo&siteId=test";
 }
@@ -200,7 +211,7 @@ var VP_CONF_BROWSER     = "browser";
 var VP_CONF_AXINFO      = "axinfo";
 var VP_CONF_BLOCKCHECK  = "blockcheck";
 var VP_CONF_CONFIRMUNLOAD = "confirmunload";
-
+var VP_CONF_LICENSE         =  "license";
 var VP_TRUE             = 1;
 var VP_FALSE            = 0;
 var VP_DELAY            = 200; //ms
@@ -328,6 +339,7 @@ function VP_axUninstalledCnt(objList) {
 }
 
 
+
 //[API] Not Install Count Must: unsupported non-Plugin
 function VP_axCountMust() {
     if (VP_config.useHandler) alert("Warning unsupported function(VP_axCountMust).\n  used execVP_axUninstalledCnt()\n  URL:" + location.pathname);
@@ -434,8 +446,10 @@ function vp_init() {
     vp_setConfigure("skin", VP_config.skin); //v2.5.4.3
     vp_setConfigure(VP_CONF_ADDINFOURL,VP_config.addInfoURL); //v2.5.6.0
     vp_setConfigure("sendMacAddr", ""+VP_config.sendMacAddr); //v3.7.1.1
+    vp_setConfigure("showVerifyAlert", ""+VP_config.showVerifyAlert);
     vp_setLanguage(VP_SystemLang);
-    
+    vp_setLicense(VP_config.license);
+
     //vp_setConfigure("killbrowser","parent,silent"); //v2.5.4.2
     //vp_setConfigure("initialurl",document.location.protocol+"//"+document.location.host);
     if (VP_config.useHandler) vp_setBrowser(); //v2.5.2.0
@@ -562,13 +576,13 @@ function vp_checkVp20Install(goInstallPage) {
     }
     return true;
 }
-function vp_isReady() {	
-	if (VP_config.useHandler) return true;
-	var obj = vp_getObject();
-	if(obj==null) return false;
-	if(typeof(obj.SetConfigure)=="undefined") return false;
-	
-	return true;
+function vp_isReady() {
+    if (VP_config.useHandler) return true;
+    var obj = vp_getObject();
+    if(obj==null) return false;
+    if(typeof(obj.SetConfigure)=="undefined") return false;
+
+    return true;
 }
 function vp_getDomain() {
     var thisDomain = document.location.hostname;
@@ -861,6 +875,9 @@ function vp_setLanguage(lang) {
     } else if (lang == "JPN" || lang == "jpn") {
         vp_setConfigure(VP_CONF_LANGUAGE, "eng");
     }
+}
+function vp_setLicense(license) {
+    vp_setConfigure(VP_CONF_LICENSE,license);
 }
 function vp_setMsg(url) {
     vp_setConfigure(VP_CONF_MSGURL,url);
@@ -1165,14 +1182,16 @@ function vp_getBrowserInfo() {
                 browserInfo.version = tmp.substring(0, index);
             }
         }
-        else if (navigator.userAgent.match(/Edge/i)) { //Edge
+        else if (navigator.userAgent.match(/Edge/i) || navigator.userAgent.match(/Edg/i)) { //Edge
             browserInfo.Edge = true;
             browserInfo.name = "Edge";
+            if (navigator.userAgent.match(/Edg\//i)) browserInfo.name = "Edg"; //Edg
             index = navigator.userAgent.lastIndexOf(browserInfo.name)+browserInfo.name.length+1;
             tmp = navigator.userAgent.substring(index);
             browserInfo.version = tmp;
             index = tmp.indexOf(" ");
             if (index > 0) browserInfo.version = tmp.substring(0, index);
+            if (navigator.userAgent.match(/Edg\//i)) browserInfo.name = "Edge"; //Edg
         }
         else if (navigator.userAgent.match(/Navigator/i)) { //Firefox
             browserInfo.Navigator = true;
@@ -1301,7 +1320,7 @@ function vp_getPlatformInfo() {
     if (platformInfo.name.match(/Win32/i) || platformInfo.name.match(/WOW64/i)) {
         platformInfo.Windows = true;
         platformInfo.type = "Windows";
-        if (navigator.appVersion.match(/Win64/i)) {
+        if (navigator.appVersion.match(/Win64/i) || navigator.userAgent.match(/Win64; x64;/i)) {
             platformInfo.name = "Win64";
             platformInfo.x64 = true;
             platformInfo.type = "Windows64";
@@ -1460,4 +1479,9 @@ function UpdateInstallState(target) { return; };
  *    - add: vp_isReady()
  *  64. modify 2017.12.19  JS
  *    - modify: vp_getCookie()
+ *  65. modify 2019.09.03  JS
+ *    - modify: vp_getPlatformInfo(): FF68-x64 check modify
+ *  66. modify 2020.03.06  JS
+ *    - modify: vp_getBrowserInfo(): Edg check modify
 **/
+

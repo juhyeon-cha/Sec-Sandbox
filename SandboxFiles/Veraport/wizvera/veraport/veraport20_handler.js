@@ -1,7 +1,7 @@
 /**
  *  @name Veraport V2 - veraport20_handler.js
  *  @author jhkoo77
- *  @date 2016.11.24
+ *  @date 2019.11.19
 **/
 
 var vp20 = vp20 || {};
@@ -205,8 +205,17 @@ function execVP_axInstall(installType, goInstallPage, objectName) {
 }
 
 //[API] Not Install Count(input_param: "obj1,obj2,obj3","must","option","all")
-function execVP_axUninstalledCnt(completeCallback, objList) {
+function execVP_axUninstalledCnt(completeCallback, objList, retryCount) {
     if (objList == "") objList = "must"; //add 2016-01-27
+
+    //add 2019-11-19: retry
+    if (typeof(vp20.conf.handler.ajaxto_org) == "undefined") {
+        vp20.conf.handler.ajaxto_org = vp20.conf.handler.ajaxto;
+        vp20.conf.handler.ajaxto_retry = 1500;
+        vp20.conf.handler.retry_count = 1;
+        if (typeof(retryCount) == "undefined") retryCount = 2;
+        if (VP_browserInfo.MSIE) vp20.conf.handler.retry_count = retryCount;
+    }
 
     if (!vp_isUse()) {
         completeCallback(0, null);
@@ -247,13 +256,29 @@ function execVP_axUninstalledCnt(completeCallback, objList) {
             param.completeCallback(0, null);
         }
     };
+
     var result_isInstall = function(result, param) {
+        /*
         if (result) {
             execVP_getAxInfo(result_getAxInfo, {"completeCallback":param.completeCallback,"objList":param.objList});
         } else {
             param.completeCallback(-1, null);
         }
+        */
+        //modify 2019-11-19
+        vp20.conf.handler.retry_count--;
+        if (result) {
+            vp20.conf.handler.ajaxto = vp20.conf.handler.ajaxto_org;
+            execVP_getAxInfo(result_getAxInfo, {"completeCallback":param.completeCallback,"objList":param.objList});
+        } else if (vp20.conf.handler.retry_count > 0) {
+            vp20.conf.handler.ajaxto = vp20.conf.handler.ajaxto_retry;
+            setTimeout(function(){execVP_isInstall(result_isInstall, {"completeCallback":param.completeCallback,"objList":param.objList});}, 500);
+        } else {
+            vp20.conf.handler.ajaxto = vp20.conf.handler.ajaxto_org;
+            param.completeCallback(-1, null);
+        }
     };
+
     execVP_isInstall(result_isInstall, {"completeCallback":completeCallback,"objList":objList});
 }
 
@@ -336,10 +361,10 @@ function execVP_checkProcess(completeCallback, processName) {
         return;
     }
     var result_isInstall = function(result, param) {
-        if (result) {            
-        	vp20.handler.checkProcess(param.processName,{}).onsuccess(function(res) {
+        if (result) {
+            vp20.handler.checkProcess(param.processName,{}).onsuccess(function(res) {
                 if(res.data == undefined) {
-                	param.completeCallback(-2, ""); //미지원
+                    param.completeCallback(-2, ""); //미지원
                 } else if(res.data.length == 0) {
                     param.completeCallback(0, ""); //실행된 process없음
                 } else {
@@ -368,7 +393,19 @@ function execVP_getAxInfo(completeCallback, param) {
 
     if(VP_platformInfo.Windows){
         vp20.handler.getAxInfo(vp20.handler.store.configure,{"ajaxto":vp20.conf.handler.ajaxtoShow,"param":param}).onsuccess(function(res,ctx){
-             completeCallback(res.data,ctx.param);
+
+            if(res.res !== undefined && res.res !== 0) {
+                completeCallback(null,ctx.param);
+                return;
+            }
+
+            if(res.data.axInfo !== undefined) {
+                completeCallback(res.data.axInfo,ctx.param);
+                return;
+            }
+
+            completeCallback(res.data,ctx.param);
+
          }).onerror(function(res,ctx){
              completeCallback(null, ctx.param);
          }).ontimeout(function(ctx){
@@ -488,10 +525,17 @@ vp20.cmd = (function($){
             $('body').append(iframe);
             $('body').append(_obj.form);
             _obj.form.submit();
-            iframe.load(function(){
-                $('#veraport20_form'+$(this).data('time')).remove();
-                $(this).remove();
-            });
+			if(typeof iframe.on === "function"){
+				iframe.on('load',function(){
+					$('#veraport20_form'+$(this).data('time')).remove();
+					$(this).remove();
+				});
+			}else{
+				iframe.load(function(){
+					$('#veraport20_form'+$(this).data('time')).remove();
+					$(this).remove();
+				});
+			}
         };
     }
     function invokePost(ctx) {
@@ -738,10 +782,19 @@ vp20.handler = vp20.handler || (function($) {
             ctx = conf;
             conf = undefined;
         }
+
         var data = {"cmd":"getAxInfo"};
+
+        if(VP_platformInfo.Windows && VP_config.ext.useAxInfoExt === true && window.vpcrypto !== undefined) {
+            data["extend"] = VP_config.ext.useAxInfoExt;
+            data["level"] = VP_config.ext.systemInfoLevel;
+            data["nonce"] = vpcrypto.lib.WordArray.random(32).toString(vpcrypto.enc.Base64)
+        }
+
         if(conf) {
             data["configure"] = conf;
         }
+
         return commonFunc("getAxInfo",data,ctx);
     };
     _handler.invoke = function(ctx) {
@@ -785,7 +838,7 @@ vp20.handler = vp20.handler || (function($) {
     function exec_iframe() {
         var conf = vp20.conf.handler;
 
-        if($('#veraport20iframe').size() == 0) {
+        if($('#veraport20iframe').length == 0) {
             $("<iframe id='veraport20iframe' style='width:1px;height:1px;visibility:hidden;'/>").appendTo('body');
         }
         var arch = (VP_platformInfo.x64 == true) ? "x64" : "x86";
@@ -836,7 +889,25 @@ vp20.handler = vp20.handler || (function($) {
 
     //default success callback
     _handler.on("getAxInfo",function(res){
-        vp20.handler.store.axInfo = res.data;
+
+        if(res.res !== undefined && res.res !== 0) {
+            vp20.handler.store.error = res;
+            return;
+        }
+
+        if(res.data.axInfo === undefined) {
+            vp20.handler.store.axInfo = res.data;
+            return;
+        }
+
+        vp20.handler.store.axInfo = res.data.axInfo;
+        vp20.handler.store.extendInfo = res.data.extendInfo;
+
+        if(res.data.error !== undefined) {
+            vp20.handler.store.extendInfo = undefined;
+            vp20.handler.store.error = res.data.error;
+        }
+
     });
     _handler.on("getPreDownInfo",function(res){
         vp20.handler.store.preDownInfo = res.data;
@@ -922,7 +993,6 @@ vp20.handler.ui = vp20.handler.ui || (function($) {
     return _ui;
 })(jQuery);
 
-
 vp20.handler.helper = vp20.handler.helper || (function($){
     var _helper = {};
     _helper.isInstall = function(param) {
@@ -1007,6 +1077,8 @@ JSON.stringify = JSON.stringify || function (obj) {
     }
 };
 
+
+
 try {
     if (VP_config.useHandler) {
         if (typeof VP_BASE_URL == "undefined") alert("include 'veraport20.js'");
@@ -1041,5 +1113,7 @@ try {
 
         vp_init();
     }
+
+
 } catch(err) { alert("vpu_Main[" + err.description  + "]"); }
 

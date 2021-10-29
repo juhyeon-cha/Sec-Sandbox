@@ -38,7 +38,7 @@ TouchEnNxConfig.moduleMinVer = {
 };
 
 /** 2019/02월 만료 */
-TouchEnNxConfig.lic ="eyJ2ZXJzaW9uIjoiMS4wIiwiaXNzdWVfZGF0ZSI6IjIwMTgxMTA2MTAyNDI2IiwicHJvdG9jb2xfbmFtZSI6InRvdWNoZW5leCIsInV1aWQiOiI5YWYwZTI3ZThmNmI0NTQ5OWE3MTk1ZjgyNTJlYzdiNCIsImxpY2Vuc2UiOiJjaGNEZENqQ055UExtRkVYTnd4em5majd0QU51cEdZd2ozSVlsbkRpeVlpQ2cxZjN3VEY2V1hBc1MwNVZyNmN1VFdpY2VOd1VFXC96c3NtVmNMcXJ4RVRoYmpKdzIyZHhSa2JzT1pCU1h5bFpDb042anVuZEh2azU5XC96MmFJaWlVIn0=";  
+TouchEnNxConfig.lic ="";  
 
 /** exproto debug */
 TouchEnNxConfig.isDebug = true;

@@ -1,7 +1,7 @@
 /**
  *  @name Veraport V2 - veraport20-multi.js
  *  @author wizvera
- *  @date 2017-11-30 with MultiOS v3.7.1.1 (3.7.0.3)
+ *  @date 2020-07-24 with MultiOS v3.8.5.1 (3.8.5.1)
  *  apt-get remove veraport*
 **/
 
@@ -25,9 +25,9 @@ var vpm_dist = {
 };
 
 if (vmp_jsonp) { //원본 배포파일이 JSP와 동일경로 있어야 하며 파일명변경시 JSP 내용 확인
-	vpm_dist.Mac = vpm_dist.Mac + ".jsonp.jsp"; 
-	vpm_dist.Ubuntu = vpm_dist.Ubuntu + ".jsonp.jsp"; 
-	vpm_dist.Fedora = vpm_dist.Fedora + ".jsonp.jsp"; 
+    vpm_dist.Mac = vpm_dist.Mac + ".jsonp.jsp";
+    vpm_dist.Ubuntu = vpm_dist.Ubuntu + ".jsonp.jsp";
+    vpm_dist.Fedora = vpm_dist.Fedora + ".jsonp.jsp";
 }
 
 var vpm_pkg = {
@@ -48,8 +48,8 @@ var vpm_pkg_g3 = {
 };
 
 var vpm_version = {
-    Mac     : "2.7.0.3",
-    Linux   : "2.7.0.3"
+    Mac     : "2.8.5.1",
+    Linux   : "2.8.5.1"
 };
 var vpm_version_g3 = {
     Mac     : "3.8.5.1",
@@ -76,14 +76,14 @@ if (VP_platformInfo.Mac) {
 }
 
 var header_name = {
-	name : "프로그램명",
-	content : "내용",
-	installCondition : "설치현황"
+    name : "프로그램명",
+    content : "내용",
+    installCondition : "설치현황"
 }
 var header_name_eng = {
-	name : "Program Name",
-	content : "Content",
-	installCondition : "Condition"
+    name : "Program Name",
+    content : "Content",
+    installCondition : "Condition"
 }
 var vpm_message = {
     restart     : "브라우저를 종료후 다시 실행해주세요.",
@@ -163,46 +163,46 @@ catch(err) {
 function vpm_compareVersion(version1, version2){
     var v1 = version1.split(/\.|,/);
     var v2 = version2.split(/\.|,/);
-    
-    var len = Math.min(v1.length, v2.length);	
+
+    var len = Math.min(v1.length, v2.length);
     for(var i=0; i<len; i++){
         var n1 = parseInt(v1[i], 10);
         var n2 = parseInt(v2[i], 10);
         if(n1 != n2 ) return n1 - n2;
-    }	
+    }
     if(v1.length == v2.length) return 0;
-    
+
     for(var i=len; i<v1.length; i++){
         var n1 = parseInt(v1[i], 10);
         if(n1 !=0 ) return 1;
     }
-    
+
     for(var i=len; i<v2.length; i++){
         var n2 = parseInt(v2[i], 10);
         if(n2 !=0 ) return -1;
     }
-    
+
     return 0;
 }
 
-function vpm_getPlugins() {    
-    if(VP_browserInfo.Safari && vpm_compareVersion(VP_browserInfo.version, "10.0") >=0 ){    	
-    	var plugins = [];
-    	for(var i=0;i<navigator.mimeTypes.length;i++) {
-    		var mimeType = navigator.mimeTypes[i];
-    		var plugin = mimeType.enabledPlugin;    		
-    		plugins.push(plugin);
-    	}
-    	return plugins;
+function vpm_getPlugins() {
+    if(VP_browserInfo.Safari && vpm_compareVersion(VP_browserInfo.version, "10.0") >=0 ){
+        var plugins = [];
+        for(var i=0;i<navigator.mimeTypes.length;i++) {
+            var mimeType = navigator.mimeTypes[i];
+            var plugin = mimeType.enabledPlugin;
+            plugins.push(plugin);
+        }
+        return plugins;
     }
     else{
-    	return navigator.plugins;
+        return navigator.plugins;
     }
 }
 
 function vpm_getPluginInfo(mimeType) {
-    var plugins = vpm_getPlugins(); 
-    	
+    var plugins = vpm_getPlugins();
+
     if(plugins == null || plugins.length == 0) return false;
 
     for(var i=0;i<plugins.length;i++) {
@@ -352,29 +352,29 @@ function vpm_loadInfo(){
         dummy = "&dummy=" + new Date().getTime();
     }
     var url = vpm_getAxInfo() + dummy;
-    
+
     if(vmp_jsonp){
-    	 jQuery.ajax({
+         jQuery.ajax({
              url: url,
              dataType: 'jsonp',
              jsonpCallback: "axInfoCallback",
              success: function(data){
-            	 vp_setConfigure(VP_CONF_AXINFO, data);
+                 vp_setConfigure(VP_CONF_AXINFO, data);
              },
-         	 error: function(xhr) {
-         		alert("axinfo request fail!");
-         	}
+             error: function(xhr) {
+                alert("axinfo request fail!");
+            }
          });
     }
     else{
-	    var data = vpm_get(url);
-	    if(data!=null){
-	        vp_setConfigure(VP_CONF_AXINFO, data);
-	    }
-	    
-	    else{
-	        alert("axinfo request fail!");
-	    }
+        var data = vpm_get(url);
+        if(data!=null){
+            vp_setConfigure(VP_CONF_AXINFO, data);
+        }
+
+        else{
+            alert("axinfo request fail!");
+        }
     }
 }
 
@@ -394,6 +394,7 @@ function vpm_init() {
     vp_setClientInfoSendUrl(VP_config.cliInfoSendURL);
     vp_setSelectObject("");
     vp_setConfigure("sendMacAddr", ""+VP_config.sendMacAddr); //v3.7.1.1
+    vp_setConfigure("showVerifyAlert", ""+ VP_config.showVerifyAlert);
 
     if (!VP_config.useHandler) vpm_loadInfo();
 }
@@ -514,8 +515,8 @@ function VP_setInstallList(json){
     var list = jQuery.parseJSON(json);
     var i, html = "";
 
-	jQuery("#install-list-header").empty();
-	html += jQuery("<caption id='install-list-caption'>VeraPort MultiOS install list</caption>").html();
+    jQuery("#install-list-header").empty();
+    html += jQuery("<caption id='install-list-caption'>VeraPort MultiOS install list</caption>").html();
     html += vpm_createListHeader();
     jQuery("#install-list-header").html(html);
 
@@ -539,8 +540,8 @@ function VP_setInstallList(json){
     jQuery("div.veraport-list-box-ex").scrollTop(currentTop);
 
     if(vmp_type == VP_TYPE_NORMAL_NAME || vmp_type == VP_TYPE_NORMAL_DESC){
-		jQuery("#install-list-body").empty();
-		html += jQuery("<caption>VeraPort MultiOS install list</caption>").html();
+        jQuery("#install-list-body").empty();
+        html += jQuery("<caption>VeraPort MultiOS install list</caption>").html();
         jQuery("#install-list-body").html(html);
     }
     else{
@@ -637,13 +638,13 @@ function vpm_get(url){
 */
 
 function vpm_createDialog(){
-	
-	jQuery("#install-list").empty();
-	jQuery("#install-list").append("<caption>VeraPort MultiOS install list</caption>");
-	jQuery("#install-message").empty();
-	jQuery("#install-stage").empty();
-	jQuery("#veraport-progressbar-value").empty();
-	
+
+    jQuery("#install-list").empty();
+    jQuery("#install-list").append("<caption>VeraPort MultiOS install list</caption>");
+    jQuery("#install-message").empty();
+    jQuery("#install-stage").empty();
+    jQuery("#veraport-progressbar-value").empty();
+
     var overlay = jQuery('<div id="veraport-overlay">')
     .addClass("veraport-ui-widget-overlay veraport-ui-front")
     .appendTo( document.body);
@@ -1566,7 +1567,7 @@ if (typeof JSON.parse !== 'function') {
 //TODO: need version
 function pluginInfo2JSON() {
 var plugins = vpm_getPlugins();
-	
+
 var pluginInfo = new Array();
 
 for(var i=0; i < plugins.length; i++) {

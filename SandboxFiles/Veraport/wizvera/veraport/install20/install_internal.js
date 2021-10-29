@@ -1,7 +1,7 @@
 /**
  *  @name Veraport V2 - install_internal.js
  *  @author wizvera
- *  @date 2017.12.07
+ *  @date 2020.07.08
  *  @include veraport20.js
 **/
 
@@ -570,10 +570,8 @@ function fn_getVpDownloadURL(pkgType, checkBlock) {
 }
 function fn_updateElementByValue(elementId, value, innerHTML, isErrCheck) {
     if (typeof(isErrCheck) == "undefined") isErrCheck = true;
-    return; //TEST
     try {
         var ele = document.getElementById(elementId);
-        console.log(innerHTML);
         if (ele == null) {
             if (isErrCheck) alert("fn_updateElementByValue(" + elementId + ")" + " is not found. (HTML Check and Modify)");
             return;
@@ -595,7 +593,7 @@ function fn_updateElementByDisplay_(elementId, display, isErrCheck) {
     try {
         var ele = document.getElementById(elementId);
         if (ele == null) {
-//            if (isErrCheck) alert("fn_updateElementByDisplay(" + elementId + ")" + " is not found. (HTML Check and Modify)");
+            if (isErrCheck) alert("fn_updateElementByDisplay(" + elementId + ")" + " is not found. (HTML Check and Modify)");
             return;
         }
         ele.style.display = display;
@@ -614,21 +612,43 @@ function fn_getUrlParameter(name) {
         idx = value.indexOf("&");
         if (idx >= 0) value = value.substring(0, idx); //mod 2012.11.15
 
-        //XSS방지코드 추가/START
+        //XSS방지코드 추가/START: < > & " ' = : ? \ /
         value = value.replace(/\</gi, "&lt;");
         value = value.replace(/\>/gi, "&gt;");
         value = value.replace(/\&/gi, "&amp;");
         value = value.replace(/\"/gi, "&qout;");
         value = value.replace(/\'/gi, "&#039;");
+        value = value.replace(/\=/gi, "&#61;");
+        value = value.replace(/\:/gi, "&#58;");
+        value = value.replace(/\?/gi, "&#63;");
+        value = value.replace(/\\/gi, "&#92;");
+        value = value.replace(/\//gi, "&#47;");
         //XSS방지코드 추가/END
 
         if (typeof(decodeURIComponent) == "function") value = decodeURIComponent(value); //mod 2013.11.13 IE5
         //alert("fn_getUrlParameter[" + name + "][" + value + "]\n\n" + params);
 
+        //키워드 포함시 기본값으로/START
+        if (value.indexOf("\/") == 0) value = "";
+        if (value.indexOf("\\r") >= 0) value = "";
+        if (value.indexOf("\\n") >= 0) value = "";
+        if (value.indexOf("\\") >= 0) value = "";
+        if (value.indexOf("\"") >= 0) value = "";
+        if (value.indexOf("\'") >= 0) value = "";
+        if (value.indexOf("\<") >= 0) value = "";
+        if (value.indexOf("\>") >= 0) value = "";
+        if (value.indexOf("eval") >= 0) value = "";
+        if (value.indexOf("script") >= 0) value = "";
+        if (value.indexOf("document") >= 0) value = "";
+        if (value.indexOf("cookie") >= 0) value = "";
+        if (value.indexOf("forms") >= 0) value = "";
+        if (value.indexOf("body") >= 0) value = "";
+        //키워드 포함시 기본값으로/END
+
+        //alert("fn_getUrlParameter[" + name + "][" + value + "]\n\n" + params);
     } catch(err) { alert("fn_getUrlParameter[" + name + "," + err.description + "]");}
     return value;
 }
-
 
 /***********************************
  * TEST/DEBUG Function
